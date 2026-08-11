@@ -54,8 +54,38 @@
     white-space:nowrap; transition:all .15s;
   }
   .day-btn.active{background:var(--gold); border-color:var(--gold); color:#1c1508; font-weight:700;}
+  .day-btn-disabled{opacity:.35; cursor:not-allowed;}
 
-  .count-bar{padding:0 16px 10px; font-size:12px; color:var(--muted);}
+  .count-bar{padding:0 16px 10px; font-size:12px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+  .star-toggle{display:flex; align-items:center; gap:5px; cursor:pointer; user-select:none;}
+  .star-toggle input{cursor:pointer;}
+  #starCount{color:var(--gold-dim);}
+
+  .star-btn{
+    position:absolute; top:8px; right:14px; background:none; border:none; font-size:18px;
+    cursor:pointer; line-height:1; padding:2px; opacity:.35; transition:opacity .15s, transform .15s;
+  }
+  .star-btn.active{opacity:1; transform:scale(1.1);}
+
+  .bookmark-status{
+    margin:0 16px 10px; padding:9px 12px; border-radius:10px;
+    background:var(--bg-alt); border:1px solid var(--gold-dim);
+    font-size:12px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:8px;
+  }
+  .bookmark-status #jumpToBookmark{
+    flex:0 0 auto; padding:5px 12px; border-radius:999px; border:none;
+    background:var(--gold); color:#1c1508; font-size:12px; font-weight:700; cursor:pointer;
+  }
+
+  .fab-group{position:fixed; right:16px; bottom:20px; z-index:30; display:flex; flex-direction:column; gap:8px;}
+  .fab{
+    padding:11px 16px; border-radius:999px; border:none; background:var(--gold); color:#1c1508;
+    font-size:13px; font-weight:700; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.35);
+  }
+  .fab:active{transform:scale(.96);}
+
+  .card{transition:box-shadow .3s, border-color .3s;}
+  .card.flash{box-shadow:0 0 0 3px var(--gold); border-color:var(--gold);}
 
   .cards{padding:0 16px; display:flex; flex-direction:column; gap:10px;}
 
@@ -66,10 +96,18 @@
     position:relative;
   }
   .card .daytag{
-    position:absolute; top:12px; right:14px; font-size:10px; color:var(--gold-dim);
+    position:absolute; top:34px; right:15px; font-size:10px; color:var(--gold-dim);
     font-weight:700; letter-spacing:.5px;
   }
-  .word{font-family:'Source Serif 4',serif; font-weight:700; font-size:19px; margin:0 0 4px; color:#1c1508;}
+  .word-row{display:flex; align-items:center; gap:7px; margin:0 0 4px;}
+  .word{font-family:'Source Serif 4',serif; font-weight:700; font-size:19px; color:#1c1508;}
+  .speak-btn{
+    flex:0 0 auto; width:24px; height:24px; border-radius:50%; border:1px solid #ddd0aa;
+    background:#ece3cc; color:#5a4a24; font-size:12px; cursor:pointer; display:flex;
+    align-items:center; justify-content:center; padding:0;
+  }
+  .speak-btn:hover{background:var(--gold); color:#1c1508;}
+  .speak-btn.speaking{background:var(--gold); color:#1c1508;}
   .meaning{font-family:'Noto Serif KR',serif; font-weight:600; font-size:15px; color:#3a2f1c; margin-bottom:8px; line-height:1.4;}
   .syn-label{font-size:10px; color:var(--gold-dim); font-weight:700; letter-spacing:.5px; margin-bottom:4px;}
   .syn-list{display:flex; flex-wrap:wrap; gap:5px;}
@@ -77,6 +115,19 @@
     background:#ece3cc; color:#5a4a24; font-size:11.5px; padding:3px 9px; border-radius:999px;
     border:1px solid #ddd0aa;
   }
+
+  .example-btn{
+    margin-top:10px; padding:6px 12px; border-radius:8px; border:1px solid #ddd0aa;
+    background:transparent; color:#8d7527; font-size:12px; font-weight:600; cursor:pointer;
+  }
+  .example-btn:hover{background:#ece3cc;}
+  .example-box{
+    margin-top:8px; padding:10px 12px; border-radius:10px; background:#f0e9d6;
+    border-left:3px solid var(--gold); font-size:13px; color:#3a2f1c; line-height:1.5;
+  }
+  .example-box .ex-sentence{font-style:italic;}
+  .example-box .ex-fallback{color:#8d7527; font-size:12px;}
+  .example-box .ex-fallback a{color:#5a4a24;}
 
   .empty{padding:40px 16px; text-align:center; color:var(--muted); font-size:14px;}
 
@@ -99,9 +150,22 @@
     </div>
   </header>
 
-  <div class="count-bar" id="countBar"></div>
+  <div class="bookmark-status" id="bookmarkStatus" style="display:none;">
+    🔖 마지막 위치: <span id="bookmarkLabel"></span>
+    <button id="jumpToBookmark">이어보기 →</button>
+  </div>
+  <div class="count-bar" id="countBar">
+    <span id="countText"></span>
+    <label class="star-toggle" id="starToggleWrap">
+      <input type="checkbox" id="starOnly"> ⭐ 어려운 단어만 보기 <span id="starCount"></span>
+    </label>
+  </div>
   <div class="cards" id="cardList"></div>
   <div class="empty" id="emptyMsg" style="display:none;">검색 결과가 없어요.</div>
+
+  <div class="fab-group">
+    <button class="fab" id="saveBookmarkFab" title="현재 위치 저장">🔖 여기 저장</button>
+  </div>
 
   <div class="footer-note">스크롤해서 계속 보기 · 상단 검색으로 바로 찾기</div>
 </div>
@@ -2879,8 +2943,131 @@ if (tabArrowLeft && tabArrowRight && dayTabsEl){
 }
 const cardListEl = document.getElementById('cardList');
 const countBarEl = document.getElementById('countBar');
+const countTextEl = document.getElementById('countText');
 const emptyMsgEl = document.getElementById('emptyMsg');
 const searchInput = document.getElementById('searchInput');
+const bookmarkStatusEl = document.getElementById('bookmarkStatus');
+const bookmarkLabelEl = document.getElementById('bookmarkLabel');
+const jumpToBookmarkEl = document.getElementById('jumpToBookmark');
+const saveBookmarkFabEl = document.getElementById('saveBookmarkFab');
+
+const BOOKMARK_KEY = 'gre_voca_bookmark_v1';
+function loadBookmark(){
+  try{
+    const raw = localStorage.getItem(BOOKMARK_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){ return null; }
+}
+function saveBookmarkToStorage(bm){
+  try{ localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bm)); }catch(e){}
+}
+let bookmark = loadBookmark();
+
+function refreshBookmarkStatus(){
+  if(bookmark){
+    bookmarkStatusEl.style.display = 'flex';
+    bookmarkLabelEl.textContent = `Day ${bookmark.day} · ${bookmark.word}`;
+  }else{
+    bookmarkStatusEl.style.display = 'none';
+  }
+}
+
+const STAR_KEY = 'gre_voca_starred_v1';
+function loadStarred(){
+  try{
+    const raw = localStorage.getItem(STAR_KEY);
+    return new Set(raw ? JSON.parse(raw) : []);
+  }catch(e){ return new Set(); }
+}
+function saveStarred(){
+  try{ localStorage.setItem(STAR_KEY, JSON.stringify([...starredSet])); }catch(e){}
+}
+const starredSet = loadStarred();
+function starKey(day, word){ return day + '|' + word; }
+
+const starOnlyEl = document.getElementById('starOnly');
+const starCountEl = document.getElementById('starCount');
+function refreshStarCount(){
+  starCountEl.textContent = starredSet.size ? `(${starredSet.size})` : '';
+}
+
+// 발음 읽어주기 (브라우저 내장 TTS, 별도 프로그램/스피커 설치 불필요 - 기기 스피커로 재생)
+const ttsSupported = 'speechSynthesis' in window;
+let ttsVoice = null;
+function pickEnglishVoice(){
+  const voices = window.speechSynthesis.getVoices();
+  ttsVoice = voices.find(v => v.lang === 'en-US') || voices.find(v => v.lang && v.lang.startsWith('en')) || null;
+}
+if(ttsSupported){
+  pickEnglishVoice();
+  window.speechSynthesis.onvoiceschanged = pickEnglishVoice;
+}
+function speakWord(word, btnEl){
+  if(!ttsSupported){
+    alert('이 브라우저는 음성 재생을 지원하지 않아요. Chrome, Edge, Safari 최신 버전을 사용해보세요.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(word);
+  utter.lang = 'en-US';
+  utter.rate = 0.85;
+  if(ttsVoice) utter.voice = ttsVoice;
+  if(btnEl){
+    btnEl.classList.add('speaking');
+    utter.onend = () => btnEl.classList.remove('speaking');
+    utter.onerror = () => btnEl.classList.remove('speaking');
+  }
+  window.speechSynthesis.speak(utter);
+}
+
+// 예문 실시간 검색 (Free Dictionary API, 무료 · 키 불필요)
+const exampleCache = {};
+async function loadExample(word, btnEl, boxEl){
+  // 이미 열려있으면 토글로 닫기
+  if(boxEl.style.display !== 'none' && boxEl.dataset.loaded === '1'){
+    boxEl.style.display = 'none';
+    return;
+  }
+  boxEl.style.display = 'block';
+
+  if(exampleCache[word]){
+    boxEl.innerHTML = exampleCache[word];
+    boxEl.dataset.loaded = '1';
+    return;
+  }
+
+  boxEl.innerHTML = '<span class="ex-fallback">예문 찾는 중...</span>';
+  boxEl.dataset.loaded = '0';
+
+  try{
+    const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(word.toLowerCase()));
+    if(!res.ok) throw new Error('not found');
+    const data = await res.json();
+    let example = null;
+    outer:
+    for(const entry of data){
+      for(const meaning of (entry.meanings || [])){
+        for(const def of (meaning.definitions || [])){
+          if(def.example){ example = def.example; break outer; }
+        }
+      }
+    }
+    let html;
+    if(example){
+      html = `<span class="ex-sentence">"${example}"</span>`;
+    }else{
+      html = `<span class="ex-fallback">이 단어는 예문이 등록되어 있지 않아요. <a href="https://www.merriam-webster.com/dictionary/${encodeURIComponent(word.toLowerCase())}" target="_blank" rel="noopener">Merriam-Webster에서 보기 ↗</a></span>`;
+    }
+    exampleCache[word] = html;
+    boxEl.innerHTML = html;
+    boxEl.dataset.loaded = '1';
+  }catch(err){
+    const html = `<span class="ex-fallback">예문을 불러오지 못했어요. <a href="https://www.merriam-webster.com/dictionary/${encodeURIComponent(word.toLowerCase())}" target="_blank" rel="noopener">Merriam-Webster에서 보기 ↗</a></span>`;
+    exampleCache[word] = html;
+    boxEl.innerHTML = html;
+    boxEl.dataset.loaded = '1';
+  }
+}
 
 const days = [...new Set(DATA.map(d => d[0]))].sort((a,b)=>a-b);
 let activeDay = 'all';
@@ -2910,18 +3097,26 @@ function setDay(d, btnEl){
 
 function render(){
   const q = searchInput.value.trim().toLowerCase();
+  const starOnly = starOnlyEl.checked;
   let filtered = DATA.filter(row => {
-    const dayMatch = activeDay === 'all' || row[0] === activeDay;
-    if(!dayMatch) return false;
+    if(starOnly){
+      // 어려운 단어만 보기: Day 구분 없이 전체에서 별표한 단어만
+      if(!starredSet.has(starKey(row[0], row[1]))) return false;
+    }else{
+      const dayMatch = activeDay === 'all' || row[0] === activeDay;
+      if(!dayMatch) return false;
+    }
     if(!q) return true;
     return row[1].toLowerCase().includes(q) || row[2].toLowerCase().includes(q) || row[3].toLowerCase().includes(q);
   });
 
-  countBarEl.textContent = filtered.length + '개 단어';
+  countTextEl.textContent = filtered.length + '개 단어';
+  refreshStarCount();
   cardListEl.innerHTML = '';
 
   if(filtered.length === 0){
     emptyMsgEl.style.display = 'block';
+    emptyMsgEl.textContent = starOnly ? '⭐ 체크한 어려운 단어가 아직 없어요.' : '검색 결과가 없어요.';
     return;
   }
   emptyMsgEl.style.display = 'none';
@@ -2929,24 +3124,114 @@ function render(){
   const frag = document.createDocumentFragment();
   filtered.forEach(row => {
     const [day, word, meaning, syn] = row;
+    const key = starKey(day, word);
+    const isStarred = starredSet.has(key);
     const card = document.createElement('div');
     card.className = 'card';
+    card.dataset.day = day;
+    card.dataset.word = word;
     const synChips = syn.split(',').map(s => `<span class="syn-chip">${s.trim()}</span>`).join('');
     card.innerHTML = `
+      <button class="star-btn${isStarred ? ' active' : ''}" title="어려운 단어로 표시">${isStarred ? '⭐' : '☆'}</button>
       <div class="daytag">DAY ${day}</div>
-      <div class="word">${word}</div>
+      <div class="word-row">
+        <div class="word">${word}</div>
+        <button class="speak-btn" title="발음 듣기">🔊</button>
+      </div>
       <div class="meaning">${meaning}</div>
       <div class="syn-label">SYNONYMS</div>
       <div class="syn-list">${synChips}</div>
+      <button class="example-btn" title="예문 검색">📖 예문 보기</button>
+      <div class="example-box" style="display:none;"></div>
     `;
+    const starBtn = card.querySelector('.star-btn');
+    starBtn.onclick = (e) => {
+      e.stopPropagation();
+      if(starredSet.has(key)){ starredSet.delete(key); }
+      else{ starredSet.add(key); }
+      saveStarred();
+      render();
+    };
+    const speakBtn = card.querySelector('.speak-btn');
+    speakBtn.onclick = (e) => {
+      e.stopPropagation();
+      speakWord(word, speakBtn);
+    };
+    const exampleBtn = card.querySelector('.example-btn');
+    const exampleBox = card.querySelector('.example-box');
+    exampleBtn.onclick = (e) => {
+      e.stopPropagation();
+      loadExample(word, exampleBtn, exampleBox);
+    };
     frag.appendChild(card);
   });
   cardListEl.appendChild(frag);
 }
 
+// 현재 화면에서 header 바로 아래에 걸쳐있는(맨 위에 보이는) 카드를 찾아서 북마크로 저장
+function findTopVisibleCard(){
+  const headerH = document.querySelector('header').offsetHeight + 90; // 헤더 + 상태바 여유
+  const cards = cardListEl.querySelectorAll('.card');
+  for(const c of cards){
+    const rect = c.getBoundingClientRect();
+    if(rect.bottom > headerH){
+      return c;
+    }
+  }
+  return cards[0] || null;
+}
+
+saveBookmarkFabEl.addEventListener('click', () => {
+  const card = findTopVisibleCard();
+  if(!card) return;
+  bookmark = { day: Number(card.dataset.day), word: card.dataset.word };
+  saveBookmarkToStorage(bookmark);
+  refreshBookmarkStatus();
+  saveBookmarkFabEl.textContent = '✅ 저장됨';
+  setTimeout(() => { saveBookmarkFabEl.textContent = '🔖 여기 저장'; }, 1200);
+});
+
+jumpToBookmarkEl.addEventListener('click', () => {
+  if(!bookmark) return;
+  const targetBtn = [...document.querySelectorAll('.day-btn')].find(b => b.textContent === 'Day ' + bookmark.day);
+  if(targetBtn){
+    activeDay = bookmark.day;
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+    targetBtn.classList.add('active');
+    render();
+  }
+  requestAnimationFrame(() => {
+    const card = cardListEl.querySelector(`.card[data-word="${CSS.escape(bookmark.word)}"]`);
+    if(card){
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      card.classList.add('flash');
+      setTimeout(() => card.classList.remove('flash'), 1600);
+    }
+  });
+});
+
 searchInput.addEventListener('input', render);
+starOnlyEl.addEventListener('change', () => {
+  const dayBtns = document.querySelectorAll('.day-btn');
+  if(starOnlyEl.checked){
+    // Day 상관없이 전체 별표 단어를 보여주므로, 탭은 '전체'로 맞추고 비활성화
+    activeDay = 'all';
+    dayBtns.forEach(b => {
+      b.classList.toggle('active', b.textContent === '전체');
+      b.disabled = true;
+      b.classList.add('day-btn-disabled');
+    });
+  }else{
+    dayBtns.forEach(b => {
+      b.disabled = false;
+      b.classList.remove('day-btn-disabled');
+    });
+  }
+  render();
+});
 makeTabs();
 render();
+refreshBookmarkStatus();
 </script>
 </body>
 </html>
