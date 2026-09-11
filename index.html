@@ -209,6 +209,14 @@
   .pq-choice.reveal{border-color:#5a9a4a; box-shadow:0 0 0 2px #5a9a4a inset;}
   .pq-choice:disabled{cursor:default;}
   .pq-explain{margin-top:14px; padding:10px 12px; border-radius:10px; background:#f0e9d6; font-size:12.5px; color:#3a2f1c; line-height:1.5; display:none;}
+  .pq-meaning-list{
+    margin-top:8px; padding:10px 12px; border-radius:10px; background:#ece3cc;
+    border:1px dashed #cdbb8a; display:none;
+  }
+  .pq-meaning-list-title{font-size:11px; font-weight:700; color:#8d7527; margin-bottom:6px; letter-spacing:.3px;}
+  .pq-meaning-item{font-size:12.5px; color:#3a2f1c; line-height:1.6;}
+  .pq-meaning-item b{color:#5a4a24;}
+  .pq-meaning-item.is-answer{color:#225218;}
   .pq-part-label{font-size:12px; font-weight:700; color:var(--gold-dim); margin:18px 0 8px;}
   .pq-translation{
     margin-top:8px; padding:10px 12px; border-radius:10px; background:#e9f0e6;
@@ -3907,6 +3915,7 @@ function renderPracticeQuestion(){
         ${q.tc.choices.map((c, i) => `<button class="pq-choice" data-idx="${i}">${String.fromCharCode(65+i)}. ${c}</button>`).join('')}
       </div>
       <div class="pq-explain" id="pqTcExplain"></div>
+      <div class="pq-meaning-list" id="pqTcMeaningList" style="display:none;"></div>
       <div class="pq-translation" id="pqTranslation" style="display:none;"></div>
 
       <div id="pqSeSection" style="display:none;">
@@ -3916,6 +3925,7 @@ function renderPracticeQuestion(){
         </div>
         <button class="pq-submit-btn" id="pqSeSubmit" disabled>선택 완료 (0/2)</button>
         <div class="pq-explain" id="pqSeExplain"></div>
+        <div class="pq-meaning-list" id="pqSeMeaningList" style="display:none;"></div>
       </div>
 
       <button class="pq-next-inline" id="pqNextInline" style="display:none;">다음 문제 →</button>
@@ -3955,6 +3965,17 @@ function renderTcPart(q, st){
     }
     document.getElementById('pqTcExplain').innerHTML = html;
     document.getElementById('pqTcExplain').style.display = 'block';
+
+    // 선택지에 있던 단어 4개 전부의 뜻을 보여줘서 오답으로 고른 단어도 같이 공부할 수 있게
+    const tcMeaningHtml = q.tc.choices.map((c, i) => {
+      const m = shortQuizMeaning(WORD_MEANING[c] || '');
+      const tag = i === q.tc.answer ? ' (정답)' : (i === selectedIdx ? ' (내 선택)' : '');
+      const cls = i === q.tc.answer ? 'is-answer' : '';
+      return `<div class="pq-meaning-item ${cls}"><b>${c}</b>${tag} — ${m}</div>`;
+    }).join('');
+    const tcMeaningListEl = document.getElementById('pqTcMeaningList');
+    tcMeaningListEl.innerHTML = `<div class="pq-meaning-list-title">📚 선택지 단어 뜻 모아보기</div>${tcMeaningHtml}`;
+    tcMeaningListEl.style.display = 'block';
 
     if(q.translation){
       document.getElementById('pqTranslation').innerHTML = `🇰🇷 <strong>문장 해석</strong><br>${q.translation}`;
@@ -4016,6 +4037,22 @@ function renderSePart(q, st){
     }
     document.getElementById('pqSeExplain').innerHTML = html;
     document.getElementById('pqSeExplain').style.display = 'block';
+
+    // 선택지에 있던 단어 6개 전부의 뜻을 보여줘서 오답으로 고른 단어도 같이 공부할 수 있게
+    const seMeaningHtml = q.se.choices.map((c, i) => {
+      const rawMeaning = WORD_MEANING[c];
+      const m = rawMeaning ? shortQuizMeaning(rawMeaning) : '(거만어 단어집에는 없는 일반 동의어예요)';
+      const isAnswer = q.se.answers.includes(i);
+      const wasSelected = st.seSelected.includes(i);
+      let tag = '';
+      if(isAnswer) tag = ' (정답)';
+      else if(wasSelected) tag = ' (내 선택)';
+      const cls = isAnswer ? 'is-answer' : '';
+      return `<div class="pq-meaning-item ${cls}"><b>${c}</b>${tag} — ${m}</div>`;
+    }).join('');
+    const seMeaningListEl = document.getElementById('pqSeMeaningList');
+    seMeaningListEl.innerHTML = `<div class="pq-meaning-list-title">📚 선택지 단어 뜻 모아보기</div>${seMeaningHtml}`;
+    seMeaningListEl.style.display = 'block';
   }
 
   if(st.seDone){
