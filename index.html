@@ -132,10 +132,153 @@
   .empty{padding:40px 16px; text-align:center; color:var(--muted); font-size:14px;}
 
   .footer-note{padding:20px 16px 0; text-align:center; font-size:11px; color:var(--muted);}
+
+  /* ===== 상단 메인 탭 ===== */
+  .main-tabs{
+    position:sticky; top:0; z-index:25; display:flex; background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .main-tab{
+    flex:1; padding:13px 8px; background:none; border:none; color:var(--muted);
+    font-size:13px; font-weight:600; cursor:pointer; border-bottom:3px solid transparent;
+  }
+  .main-tab.active{color:var(--gold); border-bottom-color:var(--gold);}
+
+  /* ===== 실전 문제 ===== */
+  .practice-header{padding:18px 16px 6px;}
+  .practice-title{font-family:'Noto Serif KR',serif; font-weight:700; font-size:18px; color:#f2ead2; margin-bottom:4px;}
+  .practice-sub{font-size:12px; color:var(--muted); margin-bottom:14px; line-height:1.5;}
+  .practice-nav{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .pnav-btn{
+    padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:var(--bg-alt);
+    color:#fff; font-size:13px; cursor:pointer;
+  }
+  .pnav-btn:hover{border-color:var(--gold);}
+  .pnav-btn:disabled{opacity:.35; cursor:not-allowed;}
+  #pProgress{font-size:13px; color:var(--muted); font-weight:600;}
+
+  .practice-tools{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+  .ptool-btn{
+    padding:7px 12px; border-radius:8px; border:1px solid var(--line); background:transparent;
+    color:var(--gold-dim); font-size:12px; font-weight:600; cursor:pointer;
+  }
+  .ptool-btn:hover{border-color:var(--gold); color:var(--gold);}
+
+  .quiz-wrong-view{padding:18px 16px;}
+  .quiz-wrong-actions{display:flex; gap:8px; margin:14px 0; flex-wrap:wrap;}
+  .quiz-wrong-empty{padding:30px 10px; text-align:center; color:var(--muted); font-size:13px;}
+  .qw-item{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--card); color:var(--card-ink); border-radius:10px; padding:12px 14px;
+    margin-bottom:8px; border-left:4px solid var(--gold);
+  }
+  .qw-item-main{flex:1; min-width:0;}
+  .qw-item-word{font-weight:700; font-size:14.5px;}
+  .qw-item-meaning{font-size:12.5px; color:#555; margin-top:2px;}
+  .qw-item-meta{font-size:11px; color:#888; margin-top:3px;}
+  .qw-del-btn{
+    flex-shrink:0; border:none; background:rgba(0,0,0,.08); color:#b00020; border-radius:8px;
+    width:30px; height:30px; font-size:15px; cursor:pointer;
+  }
+  .qw-del-btn:hover{background:rgba(176,0,32,.15);}
+
+  .practice-review-banner{
+    margin-top:10px; padding:10px 12px; border-radius:10px; background:rgba(212,175,55,.12);
+    border:1px solid var(--gold-dim); font-size:12.5px; color:#f2ead2; display:flex;
+    align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+  }
+  .ptool-exit{background:var(--gold); color:#1b1b1b; border-color:var(--gold);}
+
+  .practice-score{padding:6px 16px 30px; text-align:center; font-size:12px; color:var(--gold-dim);}
+
+  .pq-card{
+    margin:14px 16px; background:var(--card); color:var(--card-ink); border-radius:14px;
+    padding:18px 16px; box-shadow:0 2px 10px rgba(0,0,0,.25); border-left:5px solid var(--gold);
+  }
+  .pq-daytag{font-size:10px; color:var(--gold-dim); font-weight:700; letter-spacing:.5px; margin-bottom:8px;}
+  .pq-sentence{font-family:'Noto Serif KR',serif; font-size:15.5px; line-height:1.7; margin-bottom:16px;}
+  .pq-blank{display:inline-block; min-width:70px; border-bottom:2px solid var(--gold-dim); text-align:center; font-weight:700; color:var(--gold-dim);}
+  .pq-choices{display:flex; flex-direction:column; gap:8px;}
+  .pq-choice{
+    text-align:left; padding:10px 12px; border-radius:10px; border:1.5px solid #ddd0aa;
+    background:#f0e9d6; color:#3a2f1c; font-size:14px; cursor:pointer; font-weight:600;
+  }
+  .pq-choice:hover{border-color:var(--gold-dim);}
+  .pq-choice.correct{background:#dcefd6; border-color:#5a9a4a; color:#22521a;}
+  .pq-choice.wrong{background:#f3dada; border-color:#b4544f; color:#6b1f1a;}
+  .pq-choice.reveal{border-color:#5a9a4a; box-shadow:0 0 0 2px #5a9a4a inset;}
+  .pq-choice:disabled{cursor:default;}
+  .pq-explain{margin-top:14px; padding:10px 12px; border-radius:10px; background:#f0e9d6; font-size:12.5px; color:#3a2f1c; line-height:1.5; display:none;}
+  .pq-part-label{font-size:12px; font-weight:700; color:var(--gold-dim); margin:18px 0 8px;}
+  .pq-translation{
+    margin-top:8px; padding:10px 12px; border-radius:10px; background:#e9f0e6;
+    border-left:3px solid #5a9a4a; font-size:12.5px; color:#2a3a24; line-height:1.6; display:none;
+  }
+  .pq-choices-se .pq-choice.selected{border-color:var(--gold-dim); box-shadow:0 0 0 2px var(--gold-dim) inset; background:#e6dcb8;}
+  .pq-submit-btn{
+    margin-top:10px; width:100%; padding:10px; border-radius:10px; border:none;
+    background:var(--gold-dim); color:#fff; font-size:13px; font-weight:700; cursor:pointer;
+  }
+  .pq-submit-btn:disabled{opacity:.4; cursor:not-allowed;}
+  .pq-next-inline{
+    margin-top:20px; width:100%; padding:13px; border-radius:12px; border:none;
+    background:var(--gold); color:#1c1508; font-size:14.5px; font-weight:700; cursor:pointer;
+  }
+
+  /* ===== 단어 퀴즈 ===== */
+  .quiz-setup, .quiz-play{padding:18px 16px 40px;}
+  .quiz-options{margin:16px 0 22px; display:flex; flex-direction:column; gap:16px;}
+  .quiz-opt-label{font-size:12px; color:var(--muted); margin-bottom:8px; font-weight:600;}
+  .quiz-opt{
+    display:inline-block; margin:0 6px 6px 0; padding:8px 14px; border-radius:999px;
+    border:1px solid var(--line); background:var(--bg-alt); color:var(--muted); font-size:13px; cursor:pointer;
+  }
+  .quiz-opt.active{background:var(--gold); border-color:var(--gold); color:#1c1508; font-weight:700;}
+  .quiz-day-select{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--line);
+    background:var(--bg-alt); color:#fff; font-size:14px;
+  }
+  .quiz-start-btn{
+    width:100%; padding:13px; border-radius:12px; border:none; background:var(--gold);
+    color:#1c1508; font-size:15px; font-weight:700; cursor:pointer;
+  }
+  .quiz-status{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  #quizScoreText{font-size:14px; font-weight:700; color:var(--gold);}
+  .qz-word{font-family:'Source Serif 4',serif; font-weight:700; font-size:24px; text-align:center; color:#f2ead2; margin:10px 0 4px;}
+  .qz-meaning{font-family:'Noto Serif KR',serif; font-weight:700; font-size:18px; text-align:center; color:#f2ead2; margin:10px 0 4px; line-height:1.4;}
+  .qz-daytag{text-align:center; font-size:11px; color:var(--muted); margin-bottom:18px;}
+  .qz-choices{display:flex; flex-direction:column; gap:9px;}
+  .qz-choice{
+    text-align:left; padding:12px 14px; border-radius:10px; border:1.5px solid var(--line);
+    background:var(--bg-alt); color:#fff; font-size:14.5px; cursor:pointer; font-weight:500;
+  }
+  .qz-choice:hover{border-color:var(--gold);}
+  .qz-choice.correct{background:#284a26; border-color:#5a9a4a; color:#c9f0c0;}
+  .qz-choice.wrong{background:#4a2826; border-color:#b4544f; color:#f0c0c0;}
+  .qz-choice.reveal{border-color:#5a9a4a; box-shadow:0 0 0 2px #5a9a4a inset;}
+  .qz-choice:disabled{cursor:default;}
+  .qz-explain{
+    margin-top:14px; padding:11px 13px; border-radius:10px; background:var(--bg-alt);
+    border-left:3px solid var(--gold); font-size:13px; color:#e7e9ee; line-height:1.5;
+  }
+  .qz-next-btn{
+    margin-top:16px; width:100%; padding:12px; border-radius:12px; border:none;
+    background:var(--gold); color:#1c1508; font-size:14px; font-weight:700; cursor:pointer; display:none;
+  }
+  .qz-result{text-align:center; padding:40px 16px;}
+  .qz-result-title{font-size:20px; font-weight:700; color:var(--gold); margin-bottom:8px;}
+  .qz-result-sub{font-size:13px; color:var(--muted); margin-bottom:20px;}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="main-tabs" id="mainTabs">
+    <button class="main-tab active" data-section="cards">📇 단어장</button>
+    <button class="main-tab" data-section="practice">📝 실전 문제</button>
+    <button class="main-tab" data-section="quiz">🎯 단어 퀴즈</button>
+  </div>
+
+  <div class="section" id="section-cards">
   <header>
     <div class="title-row">
       <span class="title-kr">거의 만점 어휘집</span>
@@ -168,6 +311,70 @@
   </div>
 
   <div class="footer-note">스크롤해서 계속 보기 · 상단 검색으로 바로 찾기</div>
+  </div>
+
+  <div class="section" id="section-practice" style="display:none;">
+    <div class="practice-header">
+      <div class="practice-title">📝 실전 문제 연습</div>
+      <div class="practice-sub">거만어 단어로 만든 GRE Verbal 실전 유형 오리지널 문제 (Text Completion, 빈칸에 맞는 단어 고르기) — 실제 시험 유출 문제가 아닌 학습용 자체 제작 문제입니다.</div>
+      <div class="practice-nav">
+        <button class="pnav-btn" id="pPrev">‹ 이전</button>
+        <span id="pProgress">1 / 100</span>
+        <button class="pnav-btn" id="pNext">다음 ›</button>
+      </div>
+      <div class="practice-tools">
+        <button class="ptool-btn" id="pWrongBtn">📕 오답노트 (0)</button>
+        <button class="ptool-btn" id="pResetBtn">🔄 처음부터 다시 풀기</button>
+      </div>
+      <div class="practice-review-banner" id="pReviewBanner" style="display:none;">
+        📕 오답노트 모드 — 틀렸던 문제만 다시 풀어보세요
+        <span style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="ptool-btn" id="pReviewDeleteBtn">✕ 이 문제 오답노트에서 삭제</button>
+          <button class="ptool-btn ptool-exit" id="pExitReviewBtn">전체 문제로 돌아가기</button>
+        </span>
+      </div>
+    </div>
+    <div id="practiceCard"></div>
+    <div class="practice-score" id="practiceScore"></div>
+  </div>
+
+  <div class="section" id="section-quiz" style="display:none;">
+    <div class="quiz-setup" id="quizSetup">
+      <div class="practice-title">🎯 단어 퀴즈</div>
+      <div class="practice-sub">문제 형식과 범위를 고르고 시작하세요.</div>
+      <div class="quiz-options">
+        <div class="quiz-opt-group">
+          <div class="quiz-opt-label">문제 방식</div>
+          <button class="quiz-opt active" data-mode="wordToMeaning">단어 → 뜻 맞히기</button>
+          <button class="quiz-opt" data-mode="meaningToWord">뜻 → 단어 맞히기</button>
+        </div>
+        <div class="quiz-opt-group">
+          <div class="quiz-opt-label">범위</div>
+          <select class="quiz-day-select" id="quizDaySelect"></select>
+        </div>
+      </div>
+      <button class="quiz-start-btn" id="quizStartBtn">퀴즈 시작하기</button>
+      <button class="ptool-btn" id="quizWrongOpenBtn" style="margin-top:12px;">📕 퀴즈 오답노트 (0)</button>
+    </div>
+
+    <div class="quiz-wrong-view" id="quizWrongView" style="display:none;">
+      <div class="practice-title">📕 퀴즈 오답노트</div>
+      <div class="practice-sub">퀴즈에서 틀렸던 단어들이에요. 다 외운 단어는 목록에서 지워도 돼요.</div>
+      <div class="quiz-wrong-actions">
+        <button class="quiz-start-btn" id="quizWrongRetryBtn">이 단어들로 퀴즈 풀기</button>
+        <button class="ptool-btn" id="quizWrongClearBtn">전체 삭제</button>
+        <button class="ptool-btn" id="quizWrongCloseBtn">← 뒤로</button>
+      </div>
+      <div id="quizWrongList"></div>
+    </div>
+    <div class="quiz-play" id="quizPlay" style="display:none;">
+      <div class="quiz-status">
+        <span id="quizScoreText">0 / 0</span>
+        <button class="pnav-btn" id="quizEndBtn">종료</button>
+      </div>
+      <div id="quizQuestionBox"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -2903,6 +3110,8 @@ const DATA = [
 [30,"zest","1.기분좋은 자극,풍미/2.큰 열정과 에너지","1. piquancy, exciting quality 2. great enthusiasm and energy,(기분좋은 자극,풍미) piquancy,flavor,savor,taste,relish,(큰 열정과 에너지) enthusiasm,gusto,eagerness,fervor,ardor,passion,vigor"]
 ];
 
+const PRACTICE_QUESTIONS = [{"day":1,"sentence":"After days of relentless rain, the storm finally began to ____, allowing the flooded streets to slowly drain.","translation":"며칠간의 끊임없는 비가 내린 뒤, 폭풍이 마침내 잦아들기 시작하면서 물에 잠긴 거리가 서서히 물이 빠지기 시작했다.","tc":{"choices":["abate","vacillate","sordid","duplicity"],"answer":0},"se":{"choices":["conundrum","diminish","weaken","superfluous","venerate","deleterious"],"answers":[1,2],"sourceWord":"abate"},"explain":"abate (줄이다)"},{"day":1,"sentence":"The scientist flagged the reading as ____ because it deviated so sharply from every other data point in the study.","translation":"과학자는 그 측정값이 연구의 다른 모든 데이터 포인트와 너무 크게 달라서 정상 범위를 벗어난 것으로 표시했다.","tc":{"choices":["harangue","aberrant","venerate","parsimony"],"answer":1},"se":{"choices":["abnormal","indict","perturb","intermittent","atypical","frivolous"],"answers":[0,4],"sourceWord":"aberrant"},"explain":"aberrant (정도를 벗어난)"},{"day":1,"sentence":"What began as a polite policy debate turned ____ once both sides started trading personal insults.","translation":"처음엔 정중한 정책 토론으로 시작했지만, 양쪽이 인신공격을 주고받기 시작하면서 신랄한 말싸움으로 번졌다.","tc":{"choices":["savor","hedonism","quixotic","acrimonious"],"answer":3},"se":{"choices":["stringent","sluggish","superfluous","scathing","nonentity","bitter"],"answers":[3,5],"sourceWord":"acrimonious"},"explain":"acrimonious (악랄한)"},{"day":2,"sentence":"She felt strangely ____ about the promotion — thrilled by the raise but dreading the added responsibility.","translation":"그녀는 승진에 대해 묘하게 상반된 감정을 느꼈다 — 급여 인상은 기뻤지만 늘어난 책임감은 두려웠다.","tc":{"choices":["bolster","avarice","ambivalent","inexorable"],"answer":2},"se":{"choices":["boorish","erudite","wavering","eulogy","hesitating","terse"],"answers":[2,4],"sourceWord":"ambivalent"},"explain":"ambivalent (상반된 감정이 있는)"},{"day":3,"sentence":"The monastery's ____ interior contained nothing but a bed, a table, and a single candle.","translation":"수도원의 내부는 침대 하나, 탁자 하나, 촛불 하나만 있을 뿐 극도로 소박했다.","tc":{"choices":["vicissitude","austere","languish","acumen"],"answer":1},"se":{"choices":["substantiate","severe","indolent","coalesce","chicanery","simple"],"answers":[1,5],"sourceWord":"austere"},"explain":"austere (엄격한)"},{"day":3,"sentence":"Critics dismissed the film's dialogue as ____, full of lines they had heard in a hundred other movies.","translation":"평론가들은 영화 속 대사가 수백 편의 다른 영화에서 이미 들어본 듯한 진부한 표현이라고 혹평했다.","tc":{"choices":["stolid","temerity","banal","malleable"],"answer":2},"se":{"choices":["meticulous","desultory","placate","trite","stale","circumspect"],"answers":[3,4],"sourceWord":"banal"},"explain":"banal (진부한)"},{"day":4,"sentence":"As the orchestra tuned their instruments at once, the concert hall filled with a jarring ____.","translation":"오케스트라 단원들이 동시에 악기를 조율하자, 공연장은 귀에 거슬리는 불협화음으로 가득 찼다.","tc":{"choices":["cacophony","adamant","primeval","incorrigible"],"answer":0},"se":{"choices":["repudiate","ostentatious","harangue","harshness","placate","dissonance"],"answers":[3,5],"sourceWord":"cacophony"},"explain":"cacophony (불협화음)"},{"day":4,"sentence":"Employees appreciated the new manager's ____; she never sugarcoated bad news.","translation":"직원들은 새 관리자의 솔직함을 높이 평가했다. 그녀는 나쁜 소식도 절대 포장하지 않았다.","tc":{"choices":["candor","notoriety","pinnacle","plausible"],"answer":0},"se":{"choices":["mendacious","contrite","forthrightness","timorous","impartiality","innocuous"],"answers":[2,4],"sourceWord":"candor"},"explain":"candor (솔직)"},{"day":4,"sentence":"The toddler's ____ moods made it impossible to predict whether she'd laugh or cry in the next minute.","translation":"그 아이의 변덕스러운 기분 때문에 다음 순간 웃을지 울지 전혀 예측할 수 없었다.","tc":{"choices":["capricious","intermittent","cognizant","stolid"],"answer":0},"se":{"choices":["changeable","unpredictable","elucidate","erudite","evanescent","rebuke"],"answers":[0,1],"sourceWord":"capricious"},"explain":"capricious (잘 변하는)"},{"day":4,"sentence":"The coach did not hesitate to ____ the team publicly after their careless mistakes cost them the match.","translation":"코치는 부주의한 실수로 경기를 놓친 팀을 공개적으로 질책하는 것을 주저하지 않았다.","tc":{"choices":["castigate","ambiguous","stringent","fickle"],"answer":0},"se":{"choices":["intractable","ameliorate","turgid","analogous","censure","rebuke"],"answers":[4,5],"sourceWord":"castigate"},"explain":"castigate (징계)"},{"day":5,"sentence":"Given how many rumors had proven false before, the editor remained ____ about publishing the unverified story.","translation":"그동안 많은 소문이 거짓으로 드러났던 터라, 편집자는 검증되지 않은 그 기사를 게재하는 데 신중한 태도를 유지했다.","tc":{"choices":["probity","brevity","intransigent","circumspect"],"answer":3},"se":{"choices":["skeptical","intermittent","insular","careful","prudent","taciturn"],"answers":[3,4],"sourceWord":"circumspect"},"explain":"circumspect (신중한)"},{"day":5,"sentence":"Over the following weeks, the scattered protest groups began to ____ into a single organized movement.","translation":"이후 몇 주에 걸쳐, 흩어져 있던 시위 단체들이 하나의 조직된 운동으로 합쳐지기 시작했다.","tc":{"choices":["incisive","inexorable","coalesce","tout"],"answer":2},"se":{"choices":["diffident","amalgamate","fortuitous","precarious","merge","frugal"],"answers":[1,4],"sourceWord":"coalesce"},"explain":"coalesce (합쳐지다)"},{"day":5,"sentence":"Her argument was so ____ that even the opposing lawyer struggled to find a counterpoint.","translation":"그녀의 주장은 너무나 설득력이 있어서 상대측 변호사조차 반박할 점을 찾기 힘들어했다.","tc":{"choices":["candor","fidelity","harbinger","cogent"],"answer":3},"se":{"choices":["austere","convincing","compelling","disavow","candor","impecunious"],"answers":[1,2],"sourceWord":"cogent"},"explain":"cogent (설득력 있는)"},{"day":6,"sentence":"Investigators searched for a second witness whose account could ____ the victim's version of events.","translation":"수사관들은 피해자의 진술을 뒷받침해 확증해 줄 두 번째 목격자를 찾고 있었다.","tc":{"choices":["stultify","truculent","corroborate","venerate"],"answer":2},"se":{"choices":["edify","authenticate","confirm","admonish","renounce","laconic"],"answers":[1,2],"sourceWord":"corroborate"},"explain":"corroborate (확증하다)"},{"day":7,"sentence":"Junior researchers traditionally show great ____ to the lab's founding scientist, rarely questioning her methods.","translation":"신입 연구원들은 전통적으로 연구소 창립 과학자에게 큰 존중을 표하며 그녀의 방식에 좀처럼 의문을 제기하지 않는다.","tc":{"choices":["deference","castigate","fallacious","evince"],"answer":0},"se":{"choices":["attention","harbinger","spurious","homage","paltry","panacea"],"answers":[0,3],"sourceWord":"deference"},"explain":"deference (존중)"},{"day":7,"sentence":"Years of exposure to the factory's fumes had a ____ effect on the workers' lungs.","translation":"공장의 매연에 수년간 노출된 것은 노동자들의 폐에 해로운 영향을 끼쳤다.","tc":{"choices":["deleterious","terse","ambiguous","indict"],"answer":0},"se":{"choices":["delineate","injurious","ignoble","inured","damaging","solvent"],"answers":[1,4],"sourceWord":"deleterious"},"explain":"deleterious (해로운)"},{"day":7,"sentence":"Rather than engaging with his ideas seriously, his colleagues chose to ____ them as hopelessly naive.","translation":"동료들은 그의 아이디어를 진지하게 받아들이기보다, 그것을 순진하기 짝이 없다며 조롱하는 쪽을 택했다.","tc":{"choices":["evanescent","indict","deride","paltry"],"answer":2},"se":{"choices":["elucidate","sluggish","pillory","analogous","mock","unbridled"],"answers":[2,4],"sourceWord":"deride"},"explain":"deride (조롱하다)"},{"day":7,"sentence":"The meeting felt ____, jumping from budget concerns to hiring plans without ever settling on a decision.","translation":"그 회의는 예산 문제에서 채용 계획으로 두서없이 넘어갈 뿐, 어떤 결론도 내리지 못한 채 산만하게 끝났다.","tc":{"choices":["scathing","desultory","hermetic","bluster"],"answer":1},"se":{"choices":["inconsistent","bolster","mercurial","aimless","harangue","pervade"],"answers":[0,3],"sourceWord":"desultory"},"explain":"desultory (두서 없는)"},{"day":7,"sentence":"Despite his obvious talent, the young violinist was too ____ to audition for the solo part.","translation":"분명한 재능이 있었음에도 불구하고, 그 젊은 바이올리니스트는 너무 자신이 없어서 솔로 파트 오디션을 보지 못했다.","tc":{"choices":["consternation","diffident","probity","petulant"],"answer":1},"se":{"choices":["unassuming","flippant","insipid","contrite","fidelity","timorous"],"answers":[0,5],"sourceWord":"diffident"},"explain":"diffident (자신 없는)"},{"day":8,"sentence":"The committee's final report contained several ____ recommendations that directly contradicted one another.","translation":"그 위원회의 최종 보고서에는 서로 정면으로 모순되는 여러 개의 조화롭지 못한 권고안이 담겨 있었다.","tc":{"choices":["vacillate","discordant","uncouth","rescind"],"answer":1},"se":{"choices":["capricious","different","divergent","inured","antipathy","ineffable"],"answers":[1,2],"sourceWord":"discordant"},"explain":"discordant (조화를 이루지 못하는)"},{"day":8,"sentence":"It's easy to ____ someone else's work from the sidelines, but far harder to do it better yourself.","translation":"옆에서 남의 작업을 깎아내리기는 쉽지만, 직접 그보다 더 잘 해내기는 훨씬 어렵다.","tc":{"choices":["contempt","disparage","solvent","satiate"],"answer":1},"se":{"choices":["depreciate","turbulent","belittle","pertinent","probity","candor"],"answers":[0,2],"sourceWord":"disparage"},"explain":"disparage (깎아내리다)"},{"day":9,"sentence":"The newly engaged couple were positively ____, greeting every guest with an enormous smile.","translation":"새로 약혼한 커플은 모든 손님을 만날 때마다 함박웃음을 지으며 대단히 활기가 넘쳤다.","tc":{"choices":["ebullient","petulant","flippant","fraught"],"answer":0},"se":{"choices":["renounce","nemesis","intrepid","lighthearted","elated","intractable"],"answers":[3,4],"sourceWord":"ebullient"},"explain":"ebullient (1.활기)"},{"day":9,"sentence":"Her apartment reflected an ____ taste, mixing antique furniture with neon modern art and vintage travel posters.","translation":"그녀의 아파트는 골동품 가구와 네온 색 현대미술, 빈티지 여행 포스터를 뒤섞은 다양한 취향을 보여주었다.","tc":{"choices":["repudiate","boorish","delineate","eclectic"],"answer":3},"se":{"choices":["ecumenical","indict","comprehensive","discreet","acrimonious","prosaic"],"answers":[0,2],"sourceWord":"eclectic"},"explain":"eclectic (다양한)"},{"day":9,"sentence":"The interviewer's gentle, open-ended questions were designed to ____ honest answers rather than rehearsed ones.","translation":"인터뷰 진행자의 부드럽고 개방형인 질문들은 미리 준비된 답이 아니라 솔직한 답을 이끌어내기 위해 고안된 것이었다.","tc":{"choices":["vicissitude","elicit","petulant","avarice"],"answer":1},"se":{"choices":["lax","intrepid","prompt","hermetic","induce","hyperbole"],"answers":[2,4],"sourceWord":"elicit"},"explain":"elicit (이끌어내다)"},{"day":9,"sentence":"Even his harshest critics admitted the senator was remarkably ____ when speaking without notes.","translation":"그의 가장 혹독한 비평가들조차, 그가 메모 없이 말할 때 놀랍도록 웅변적이라는 점은 인정했다.","tc":{"choices":["precarious","admonish","incorrigible","eloquent"],"answer":3},"se":{"choices":["incisive","fluent","castigate","contempt","incorrigible","articulate"],"answers":[1,5],"sourceWord":"eloquent"},"explain":"eloquent (웅변을 잘 하는)"},{"day":9,"sentence":"The oppressive summer heat seemed to ____ everyone in the office, leaving them too drained to focus.","translation":"숨 막히는 한여름 더위가 사무실의 모든 사람의 기력을 빼앗아, 다들 일에 집중하기엔 너무 지쳐 있었다.","tc":{"choices":["pragmatic","enervate","taciturn","mercurial"],"answer":1},"se":{"choices":["devitalize","inured","enfeeble","avarice","insular","scanty"],"answers":[0,2],"sourceWord":"enervate"},"explain":"enervate (약화시키다)"},{"day":9,"sentence":"Fame in the internet age can feel especially ____, with today's viral sensation forgotten by next week.","translation":"인터넷 시대의 유명세는 특히 덧없게 느껴질 수 있다. 오늘의 화제도 다음 주면 잊혀지기 때문이다.","tc":{"choices":["phlegmatic","halcyon","ephemeral","ingenuous"],"answer":2},"se":{"choices":["short","rancor","discreet","gullible","equivocal","momentary"],"answers":[0,5],"sourceWord":"ephemeral"},"explain":"ephemeral (일시적인)"},{"day":9,"sentence":"Despite the chaos backstage, the veteran performer greeted every crisis with remarkable ____.","translation":"무대 뒤가 혼란스러웠음에도, 베테랑 공연자는 모든 위기를 놀라운 평정심으로 맞이했다.","tc":{"choices":["bolster","equanimity","rebuke","terse"],"answer":1},"se":{"choices":["ambivalent","coolheadedness","ameliorate","gullible","composure","frivolous"],"answers":[1,4],"sourceWord":"equanimity"},"explain":"equanimity (평정)"},{"day":10,"sentence":"When reporters pressed him on the scandal, the spokesman began to ____ instead of giving a direct answer.","translation":"기자들이 스캔들에 대해 추궁하자, 대변인은 직접적인 답변 대신 말을 얼버무리기 시작했다.","tc":{"choices":["demur","homogeneous","stolid","equivocate"],"answer":3},"se":{"choices":["conundrum","prevaricate","verbose","hedge","auspicious","vicissitude"],"answers":[1,3],"sourceWord":"equivocate"},"explain":"equivocate (얼버무리다)"},{"day":10,"sentence":"The professor's footnotes revealed just how ____ he was, citing obscure texts in four different languages.","translation":"교수의 각주들은 그가 네 개 언어로 된 난해한 문헌을 인용할 만큼 얼마나 박식한지를 보여주었다.","tc":{"choices":["tenuous","ebullient","erudite","skeptical"],"answer":2},"se":{"choices":["admonish","educated","taciturn","highbrow","uncouth","indefatigable"],"answers":[1,3],"sourceWord":"erudite"},"explain":"erudite (박식한)"},{"day":10,"sentence":"The seminar covered such ____ topics in medieval law that even most legal scholars found it inaccessible.","translation":"그 세미나는 중세 법률의 매우 난해한 주제들을 다루어, 대부분의 법학자들조차 이해하기 어려워했다.","tc":{"choices":["disavow","ostentatious","pretentious","esoteric"],"answer":3},"se":{"choices":["enigmatic","cryptic","candor","respite","equanimity","nemesis"],"answers":[0,1],"sourceWord":"esoteric"},"explain":"esoteric (난해한)"},{"day":10,"sentence":"Ignoring the small leak only served to ____ the damage until the entire ceiling collapsed.","translation":"작은 누수를 방치한 것이 결국 천장 전체가 무너질 때까지 피해를 악화시켰다.","tc":{"choices":["garrulous","exacerbate","sanguine","lax"],"answer":1},"se":{"choices":["pretentious","amorphous","rebuff","castigate","worsen","compound"],"answers":[4,5],"sourceWord":"exacerbate"},"explain":"exacerbate (악화시키다)"},{"day":10,"sentence":"New DNA evidence finally helped to ____ the man who had spent a decade in prison for a crime he did not commit.","translation":"새로운 DNA 증거 덕분에, 저지르지 않은 범죄로 10년을 복역한 그 남자는 마침내 무죄를 입증받을 수 있었다.","tc":{"choices":["abstruse","petulant","mitigate","exonerate"],"answer":3},"se":{"choices":["clear","rebuke","nebulous","acquit","discordant","avid"],"answers":[0,3],"sourceWord":"exonerate"},"explain":"exonerate (1.면죄하다)"},{"day":11,"sentence":"The head chef was famously ____ about plating, rearranging a single herb leaf three times before service.","translation":"수석 셰프는 플레이팅에 있어 유명하게 까다로워서, 서빙 전에 허브 잎 하나를 세 번이나 다시 배열했다.","tc":{"choices":["stoic","fastidious","truncate","inexorable"],"answer":1},"se":{"choices":["pretentious","fussy","demanding","taciturn","pristine","fractious"],"answers":[1,2],"sourceWord":"fastidious"},"explain":"fastidious (꼼꼼한)"},{"day":11,"sentence":"Even after losing every game that season, the team's fans remained ____ in their support.","translation":"그 시즌 내내 경기에서 모두 패했음에도, 팀 팬들은 여전히 열렬한 응원을 이어갔다.","tc":{"choices":["rant","fervent","stoic","incoherent"],"answer":1},"se":{"choices":["fervid","castigate","passionate","scintillating","hone","prevalent"],"answers":[0,2],"sourceWord":"fervent"},"explain":"fervent (열렬한)"},{"day":11,"sentence":"His ____ remark about the layoffs struck many coworkers as tone-deaf given how serious the situation was.","translation":"해고에 대한 그의 경솔한 발언은, 상황이 얼마나 심각한지를 고려할 때 많은 동료들에게 눈치 없게 느껴졌다.","tc":{"choices":["viable","levity","flippant","disgruntled"],"answer":2},"se":{"choices":["fickle","chicanery","irreverent","disdain","impertinent","strident"],"answers":[2,4],"sourceWord":"flippant"},"explain":"flippant (경박한)"},{"day":11,"sentence":"The company issued an early apology in an attempt to ____ the wave of criticism it expected online.","translation":"그 회사는 온라인에서 예상되는 비난의 물결을 미연에 방지하려고 일찍 사과문을 발표했다.","tc":{"choices":["sluggish","delineate","forestall","nascent"],"answer":2},"se":{"choices":["equivocate","deter","hinder","quixotic","obdurate","satiate"],"answers":[1,2],"sourceWord":"forestall"},"explain":"forestall (~을 미연에 방지하다)"},{"day":12,"sentence":"Their meeting at the airport was entirely ____ — neither had planned to be there that day.","translation":"그들이 공항에서 만난 것은 전적으로 우연이었다 — 둘 다 그날 그곳에 있을 계획이 없었다.","tc":{"choices":["verbose","satiate","clairvoyant","fortuitous"],"answer":3},"se":{"choices":["subordinate","timely","bluster","unpremeditated","impecunious","iconoclast"],"answers":[1,3],"sourceWord":"fortuitous"},"explain":"fortuitous (우연한)"},{"day":12,"sentence":"Having grown up with very little, she remained ____ even after becoming wealthy, reusing containers and avoiding waste.","translation":"어릴 적 넉넉지 않게 자란 그녀는 부유해진 뒤에도 용기를 재사용하고 낭비를 피하며 검소하게 살았다.","tc":{"choices":["frugal","skeptical","paragon","rebuke"],"answer":0},"se":{"choices":["truncate","hubris","panacea","futile","economical","saving"],"answers":[4,5],"sourceWord":"frugal"},"explain":"frugal (절약하는)"},{"day":12,"sentence":"The ____ cab driver talked nonstop for the entire forty-minute ride, barely pausing for breath.","translation":"말이 많은 그 택시 기사는 40분 내내 숨 돌릴 틈도 없이 쉬지 않고 말을 이어갔다.","tc":{"choices":["garrulous","abate","belligerent","euphemism"],"answer":0},"se":{"choices":["copious","verbose","contempt","rambling","obdurate","ebullient"],"answers":[1,3],"sourceWord":"garrulous"},"explain":"garrulous (지나치게 수다스러운)"},{"day":13,"sentence":"Reviewers criticized the novel's plot as ____, recycling the same twist found in countless earlier thrillers.","translation":"평론가들은 그 소설의 줄거리가 수많은 이전 스릴러에서 본 것과 같은 반전을 재탕한 진부한 것이라고 비판했다.","tc":{"choices":["parsimony","flippant","hackneyed","circumspect"],"answer":2},"se":{"choices":["phlegmatic","quixotic","evanescent","bolster","overworked","tired"],"answers":[4,5],"sourceWord":"hackneyed"},"explain":"hackneyed (진부한)"},{"day":13,"sentence":"The ____ intern accidentally sent the confidential memo to the entire company instead of a single colleague.","translation":"운 없는 그 인턴은 기밀 메모를 한 명의 동료가 아니라 회사 전체에 실수로 발송해버렸다.","tc":{"choices":["acumen","rant","hapless","equivocal"],"answer":2},"se":{"choices":["tout","jinxed","insurgent","belie","negligent","unlucky"],"answers":[1,5],"sourceWord":"hapless"},"explain":"hapless (운없는)"},{"day":14,"sentence":"As a lifelong ____, the artist delighted in challenging every convention her teachers held sacred.","translation":"평생을 기존 관습을 깨는 사람으로 살아온 그 예술가는 스승들이 신성시하던 모든 관습에 도전하는 것을 즐겼다.","tc":{"choices":["contrite","vindicate","indict","iconoclast"],"answer":3},"se":{"choices":["erudite","analogous","avarice","heretic","unbeliever","abate"],"answers":[3,4],"sourceWord":"iconoclast"},"explain":"iconoclast (성상파괴자)"},{"day":14,"sentence":"The judge remained completely ____ throughout the emotional testimony, giving away nothing in her expression.","translation":"판사는 감정적인 증언이 이어지는 내내 표정 하나 바꾸지 않고 완전히 무표정을 유지했다.","tc":{"choices":["cacophony","impassive","rescind","venal"],"answer":1},"se":{"choices":["unruffled","indifferent","terse","belligerent","venerate","finesse"],"answers":[0,1],"sourceWord":"impassive"},"explain":"impassive (무정한)"},{"day":14,"sentence":"The ____ student survived largely on instant noodles and whatever free samples he could find at the campus fair.","translation":"무일푼이었던 그 학생은 캠퍼스 박람회에서 구할 수 있는 무료 시식과 라면으로 대부분 연명했다.","tc":{"choices":["inured","impecunious","delineate","maverick"],"answer":1},"se":{"choices":["needy","tenacious","esteem","chide","penurious","ignoble"],"answers":[0,4],"sourceWord":"impecunious"},"explain":"impecunious (무일푼의)"},{"day":14,"sentence":"His ____ decision to quit on the spot, without any backup plan, worried his closest friends.","translation":"아무런 대책도 없이 그 자리에서 그만두겠다는 그의 충동적인 결정은 가장 가까운 친구들마저 걱정하게 만들었다.","tc":{"choices":["incoherent","negligent","slovenly","impetuous"],"answer":3},"se":{"choices":["impromptu","overt","imprudent","prodigal","avarice","elucidate"],"answers":[0,2],"sourceWord":"impetuous"},"explain":"impetuous (충동적인)"},{"day":15,"sentence":"The bright cartoon mural looked strangely ____ against the somber gray walls of the courthouse.","translation":"밝은 만화 벽화는 법원 건물의 칙칙한 회색 벽과 이상하리만치 어울리지 않아 보였다.","tc":{"choices":["cogent","mollify","incongruous","temerity"],"answer":2},"se":{"choices":["effervescent","disparate","dissimilar","intermittent","rancor","demur"],"answers":[1,2],"sourceWord":"incongruous"},"explain":"incongruous (조화롭지 않은)"},{"day":15,"sentence":"Despite running the marathon in record heat, the ____ athlete crossed the finish line still smiling.","translation":"기록적인 더위 속에서 마라톤을 뛰었음에도, 지칠 줄 모르는 그 선수는 여전히 웃으며 결승선을 통과했다.","tc":{"choices":["vicarious","paradox","indefatigable","scintillating"],"answer":2},"se":{"choices":["forlorn","ineffable","notoriety","intermittent","unshakable","unremitting"],"answers":[4,5],"sourceWord":"indefatigable"},"explain":"indefatigable (지치지 않는)"},{"day":15,"sentence":"Standing at the edge of the canyon at sunrise, she felt a sense of awe that was almost ____.","translation":"새벽에 협곡 가장자리에 서서, 그녀는 거의 말로 표현할 수 없는 경외감을 느꼈다.","tc":{"choices":["chicanery","hubris","ineffable","incorrigible"],"answer":2},"se":{"choices":["pervade","overwhelming","vex","scathing","breathtaking","obdurate"],"answers":[1,4],"sourceWord":"ineffable"},"explain":"ineffable (말로 표현할 수 없는)"},{"day":15,"sentence":"No amount of pleading could slow the ____ progress of the bulldozers toward the old oak tree.","translation":"아무리 애원해도 오래된 참나무를 향해 다가오는 불도저의 냉혹한 전진을 멈추게 할 수는 없었다.","tc":{"choices":["incorrigible","inexorable","bombastic","stringent"],"answer":1},"se":{"choices":["discrepancy","vicissitude","intrepid","continuous","unsparing","turbulent"],"answers":[3,4],"sourceWord":"inexorable"},"explain":"inexorable (설득할 수 없는)"},{"day":15,"sentence":"The child's ____ questions about death caught the adults at the table completely off guard.","translation":"죽음에 대한 그 아이의 순진한 질문들은 식탁에 있던 어른들을 완전히 당황하게 만들었다.","tc":{"choices":["amorphous","fickle","libertine","ingenuous"],"answer":3},"se":{"choices":["intrepid","admonish","deride","innocent","childlike","diffident"],"answers":[3,4],"sourceWord":"ingenuous"},"explain":"ingenuous (순진한)"},{"day":15,"sentence":"What seemed like an ____ comment at the meeting turned out to spark weeks of office gossip.","translation":"회의에서 나온 무해해 보이는 발언 하나가 몇 주에 걸친 사무실 소문의 불씨가 되어버렸다.","tc":{"choices":["paltry","innocuous","parsimony","scanty"],"answer":1},"se":{"choices":["slovenly","nontoxic","rant","fervent","safe","umbrage"],"answers":[1,4],"sourceWord":"innocuous"},"explain":"innocuous (무해한)"},{"day":15,"sentence":"The soup, though beautifully plated, was disappointingly ____ and needed far more seasoning.","translation":"그 수프는 예쁘게 담겨 나왔지만, 실망스럽게도 맛이 밋밋해서 양념이 훨씬 더 필요했다.","tc":{"choices":["rant","nonentity","perturb","insipid"],"answer":3},"se":{"choices":["stale","vindicate","futile","uninspired","edify","admonish"],"answers":[0,3],"sourceWord":"insipid"},"explain":"insipid (맛없는)"},{"day":16,"sentence":"Years of negotiation failed to resolve the ____ border dispute between the two nations.","translation":"수년간의 협상에도 불구하고 두 나라 사이의 다루기 힘든 국경 분쟁은 해결되지 않았다.","tc":{"choices":["pertinent","quixotic","scanty","intractable"],"answer":3},"se":{"choices":["pernicious","pigheaded","uncouth","scathing","inflexible","elucidate"],"answers":[1,4],"sourceWord":"intractable"},"explain":"intractable (유순하지 않는)"},{"day":16,"sentence":"After a decade covering war zones, the photographer had become ____ to scenes that once would have haunted him.","translation":"10년간 전쟁 지역을 취재해 온 그 사진작가는 한때라면 자신을 괴롭혔을 장면들에 이제는 익숙해져 있었다.","tc":{"choices":["mendacious","inured","disaffected","intractable"],"answer":1},"se":{"choices":["finesse","churlish","apathetic","unconcerned","obstinate","euphemism"],"answers":[2,3],"sourceWord":"inured"},"explain":"inured (익숙해진)"},{"day":16,"sentence":"True to his ____ style, the general's entire battle report consisted of a single sentence.","translation":"간결한 그의 말투답게, 장군의 전투 보고서 전체는 단 한 문장으로 이루어져 있었다.","tc":{"choices":["resilient","admonish","laconic","deleterious"],"answer":2},"se":{"choices":["discrepancy","short","solvent","tenacious","quiet","deride"],"answers":[1,4],"sourceWord":"laconic"},"explain":"laconic (간결한)"},{"day":17,"sentence":"Young children's beliefs tend to be highly ____, shaped easily by whatever they see modeled at home.","translation":"어린아이들의 신념은 집에서 보고 배운 것에 따라 쉽게 형성될 만큼 매우 유연하다.","tc":{"choices":["torrid","malleable","chide","edify"],"answer":1},"se":{"choices":["intrepid","biddable","nettle","plastic","elated","cacophony"],"answers":[1,3],"sourceWord":"malleable"},"explain":"malleable (변형이 잘되는)"},{"day":18,"sentence":"Working for such a ____ boss meant employees never knew whether they'd be praised or scolded that day.","translation":"그렇게 변덕스러운 상사 밑에서 일한다는 것은, 직원들이 그날 칭찬을 받을지 혼날지 전혀 알 수 없다는 뜻이었다.","tc":{"choices":["viable","mercurial","contrite","fickle"],"answer":1},"se":{"choices":["stultify","quixotic","erudite","moody","belie","variable"],"answers":[3,5],"sourceWord":"mercurial"},"explain":"mercurial (변덕스런)"},{"day":18,"sentence":"The surgeon's ____ preparation meant every instrument was checked twice before the operation began.","translation":"외과의사의 꼼꼼한 준비 덕분에 수술이 시작되기 전 모든 기구가 두 번씩 점검되었다.","tc":{"choices":["deride","slovenly","hone","meticulous"],"answer":3},"se":{"choices":["scrupulous","quixotic","mendacious","mercenary","elucidate","detailed"],"answers":[0,5],"sourceWord":"meticulous"},"explain":"meticulous (매우 꼼꼼한)"},{"day":18,"sentence":"Planting trees along the riverbank can help ____ the damage caused by seasonal flooding.","translation":"강둑을 따라 나무를 심는 것은 계절성 홍수로 인한 피해를 완화하는 데 도움이 될 수 있다.","tc":{"choices":["animosity","hyperbole","parsimony","mitigate"],"answer":3},"se":{"choices":["lessen","venerate","mercenary","nonchalant","ease","diffident"],"answers":[0,4],"sourceWord":"mitigate"},"explain":"mitigate (완화시키다)"},{"day":18,"sentence":"The airline offered free upgrades in an attempt to ____ the passengers stranded by the delay.","translation":"항공사는 지연으로 발이 묶인 승객들을 달래려고 무료 업그레이드를 제공했지만, 그것으로는 전혀 충분하지 않았다.","tc":{"choices":["fastidious","pragmatic","proclivity","mollify"],"answer":3},"se":{"choices":["delineate","aversion","pernicious","ease","moderate","contrite"],"answers":[3,4],"sourceWord":"mollify"},"explain":"mollify (달래다)"},{"day":18,"sentence":"Between the exciting travel photos, her journal was mostly filled with ____ details about laundry and grocery runs.","translation":"설레는 여행 사진들 사이사이, 그녀의 일기는 대부분 빨래나 장보기 같은 평범한 이야기로 채워져 있었다.","tc":{"choices":["accolade","mundane","modicum","forlorn"],"answer":1},"se":{"choices":["conundrum","dull","secular","antipathy","evanescent","eloquent"],"answers":[1,2],"sourceWord":"mundane"},"explain":"mundane (평범한)"},{"day":19,"sentence":"He strolled into the interview twenty minutes late with a ____ shrug, as if nothing were wrong.","translation":"그는 20분이나 늦게 면접장에 들어오면서도 아무 일 없다는 듯 무심하게 어깨를 으쓱했다.","tc":{"choices":["primeval","nonchalant","vacillate","incoherent"],"answer":1},"se":{"choices":["respite","apathetic","phlegmatic","paragon","casual","ubiquitous"],"answers":[1,4],"sourceWord":"nonchalant"},"explain":"nonchalant (걱정없는)"},{"day":19,"sentence":"Despite years of appeals from his family, the old man remained ____ in his refusal to sell the farm.","translation":"가족들이 수년간 설득했음에도 불구하고, 그 노인은 농장을 팔지 않겠다는 완고한 태도를 굽히지 않았다.","tc":{"choices":["fidelity","obdurate","auspicious","unassuming"],"answer":1},"se":{"choices":["effusive","obstinate","desultory","mundane","adamant","furtive"],"answers":[1,4],"sourceWord":"obdurate"},"explain":"obdurate (고집센)"},{"day":19,"sentence":"The new assistant's ____ flattery toward every executive made even his supporters uncomfortable.","translation":"새로 온 비서가 모든 임원에게 보이는 지나치게 아첨하는 태도는 그를 지지하던 사람들조차 불편하게 만들었다.","tc":{"choices":["castigate","amiable","obsequious","exonerate"],"answer":2},"se":{"choices":["coax","submissive","nonchalant","servile","ingenuous","evanescent"],"answers":[1,3],"sourceWord":"obsequious"},"explain":"obsequious (아부하는)"},{"day":19,"sentence":"The toddler's ____ refusal to wear shoes turned a simple errand into a twenty-minute standoff.","translation":"신발을 신지 않겠다는 그 아기의 고집스러운 거부는 간단한 심부름을 20분짜리 실랑이로 바꿔놓았다.","tc":{"choices":["obstinate","beleaguer","indefatigable","lethargy"],"answer":0},"se":{"choices":["bullheaded","bolster","diffident","pertinacious","quixotic","laconic"],"answers":[0,3],"sourceWord":"obstinate"},"explain":"obstinate (완고한)"},{"day":19,"sentence":"Their neighbor's ____ display of sports cars seemed designed purely to impress the rest of the street.","translation":"이웃이 스포츠카를 과시하듯 늘어놓은 것은 오직 동네 사람들에게 과시하기 위한 것처럼 보였다.","tc":{"choices":["ostentatious","futile","unassuming","fortuitous"],"answer":0},"se":{"choices":["ornate","ambivalent","obsequious","ignoble","fancy","truncate"],"answers":[0,4],"sourceWord":"ostentatious"},"explain":"ostentatious (자랑)"},{"day":20,"sentence":"Investors were warned that the new technology, however promising, was no ____ for the company's deeper problems.","translation":"투자자들은 그 신기술이 아무리 유망해도 회사의 근본적인 문제를 해결해 줄 만병통치약은 아니라는 경고를 받았다.","tc":{"choices":["ignoble","exacerbate","panacea","primeval"],"answer":2},"se":{"choices":["phlegmatic","terse","clairvoyant","defer","elixir","relief"],"answers":[4,5],"sourceWord":"panacea"},"explain":"panacea (만병통치약)"},{"day":20,"sentence":"It is something of a ____ that the busiest people often find the most time to help others.","translation":"가장 바쁜 사람들이 오히려 남을 도울 시간을 가장 많이 낸다는 것은 일종의 역설이다.","tc":{"choices":["paradox","duplicity","tenacious","analogous"],"answer":0},"se":{"choices":["placate","discerning","circumspect","incongruity","panacea","oxymoron"],"answers":[3,5],"sourceWord":"paradox"},"explain":"paradox (역설)"},{"day":20,"sentence":"His ____ insistence on correcting everyone's grammar made him exhausting to have a casual conversation with.","translation":"모든 사람의 문법을 고쳐주려는 그의 현학적인 고집은 가벼운 대화조차 지치게 만들었다.","tc":{"choices":["temerity","pedantic","venal","notoriety"],"answer":1},"se":{"choices":["candor","scanty","punctilious","meticulous","fallacious","sluggish"],"answers":[2,3],"sourceWord":"pedantic"},"explain":"pedantic (현학적인)"},{"day":20,"sentence":"The clerk gave the documents only a ____ glance before stamping them approved.","translation":"직원은 서류를 형식적으로 한 번 훑어보고는 승인 도장을 찍었다.","tc":{"choices":["torrid","stolid","inured","perfunctory"],"answer":3},"se":{"choices":["rapid","spurious","candor","exonerate","automatic","mollify"],"answers":[0,4],"sourceWord":"perfunctory"},"explain":"perfunctory (형식적인)"},{"day":20,"sentence":"The rumor spread through the office like a ____ virus, quietly damaging reputations before anyone noticed.","translation":"그 소문은 마치 치명적인 바이러스처럼 사무실 전체에 퍼지며, 아무도 눈치채지 못하는 사이 조용히 평판을 갉아먹었다.","tc":{"choices":["rebuff","pernicious","parsimony","temerity"],"answer":1},"se":{"choices":["sublime","viable","inimical","poisonous","obsequious","tout"],"answers":[2,3],"sourceWord":"pernicious"},"explain":"pernicious (치명적인)"},{"day":21,"sentence":"The manager offered a small discount to ____ the furious customer, but it was not nearly enough.","translation":"매니저는 화가 난 고객을 달래려고 작은 할인을 제공했지만, 그것으로는 전혀 부족했다.","tc":{"choices":["notoriety","placate","vacillate","esteem"],"answer":1},"se":{"choices":["misanthrope","chide","calm","conciliate","abate","verbose"],"answers":[2,3],"sourceWord":"placate"},"explain":"placate (달래다)"},{"day":21,"sentence":"Detectives found her alibi entirely ____, since three coworkers confirmed she had been at the office all evening.","translation":"세 명의 동료가 그녀가 저녁 내내 사무실에 있었다고 확인해 준 덕분에, 형사들은 그녀의 알리바이가 충분히 그럴듯하다고 판단했다.","tc":{"choices":["plausible","innocuous","rebut","perfunctory"],"answer":0},"se":{"choices":["abstain","inclement","malleable","feasible","libertine","believable"],"answers":[3,5],"sourceWord":"plausible"},"explain":"plausible (그럴듯한)"},{"day":21,"sentence":"Balanced on a single beam forty stories up, the workers' footing looked terrifyingly ____.","translation":"40층 높이에서 외줄 하나에 의지한 채, 인부들의 발디딤은 소름 끼치도록 위태로워 보였다.","tc":{"choices":["nemesis","precarious","stringent","deride"],"answer":1},"se":{"choices":["dangerous","eclectic","pernicious","insecure","tenacious","panacea"],"answers":[0,3],"sourceWord":"precarious"},"explain":"precarious (위태로운)"},{"day":21,"sentence":"Rather than chasing an ideal solution, the team took a ____ approach and shipped what actually worked.","translation":"이상적인 해결책을 좇기보다, 팀은 실용적인 접근을 택해 실제로 작동하는 것을 그대로 내보냈다.","tc":{"choices":["pedantic","egalitarian","bravado","pragmatic"],"answer":3},"se":{"choices":["deference","utilitarian","pinnacle","umbrage","practical","iconoclast"],"answers":[1,4],"sourceWord":"pragmatic"},"explain":"pragmatic (실용적인)"},{"day":22,"sentence":"After years of ____ spending, the heir had burned through nearly the entire family fortune by thirty.","translation":"수년간의 낭비벽 있는 소비 끝에, 그 상속자는 서른 살이 되기도 전에 집안 재산을 거의 다 탕진했다.","tc":{"choices":["prodigal","hubris","mendacious","truncate"],"answer":0},"se":{"choices":["duplicity","temerity","imprudent","wasteful","pervade","sluggish"],"answers":[2,3],"sourceWord":"prodigal"},"explain":"prodigal (낭비하는)"},{"day":22,"sentence":"Compared to his earlier poetry, the novelist's later work felt flat and ____.","translation":"이전 시에 비해, 그 소설가의 후기 작품은 평범하고 무미건조하게 느껴졌다.","tc":{"choices":["plausible","mercurial","prosaic","fractious"],"answer":2},"se":{"choices":["tenacious","formidable","bland","dull","skeptical","respite"],"answers":[2,3],"sourceWord":"prosaic"},"explain":"prosaic (진부한)"},{"day":23,"sentence":"Friends warned that his plan to sail solo around the world with no sailing experience was hopelessly ____.","translation":"친구들은 항해 경험이 전혀 없이 혼자 세계를 일주하겠다는 그의 계획이 가망 없이 비현실적이라고 경고했다.","tc":{"choices":["impassive","quixotic","disdain","nascent"],"answer":1},"se":{"choices":["acumen","convivial","adamant","garrulous","unrealistic","impractical"],"answers":[4,5],"sourceWord":"quixotic"},"explain":"quixotic (지나치게 이상적인)"},{"day":23,"sentence":"The committee struggled for hours to reason with the ____ tenant, who refused every proposed compromise.","translation":"위원회는 어떤 타협안도 거부하는 그 반항적인 세입자를 설득하느라 몇 시간을 씨름했다.","tc":{"choices":["mollify","adroit","disparage","recalcitrant"],"answer":3},"se":{"choices":["truculent","vex","diffident","defiant","nascent","scintillating"],"answers":[0,3],"sourceWord":"recalcitrant"},"explain":"recalcitrant (권위에 저항하는)"},{"day":24,"sentence":"Normally so ____ about her personal life, she surprised everyone by sharing the whole story at dinner.","translation":"평소 자기 사생활에 대해 과묵했던 그녀가 저녁 자리에서 모든 이야기를 털어놓아 모두를 놀라게 했다.","tc":{"choices":["pertinent","reticent","equivocal","perfunctory"],"answer":1},"se":{"choices":["mercurial","uncommunicative","untenable","taciturn","adamant","deleterious"],"answers":[1,3],"sourceWord":"reticent"},"explain":"reticent (과묵한)"},{"day":24,"sentence":"The village elders were known for their ____ advice, drawn from decades of quietly observing human nature.","translation":"마을 어르신들은 인간 본성을 수십 년간 조용히 관찰해서 얻은 현명한 조언으로 유명했다.","tc":{"choices":["evanescent","satiate","sagacious","decorous"],"answer":2},"se":{"choices":["terse","impecunious","canny","pretentious","ephemeral","judicious"],"answers":[2,5],"sourceWord":"sagacious"},"explain":"sagacious (현명한)"},{"day":25,"sentence":"Despite the market crash, the young investor remained oddly ____ about his long-term prospects.","translation":"시장이 폭락했음에도, 그 젊은 투자자는 자신의 장기 전망에 대해 묘하게 낙관적인 태도를 유지했다.","tc":{"choices":["castigate","frugal","effusive","sanguine"],"answer":3},"se":{"choices":["salient","confident","hopeful","levity","elucidate","fervor"],"answers":[1,2],"sourceWord":"sanguine"},"explain":"sanguine (낙관적인)"},{"day":25,"sentence":"No amount of food seemed to ____ the marathon runner's hunger after the race.","translation":"아무리 많이 먹어도 경주를 마친 마라톤 선수의 배고픔을 충분히 채워주지 못하는 것 같았다.","tc":{"choices":["satiate","impecunious","paradox","contempt"],"answer":0},"se":{"choices":["cogent","sate","hedonism","sicken","nascent","pertinent"],"answers":[1,3],"sourceWord":"satiate"},"explain":"satiate (충분히 만족시키다)"},{"day":25,"sentence":"Scientists remained ____ of the study's bold claims until the results could be independently replicated.","translation":"과학자들은 결과가 독립적으로 재현될 때까지 그 연구의 과감한 주장에 대해 회의적인 태도를 유지했다.","tc":{"choices":["antipathy","skeptical","verbose","evince"],"answer":1},"se":{"choices":["nonchalant","indict","defeatist","belie","halcyon","mistrustful"],"answers":[2,5],"sourceWord":"skeptical"},"explain":"skeptical (회의적인)"},{"day":26,"sentence":"After the initial excitement wore off, a more ____ assessment of the risks began to set in.","translation":"초기의 흥분이 가라앉은 뒤, 위험에 대한 더 냉정한 평가가 자리 잡기 시작했다.","tc":{"choices":["raucous","sober","tentative","convivial"],"answer":1},"se":{"choices":["tenuous","maudlin","hackneyed","dispassionate","deleterious","somber"],"answers":[3,5],"sourceWord":"sober"},"explain":"sober (조용한)"},{"day":26,"sentence":"The hotel staff were almost overly ____, checking on the guests' comfort every few minutes.","translation":"호텔 직원들은 몇 분마다 손님의 편안함을 확인할 만큼 거의 지나치게 세심히 신경 썼다.","tc":{"choices":["antipathy","convivial","solicitous","stultify"],"answer":2},"se":{"choices":["anxious","disaffected","churlish","scintillating","scathing","thoughtful"],"answers":[0,5],"sourceWord":"solicitous"},"explain":"solicitous (걱정하는)"},{"day":26,"sentence":"Attendance at the midweek lecture was ____, with barely a dozen students scattered across the hall.","translation":"주중 강의 참석률은 드물어서, 강당에 흩어져 앉은 학생이 겨우 십여 명뿐이었다.","tc":{"choices":["delineate","intermittent","sparse","hapless"],"answer":2},"se":{"choices":["intrepid","turgid","meager","auspicious","skimpy","iconoclast"],"answers":[2,4],"sourceWord":"sparse"},"explain":"sparse (희박한)"},{"day":26,"sentence":"The company dismissed the leaked memo as ____, insisting no such document had ever been written.","translation":"그 회사는 유출된 메모가 가짜라며, 그런 문서는 작성된 적이 없다고 일축했다.","tc":{"choices":["eloquent","spurious","nonchalant","idiosyncrasy"],"answer":1},"se":{"choices":["mendacious","bogus","consternation","effervescent","subordinate","simulated"],"answers":[1,5],"sourceWord":"spurious"},"explain":"spurious (가짜의)"},{"day":26,"sentence":"Even after losing the championship in the final seconds, the captain remained remarkably ____, offering no complaints.","translation":"마지막 순간에 챔피언십을 놓쳤음에도, 주장은 어떤 불평도 없이 놀랍도록 의연한 태도를 유지했다.","tc":{"choices":["analogous","pristine","stoic","salient"],"answer":2},"se":{"choices":["intemperate","philosophical","uncomplaining","ebullient","nonentity","analogous"],"answers":[1,2],"sourceWord":"stoic"},"explain":"stoic (고통을 참고 내색하지 않는)"},{"day":27,"sentence":"Reporters needed at least two independent sources to ____ the anonymous tip before running the story.","translation":"기자들은 익명의 제보를 입증하기 위해 최소한 두 개의 독립적인 출처가 필요했다.","tc":{"choices":["sparse","taciturn","banal","substantiate"],"answer":3},"se":{"choices":["cogent","disgruntled","corroborate","justify","laconic","vicissitude"],"answers":[2,3],"sourceWord":"substantiate"},"explain":"substantiate (입증하다)"},{"day":27,"sentence":"Once the main point had been made, the extra examples felt entirely ____.","translation":"핵심 요점이 이미 전달된 뒤라, 추가 예시들은 완전히 불필요하게 느껴졌다.","tc":{"choices":["meager","fidelity","stringent","superfluous"],"answer":3},"se":{"choices":["nebulous","equivocate","unnecessary","analogous","prosaic","unneeded"],"answers":[2,5],"sourceWord":"superfluous"},"explain":"superfluous (잉여의)"},{"day":27,"sentence":"The ____ farmer answered most questions with a single nod or a quiet 'yep.'","translation":"과묵한 그 농부는 대부분의 질문에 고개를 한 번 끄덕이거나 조용히 '응' 하고 대답할 뿐이었다.","tc":{"choices":["renounce","taciturn","pragmatic","impetuous"],"answer":1},"se":{"choices":["effusive","withdrawn","sanction","laconic","unassuming","turbulent"],"answers":[1,3],"sourceWord":"taciturn"},"explain":"taciturn (과묵한)"},{"day":28,"sentence":"The prosecution's case rested on a ____ connection between the defendant and a single unverified phone call.","translation":"검찰의 논리는 피고와 검증되지 않은 전화 통화 한 건 사이의 희박한 연결고리에 의존하고 있었다.","tc":{"choices":["fervor","tenuous","modicum","duplicity"],"answer":1},"se":{"choices":["doubtful","questionable","frugal","salient","chicanery","exacerbate"],"answers":[0,1],"sourceWord":"tenuous"},"explain":"tenuous (약하고 가는)"},{"day":28,"sentence":"His reply to the lengthy email was strikingly ____ — just two words: 'Noted, thanks.'","translation":"장문의 이메일에 대한 그의 답장은 놀랍도록 간결했다 — 단 두 단어, '확인했습니다, 감사합니다.'","tc":{"choices":["fatuous","terse","fervent","intractable"],"answer":1},"se":{"choices":["acumen","compendious","overt","succinct","obsequious","deference"],"answers":[1,3],"sourceWord":"terse"},"explain":"terse (간결한)"},{"day":28,"sentence":"The ____ new hire waited nearly a week before finally asking her manager a simple question.","translation":"소심한 신입사원은 매니저에게 간단한 질문 하나를 하기까지 거의 일주일을 망설였다.","tc":{"choices":["hackneyed","insular","timorous","halcyon"],"answer":2},"se":{"choices":["innocuous","boorish","intractable","cowardly","afraid","strident"],"answers":[3,4],"sourceWord":"timorous"},"explain":"timorous (겁먹은)"},{"day":28,"sentence":"Unlike her stubborn older brother, the toddler was remarkably ____ and went along with almost any plan.","translation":"고집 센 오빠와 달리, 그 아이는 놀랍도록 다루기 쉬워서 거의 어떤 계획에도 순순히 따랐다.","tc":{"choices":["turgid","tractable","inexorable","castigate"],"answer":1},"se":{"choices":["malleable","hone","yielding","overt","levity","verbose"],"answers":[0,2],"sourceWord":"tractable"},"explain":"tractable (다루기 쉬운)"},{"day":28,"sentence":"The referee ejected the ____ player after his third shouting match with an opponent.","translation":"심판은 상대 선수와 세 번째 고성이 오간 뒤, 호전적인 그 선수를 퇴장시켰다.","tc":{"choices":["churlish","prodigal","truculent","innocuous"],"answer":2},"se":{"choices":["belligerent","erudite","contempt","antagonistic","clamor","discrepancy"],"answers":[0,3],"sourceWord":"truculent"},"explain":"truculent (싸우기 좋아하는)"},{"day":29,"sentence":"Smartphones have become so ____ that it's now unusual to see someone without one.","translation":"스마트폰은 이제 어디에나 있어서, 그것을 가지고 있지 않은 사람을 보는 게 오히려 드문 일이 되었다.","tc":{"choices":["rancor","ubiquitous","hackneyed","verbose"],"answer":1},"se":{"choices":["adamant","amorphous","appearing","iconoclast","universal","sluggish"],"answers":[2,4],"sourceWord":"ubiquitous"},"explain":"ubiquitous (어디에나 있는)"},{"day":29,"sentence":"Despite owning half the city block, the billionaire lived in a small, ____ apartment above his first store.","translation":"도시 블록 절반을 소유하고 있었음에도, 그 억만장자는 자신의 첫 매장 위에 있는 작고 겸손한 아파트에서 살았다.","tc":{"choices":["insular","admonish","truncate","unassuming"],"answer":3},"se":{"choices":["paucity","reserved","meek","iconoclast","umbrage","analogous"],"answers":[1,2],"sourceWord":"unassuming"},"explain":"unassuming (겸손한)"},{"day":29,"sentence":"Once the budget numbers came out, the manager's original proposal became completely ____.","translation":"예산 수치가 나오자, 매니저의 원래 제안은 완전히 방어할 수 없는 것이 되어버렸다.","tc":{"choices":["modicum","intemperate","disaffected","untenable"],"answer":3},"se":{"choices":["equivocal","tirade","esoteric","unjustified","savor","unjustifiable"],"answers":[3,5],"sourceWord":"untenable"},"explain":"untenable (방어해 줄 수 없는)"},{"day":29,"sentence":"He continued to ____ between the two job offers for nearly a month before finally deciding.","translation":"그는 거의 한 달 동안 두 개의 취업 제안 사이에서 계속 망설이다가 마침내 결정을 내렸다.","tc":{"choices":["terse","precarious","vacillate","tenuous"],"answer":2},"se":{"choices":["oscillate","stringent","abstruse","defer","edify","dither"],"answers":[0,5],"sourceWord":"vacillate"},"explain":"vacillate (마음이 오락가락하다)"},{"day":30,"sentence":"Editors trimmed the ____ first draft down to half its original length without losing any key points.","translation":"편집자들은 장황했던 초고를 핵심을 잃지 않으면서 원래 길이의 절반으로 줄였다.","tc":{"choices":["verbose","disaffected","obsequious","discerning"],"answer":0},"se":{"choices":["copious","garrulous","sparse","terse","prolix","mercurial"],"answers":[1,4],"sourceWord":"verbose"},"explain":"verbose (장황한)"},{"day":30,"sentence":"The team's underdog championship win finally seemed to ____ the coach's unconventional strategy.","translation":"언더독이었던 팀의 챔피언십 우승은 마침내 코치의 파격적인 전략이 옳았음을 입증해 주는 듯했다.","tc":{"choices":["cogent","belligerent","vindicate","primeval"],"answer":2},"se":{"choices":["accolade","spurious","antipathy","verify","misanthrope","exculpate"],"answers":[3,5],"sourceWord":"vindicate"},"explain":"vindicate (1.의혹을 풀어 주다)"},{"day":30,"sentence":"The ____ new recruit volunteered for every extra shift, eager to prove himself in his first month.","translation":"열정적인 그 신입사원은 첫 달부터 자신을 증명하고 싶어 모든 추가 근무에 자원했다.","tc":{"choices":["nemesis","austere","zealous","taciturn"],"answer":2},"se":{"choices":["lavish","uncouth","ardent","cacophony","devoted","copious"],"answers":[2,4],"sourceWord":"zealous"},"explain":"zealous (열광적인)"},{"day":1,"sentence":"Ahead of the referendum, several council members chose to ____ from voting altogether, unwilling to publicly endorse either side of the divisive proposal.","translation":"국민투표를 앞두고 몇몇 시의회 의원들은 그 논쟁적인 제안의 어느 쪽도 공개적으로 지지하고 싶지 않아 아예 투표를 기권하기로 했다.","tc":{"choices":["belie","abstain","truncate","turgid"],"answer":1},"se":{"choices":["rebuff","desist","refrain","fickle","bluster","ostentatious"],"answers":[1,2],"sourceWord":"abstain"},"explain":"abstain (삼가다)"},{"day":1,"sentence":"The physicist's lecture on quantum entanglement was so ____ that most undergraduates left the hall more confused than when they had arrived.","translation":"양자 얽힘에 관한 그 물리학자의 강연은 너무나 난해해서 대부분의 학부생들은 강의실에 들어올 때보다 더 혼란스러워진 채 떠났다.","tc":{"choices":["languish","abstruse","erudite","taciturn"],"answer":1},"se":{"choices":["inscrutable","nonentity","sublime","enigmatic","corroborate","paragon"],"answers":[0,3],"sourceWord":"abstruse"},"explain":"abstruse (난해한)"},{"day":1,"sentence":"After decades of quietly restoring damaged manuscripts, the archivist finally received a national ____ recognizing her contribution to preserving cultural heritage.","translation":"수십 년간 손상된 고문서를 조용히 복원해 온 그 기록보관 전문가는 마침내 문화유산 보존에 기여한 공로를 인정받아 국가적 영예를 받았다.","tc":{"choices":["accolade","avarice","nascent","furtive"],"answer":0},"se":{"choices":["frivolous","tribute","nettle","commendation","ambiguous","maudlin"],"answers":[1,3],"sourceWord":"accolade"},"explain":"accolade (영예)"},{"day":1,"sentence":"Investors trusted her not because of luck but because her financial ____ allowed her to spot undervalued companies long before the rest of the market noticed.","translation":"투자자들이 그녀를 신뢰한 것은 운이 좋아서가 아니라, 그녀의 금융 통찰력 덕분에 시장의 나머지 사람들이 알아차리기 훨씬 전에 저평가된 기업을 알아볼 수 있었기 때문이다.","tc":{"choices":["acumen","inured","perfunctory","hedonism"],"answer":0},"se":{"choices":["discrepancy","insight","vicissitude","discernment","enervate","vacillate"],"answers":[1,3],"sourceWord":"acumen"},"explain":"acumen (명민함)"},{"day":1,"sentence":"Despite mounting pressure from shareholders to sell the struggling division, the founder remained ____ that the company would weather the downturn on its own terms.","translation":"주주들로부터 부진한 사업부를 매각하라는 압력이 거세졌음에도 불구하고, 창업자는 회사가 스스로의 방식으로 불황을 이겨낼 것이라는 입장을 단호하게 고수했다.","tc":{"choices":["tractable","adamant","nonchalant","delectable"],"answer":1},"se":{"choices":["hubris","amiable","stalwart","firm","futile","inexorable"],"answers":[2,3],"sourceWord":"adamant"},"explain":"adamant (단호한)"},{"day":1,"sentence":"Rather than punish the intern harshly for the missed deadline, the supervisor chose to gently ____ him, reminding him of the project's importance.","translation":"마감을 놓친 인턴을 가혹하게 처벌하는 대신, 상사는 프로젝트의 중요성을 상기시키며 그를 부드럽게 훈계하기로 했다.","tc":{"choices":["hedonism","scanty","tentative","admonish"],"answer":3},"se":{"choices":["upbraid","adroit","tenuous","prevalent","reprove","timorous"],"answers":[0,4],"sourceWord":"admonish"},"explain":"admonish (권고)"},{"day":2,"sentence":"The contract's wording was so ____ that both parties later claimed it supported their opposing interpretations of the delivery deadline.","translation":"그 계약서의 문구는 너무나 애매해서 양측 모두 나중에 그것이 배송 기한에 대한 자신들의 상반된 해석을 뒷받침한다고 주장했다.","tc":{"choices":["elicit","intransigent","ambiguous","eloquent"],"answer":2},"se":{"choices":["esoteric","uncertain","idiosyncrasy","candor","umbrage","obscure"],"answers":[1,5],"sourceWord":"ambiguous"},"explain":"ambiguous (애매한)"},{"day":2,"sentence":"City planners hoped that adding more green spaces would ____ the urban heat that had made summer afternoons increasingly unbearable for residents.","translation":"도시계획자들은 녹지 공간을 늘리면 주민들에게 여름 오후를 점점 더 견디기 힘들게 만들었던 도시의 열기를 개선할 수 있기를 바랐다.","tc":{"choices":["ameliorate","scintillating","fractious","temerity"],"answer":0},"se":{"choices":["impecunious","parsimony","fervent","admonish","improve","better"],"answers":[4,5],"sourceWord":"ameliorate"},"explain":"ameliorate (개선하다)"},{"day":2,"sentence":"Even after a grueling twelve-hour shift, the nurse greeted every patient with an ____ smile that put anxious families instantly at ease.","translation":"힘든 열두 시간의 근무를 마친 뒤에도 그 간호사는 모든 환자를 친근한 미소로 맞이하여 불안해하던 가족들을 즉시 안심시켰다.","tc":{"choices":["finesse","primeval","amiable","pinnacle"],"answer":2},"se":{"choices":["futile","benign","pertinent","cordial","rebuff","acrimonious"],"answers":[1,3],"sourceWord":"amiable"},"explain":"amiable (친근한)"},{"day":2,"sentence":"Unlike traditional political parties with clear platforms, the protest movement remained deliberately ____, resisting any single leader or fixed set of demands.","translation":"명확한 강령을 가진 전통적인 정당들과 달리, 그 시위 운동은 단일 지도자나 고정된 요구 사항을 거부하며 의도적으로 형태 없는 상태를 유지했다.","tc":{"choices":["reticent","resolute","amorphous","boorish"],"answer":2},"se":{"choices":["indeterminate","shapeless","discerning","indict","rancor","contentious"],"answers":[0,1],"sourceWord":"amorphous"},"explain":"amorphous (불명확한)"},{"day":2,"sentence":"Historians often describe the fall of certain empires as ____ to the slow collapse of an overextended company burdened by debt and mismanagement.","translation":"역사가들은 종종 특정 제국들의 몰락을 부채와 부실 경영에 시달리며 무리하게 확장한 기업이 서서히 무너지는 것과 유사하다고 묘사한다.","tc":{"choices":["misanthrope","analogous","idiosyncrasy","discordant"],"answer":1},"se":{"choices":["savor","comparable","intractable","similar","erudite","lax"],"answers":[1,3],"sourceWord":"analogous"},"explain":"analogous (유사한)"},{"day":2,"sentence":"Years after the merger, lingering ____ between employees of the two former companies still surfaced during otherwise routine staff meetings.","translation":"합병 이후 수년이 지났지만, 예전 두 회사 직원들 사이에 남아 있던 적대감은 평범한 직원 회의에서도 여전히 드러나곤 했다.","tc":{"choices":["pristine","libertine","tractable","animosity"],"answer":3},"se":{"choices":["hedonism","formidable","antipathy","auspicious","antagonism","prodigal"],"answers":[2,4],"sourceWord":"animosity"},"explain":"animosity (적대감)"},{"day":3,"sentence":"The startup's founders considered the unexpected visit from a prominent venture capitalist on their opening day an ____ sign for the year ahead.","translation":"그 스타트업 창업자들은 개업 첫날 저명한 벤처투자자가 예기치 않게 방문한 것을 앞으로의 한 해에 대한 길조로 여겼다.","tc":{"choices":["subordinate","auspicious","obstinate","pertinent"],"answer":1},"se":{"choices":["futile","promising","perturb","eclectic","timorous","favorable"],"answers":[1,5],"sourceWord":"auspicious"},"explain":"auspicious (길조의)"},{"day":3,"sentence":"Critics argued that the executive's ____ had blinded him to the ethical costs of cutting corners simply to inflate quarterly profits.","translation":"비평가들은 그 임원의 탐욕이 분기 이익을 부풀리기 위해 절차를 생략하는 것의 윤리적 대가를 보지 못하게 만들었다고 주장했다.","tc":{"choices":["uncouth","avarice","rebuff","perturb"],"answer":1},"se":{"choices":["demur","rapacity","futile","truculent","cupidity","cognizant"],"answers":[1,4],"sourceWord":"avarice"},"explain":"avarice (탐욕)"},{"day":3,"sentence":"Having grown up near a chemical plant, she developed a lasting ____ to the smell of industrial solvents that lingered decades later.","translation":"화학 공장 근처에서 자란 그녀는 수십 년이 지나도 산업용 용제 냄새에 대한 지속적인 혐오감을 갖게 되었다.","tc":{"choices":["aversion","panacea","esteem","ostentatious"],"answer":0},"se":{"choices":["tentative","antipathy","nonchalant","disgust","homogeneous","fraught"],"answers":[1,3],"sourceWord":"aversion"},"explain":"aversion (혐오감)"},{"day":3,"sentence":"As an ____ collector of first-edition novels, he would drive hundreds of miles whenever a rare volume surfaced at a small-town auction.","translation":"초판 소설의 열정적인 수집가로서 그는 작은 마을 경매에서 희귀본이 나타날 때마다 수백 마일을 운전해서 갔다.","tc":{"choices":["disgruntled","phlegmatic","avid","paucity"],"answer":2},"se":{"choices":["erratic","zealous","proclivity","placate","aversion","enthusiastic"],"answers":[1,5],"sourceWord":"avid"},"explain":"avid (열심인)"},{"day":3,"sentence":"For months the small border town was ____ by relentless flooding and supply shortages, leaving residents exhausted and increasingly desperate for aid.","translation":"몇 달 동안 그 작은 국경 마을은 끊임없는 홍수와 물자 부족에 시달려, 주민들은 지치고 점점 더 절실하게 도움을 필요로 했다.","tc":{"choices":["tenuous","eulogy","beleaguer","prosaic"],"answer":2},"se":{"choices":["satiate","pester","torment","fickle","indolent","maudlin"],"answers":[1,2],"sourceWord":"beleaguer"},"explain":"beleaguer (포위 공격하다)"},{"day":3,"sentence":"Her calm expression during the interview seemed to ____ the nervous energy she later admitted feeling throughout the entire conversation.","translation":"인터뷰 동안 그녀의 차분한 표정은, 나중에 그녀가 대화 내내 느꼈다고 인정한 초조한 긴장감과 모순되는 것처럼 보였다.","tc":{"choices":["sober","mendacious","conundrum","belie"],"answer":3},"se":{"choices":["contradict","pertinent","homogeneous","misrepresent","renounce","viable"],"answers":[0,3],"sourceWord":"belie"},"explain":"belie (잘못 드러내다)"},{"day":4,"sentence":"Rather than address the accusations with evidence, the spokesperson chose to ____, raising his voice and dismissing every question as unfounded.","translation":"그 대변인은 증거로 혐의에 대응하는 대신, 목소리를 높이며 모든 질문을 근거 없다고 일축하는 허세를 부리기로 했다.","tc":{"choices":["probity","sublime","sober","bluster"],"answer":3},"se":{"choices":["consternation","thunder","ebullient","rant","copious","chicanery"],"answers":[1,3],"sourceWord":"bluster"},"explain":"bluster (몰아치다)"},{"day":4,"sentence":"Additional testimony from independent witnesses helped ____ the prosecution's case, which had initially rested on circumstantial evidence alone.","translation":"독립적인 목격자들의 추가 증언은 처음에는 정황 증거에만 의존했던 검찰 측 주장을 강화하는 데 도움이 되었다.","tc":{"choices":["parsimony","flippant","bolster","circumspect"],"answer":2},"se":{"choices":["frivolous","cognizant","strengthen","reticent","convivial","boost"],"answers":[2,5],"sourceWord":"bolster"},"explain":"bolster (지탱하다)"},{"day":4,"sentence":"The candidate's ____ campaign speeches, full of grand promises and inflated rhetoric, contrasted sharply with his modest record in office.","translation":"거창한 약속과 과장된 수사로 가득한 그 후보의 허풍 떠는 선거 유세는 그의 소박한 재임 이력과 뚜렷하게 대조되었다.","tc":{"choices":["vicissitude","bombastic","ubiquitous","sanction"],"answer":1},"se":{"choices":["boorish","magniloquent","disparage","pragmatic","libertine","ostentatious"],"answers":[1,5],"sourceWord":"bombastic"},"explain":"bombastic (허풍 떠는)"},{"day":4,"sentence":"Guests were taken aback by the CEO's ____ behavior at the charity gala, where he interrupted speeches and ignored basic table manners.","translation":"손님들은 자선 갈라 행사에서 연설을 방해하고 기본적인 식사 예절조차 지키지 않는 그 CEO의 무례한 행동에 당황했다.","tc":{"choices":["prosaic","acrimonious","boorish","nonchalant"],"answer":2},"se":{"choices":["pinnacle","temerity","uncouth","vindicate","petulant","rude"],"answers":[2,5],"sourceWord":"boorish"},"explain":"boorish (무례한)"},{"day":4,"sentence":"Behind his confident ____ before the championship match, the young boxer privately confessed to his coach that he was terrified of losing.","translation":"챔피언십 경기를 앞두고 보여준 자신만만한 허세 뒤에서, 그 젊은 복서는 코치에게 사실 지는 것이 두렵다고 은밀히 고백했다.","tc":{"choices":["clairvoyant","fortuitous","bravado","incoherent"],"answer":2},"se":{"choices":["swaggering","bluster","stoic","mitigate","pariah","spurious"],"answers":[0,1],"sourceWord":"bravado"},"explain":"bravado (허세)"},{"day":4,"sentence":"In a ____ act of theft, the thief walked directly past security cameras and pocketed the jewelry in broad daylight without hesitation.","translation":"뻔뻔한 절도 행각으로, 그 도둑은 보안 카메라 바로 앞을 지나가면서 대낮에 주저 없이 보석을 훔쳐 주머니에 넣었다.","tc":{"choices":["pernicious","perfunctory","salient","brazen"],"answer":3},"se":{"choices":["brassy","belligerent","corroborate","vicarious","terse","barefaced"],"answers":[0,5],"sourceWord":"brazen"},"explain":"brazen (뻔뻔한)"},{"day":5,"sentence":"Investigators eventually uncovered a web of financial ____ involving falsified invoices and shell companies designed to hide the missing funds.","translation":"수사관들은 결국 사라진 자금을 숨기기 위해 조작된 송장과 유령 회사들이 얽힌 금융 속임수의 실체를 밝혀냈다.","tc":{"choices":["antipathy","chicanery","slovenly","stolid"],"answer":1},"se":{"choices":["solicitous","obsequious","deviousness","venal","duplicity","furtive"],"answers":[2,4],"sourceWord":"chicanery"},"explain":"chicanery (속임수)"},{"day":5,"sentence":"Her grandmother would gently ____ her for slouching at the dinner table, though the reminder was always delivered with affection.","translation":"할머니는 저녁 식탁에서 구부정하게 앉아 있는 그녀를 부드럽게 꾸짖곤 했지만, 그 잔소리는 늘 애정이 담긴 것이었다.","tc":{"choices":["chide","lax","consternation","disgruntled"],"answer":0},"se":{"choices":["equivocal","copious","admonish","esoteric","upbraid","truncate"],"answers":[2,4],"sourceWord":"chide"},"explain":"chide (꾸짖다(가볍게 나무라다))"},{"day":5,"sentence":"It seemed ____ of him to refuse the toast in his honor, especially after his colleagues had spent weeks planning the surprise celebration.","translation":"동료들이 몇 주에 걸쳐 깜짝 축하 행사를 준비했다는 것을 생각하면, 자신을 위한 건배를 거부하는 그의 행동은 무례하게 보였다.","tc":{"choices":["solicitous","churlish","ubiquitous","forestall"],"answer":1},"se":{"choices":["innocuous","illicit","unmannerly","contentious","duplicity","rude"],"answers":[2,5],"sourceWord":"churlish"},"explain":"churlish (무례한)"},{"day":5,"sentence":"Long before the market crash, the analyst's uncannily ____ predictions about the housing bubble made her a sought-after voice on financial television.","translation":"시장 붕괴가 있기 오래 전부터, 주택 시장 거품에 대한 그 분석가의 기이할 정도로 통찰력 있는 예측은 그녀를 금융 방송에서 인기 있는 인물로 만들었다.","tc":{"choices":["disdain","clairvoyant","pragmatic","sanction"],"answer":1},"se":{"choices":["zealous","venerate","ineffable","extrasensory","obsequious","prescient"],"answers":[3,5],"sourceWord":"clairvoyant"},"explain":"clairvoyant (천리안 있는)"},{"day":5,"sentence":"As ticket prices soared, fans began to ____ for the venue to release additional seats before the concert sold out entirely.","translation":"티켓 가격이 치솟자 팬들은 공연이 완전히 매진되기 전에 추가 좌석을 풀어달라고 강력하게 요구하기 시작했다.","tc":{"choices":["clamor","adroit","fidelity","torrid"],"answer":0},"se":{"choices":["uproar","ebullient","raucous","hyperbole","hubbub","disavow"],"answers":[0,4],"sourceWord":"clamor"},"explain":"clamor (야우성)"},{"day":5,"sentence":"It took nearly an hour for the trainer to ____ the frightened rescue dog out from beneath the porch with soft words and treats.","translation":"훈련사가 부드러운 말과 간식으로 겁에 질린 구조견을 현관 아래에서 살살 꾀어내는 데 거의 한 시간이 걸렸다.","tc":{"choices":["vindicate","castigate","intemperate","coax"],"answer":3},"se":{"choices":["cajole","fetter","beguile","enervate","esteem","chicanery"],"answers":[0,2],"sourceWord":"coax"},"explain":"coax (감언으로 꼬셔서 ~하게 하다)"},{"day":6,"sentence":"News of the sudden factory closure spread through the small town with considerable ____, as hundreds of families faced the loss of their livelihood overnight.","translation":"갑작스러운 공장 폐쇄 소식이 그 작은 마을에 퍼지면서 수백 가구가 하룻밤 사이에 생계를 잃게 되어 상당한 경악을 불러일으켰다.","tc":{"choices":["hone","consternation","tractable","stultify"],"answer":1},"se":{"choices":["astonishment","esteem","solicitous","dismay","fortuitous","garrulous"],"answers":[0,3],"sourceWord":"consternation"},"explain":"consternation (대경실색)"},{"day":6,"sentence":"The judge's visible ____ for the defendant's flimsy excuses was evident in her sharp questioning throughout the entire hearing.","translation":"피고인의 부실한 변명에 대한 판사의 뚜렷한 경멸은 심리 내내 그녀의 날카로운 질문에서 분명하게 드러났다.","tc":{"choices":["disdain","contempt","vicarious","intermittent"],"answer":1},"se":{"choices":["scorn","perturb","mendacious","auspicious","derision","truncate"],"answers":[0,4],"sourceWord":"contempt"},"explain":"contempt (경멸)"},{"day":6,"sentence":"The proposal to rezone the historic waterfront for commercial development quickly became one of the most ____ issues the city council had faced in years.","translation":"역사적인 강변 지역을 상업 개발 용도로 재구역화하려는 제안은 빠르게 시의회가 수년 만에 마주한 가장 논쟁적인 사안 중 하나가 되었다.","tc":{"choices":["hackneyed","amiable","contentious","solvent"],"answer":2},"se":{"choices":["debatable","rancor","incongruous","controversial","bombastic","indefatigable"],"answers":[0,3],"sourceWord":"contentious"},"explain":"contentious (1.논쟁적인)"},{"day":6,"sentence":"After realizing how deeply his careless remark had hurt his colleague, he offered a ____ apology and promised to be more mindful going forward.","translation":"자신의 무심한 발언이 동료에게 얼마나 큰 상처를 주었는지 깨달은 후, 그는 뉘우치는 사과를 건네며 앞으로 더 신중하겠다고 약속했다.","tc":{"choices":["edify","ineffable","fickle","contrite"],"answer":3},"se":{"choices":["acumen","sorry","enervate","belligerent","candor","repentant"],"answers":[1,5],"sourceWord":"contrite"},"explain":"contrite (뉘우치는)"},{"day":6,"sentence":"Choosing between two equally qualified candidates presented the hiring committee with a genuine ____, since neither resume offered a clear advantage.","translation":"동등하게 자격을 갖춘 두 지원자 중 한 명을 선택하는 것은 채용 위원회에게 진짜 난제였는데, 어느 이력서도 뚜렷한 우위를 보여주지 않았기 때문이다.","tc":{"choices":["turbulent","fatuous","stoic","conundrum"],"answer":3},"se":{"choices":["puzzle","pristine","petulant","incisive","quandary","untenable"],"answers":[0,4],"sourceWord":"conundrum"},"explain":"conundrum (난제)"},{"day":6,"sentence":"The small cafe became known for its ____ atmosphere, where strangers often struck up conversations over shared tables and free-flowing coffee.","translation":"그 작은 카페는 낯선 사람들이 함께 앉은 테이블에서 끊임없이 나오는 커피를 마시며 종종 대화를 나누는 유쾌한 분위기로 유명해졌다.","tc":{"choices":["chide","convivial","diffident","hone"],"answer":1},"se":{"choices":["perturb","elicit","analogous","agreeable","amiable","furtive"],"answers":[3,4],"sourceWord":"convivial"},"explain":"convivial (명랑한)"},{"day":7,"sentence":"Even at the raucous wedding reception, the elderly aunt maintained a ____ demeanor, quietly declining the invitation to join the dancing.","translation":"떠들썩한 결혼 피로연에서도 나이 든 고모는 단정한 태도를 유지하며 춤에 참여하라는 권유를 조용히 사양했다.","tc":{"choices":["nonentity","exacerbate","decorous","stolid"],"answer":2},"se":{"choices":["reticent","animosity","fervor","genteel","ebullient","polite"],"answers":[3,5],"sourceWord":"decorous"},"explain":"decorous (단정한)"},{"day":7,"sentence":"Uncertain about the legal implications, the manager decided to ____ the final decision until the company's attorneys had reviewed the contract.","translation":"법적 영향에 대해 확신이 없었던 관리자는 회사 변호사들이 계약서를 검토할 때까지 최종 결정을 미루기로 했다.","tc":{"choices":["truncate","fallacious","defer","ambiguous"],"answer":2},"se":{"choices":["delay","pernicious","obsequious","table","tenacious","maudlin"],"answers":[0,3],"sourceWord":"defer"},"explain":"defer (1.연기하다)"},{"day":7,"sentence":"The celebrated novelist rarely ____ to answer questions from amateur bloggers, reserving her comments almost exclusively for established literary critics.","translation":"그 유명한 소설가는 아마추어 블로거들의 질문에 좀처럼 황송하게 답해주지 않고, 자신의 언급을 거의 전적으로 저명한 문학 비평가들을 위해 아껴두었다.","tc":{"choices":["negligent","deference","deign","disaffected"],"answer":2},"se":{"choices":["stoop","pedantic","strident","condescend","subordinate","ambiguous"],"answers":[0,3],"sourceWord":"deign"},"explain":"deign (황송하게도(자신을 낮추어)~해주다)"},{"day":7,"sentence":"The bakery's window displayed rows of ____ pastries, their golden crusts glistening under the morning light and drawing crowds before it even opened.","translation":"그 빵집의 진열창에는 맛있어 보이는 페이스트리가 줄지어 놓여 있었고, 황금빛 껍질이 아침 햇살 아래 반짝이며 개점 전부터 사람들을 끌어모았다.","tc":{"choices":["stultify","scathing","delectable","insipid"],"answer":2},"se":{"choices":["ambivalent","captivating","amorphous","charming","futile","eclectic"],"answers":[1,3],"sourceWord":"delectable"},"explain":"delectable (1.맛있는)"},{"day":7,"sentence":"Before construction could begin, surveyors were sent to precisely ____ the property boundaries that had long been disputed by neighboring farmers.","translation":"공사가 시작되기 전에, 인근 농부들 사이에서 오랫동안 분쟁의 대상이었던 토지 경계를 정확히 묘사하기 위해 측량사들이 파견되었다.","tc":{"choices":["capricious","solicitous","delineate","amorphous"],"answer":2},"se":{"choices":["sublime","eclectic","raucous","intermittent","sketch","describe"],"answers":[4,5],"sourceWord":"delineate"},"explain":"delineate (정확하게 묘사하다)"},{"day":7,"sentence":"He tried to ____ himself into believing the failing business would recover, even as the warning signs became impossible to ignore.","translation":"그는 경고 신호가 도저히 무시할 수 없을 정도로 뚜렷해졌음에도, 실패해가는 사업이 회복될 것이라고 스스로를 속이려 애썼다.","tc":{"choices":["euphemism","fastidious","abstain","delude"],"answer":3},"se":{"choices":["scathing","dupe","enervate","discerning","skittish","deceive"],"answers":[1,5],"sourceWord":"delude"},"explain":"delude (속이다)"},{"day":8,"sentence":"A wave of ____ voters, disillusioned by years of broken promises, stayed home on election day instead of casting a ballot for either party.","translation":"수년간의 공약 파기에 환멸을 느낀 불만에 찬 유권자들이 대거 어느 정당에도 투표하지 않고 선거일에 집에 머물렀다.","tc":{"choices":["scintillating","disaffected","mendacious","temerity"],"answer":1},"se":{"choices":["avid","alienated","strident","disgruntled","evince","clamor"],"answers":[1,3],"sourceWord":"disaffected"},"explain":"disaffected (불만)"},{"day":8,"sentence":"Facing public backlash, the politician quickly moved to ____ the controversial remarks his aide had made on live television.","translation":"대중의 반발에 직면하자 그 정치인은 보좌관이 생방송에서 한 논란의 발언을 서둘러 부인했다.","tc":{"choices":["paucity","rebuke","disavow","impecunious"],"answer":2},"se":{"choices":["repudiate","vicissitude","reject","chicanery","hone","erudite"],"answers":[0,2],"sourceWord":"disavow"},"explain":"disavow (부인하다)"},{"day":8,"sentence":"A ____ collector can distinguish a masterful forgery from an authentic painting simply by examining the texture of the brushstrokes.","translation":"안목이 있는 수집가는 단지 붓 터치의 질감만 살펴봐도 정교한 위작을 진품과 구별해낼 수 있다.","tc":{"choices":["avid","discerning","pragmatic","paramount"],"answer":1},"se":{"choices":["brevity","cognizant","abstruse","perceptive","astute","untenable"],"answers":[3,4],"sourceWord":"discerning"},"explain":"discerning (안목이 있는)"},{"day":8,"sentence":"The lawyer was known for being remarkably ____ about her clients' affairs, never discussing case details even with close friends.","translation":"그 변호사는 의뢰인의 사안에 대해 놀라울 정도로 신중한 것으로 알려져 있었고, 가까운 친구들과도 사건의 세부 사항을 논하지 않았다.","tc":{"choices":["ambiguous","discreet","terse","elated"],"answer":1},"se":{"choices":["cognizant","circumspect","incongruous","maverick","politic","turgid"],"answers":[1,4],"sourceWord":"discreet"},"explain":"discreet (지각 있는)"},{"day":8,"sentence":"Auditors flagged a significant ____ between the reported sales figures and the actual revenue recorded in the company's bank statements.","translation":"감사관들은 보고된 매출 수치와 회사 은행 명세서에 기록된 실제 수입 사이의 상당한 불일치를 지적했다.","tc":{"choices":["discrepancy","sordid","raucous","castigate"],"answer":0},"se":{"choices":["variance","egalitarian","skittish","cognizant","disparity","ambivalent"],"answers":[0,4],"sourceWord":"discrepancy"},"explain":"discrepancy (불일치)"},{"day":8,"sentence":"The veteran chef made no secret of his ____ for shortcuts, insisting that every sauce be prepared from scratch regardless of how long it took.","translation":"그 베테랑 셰프는 시간이 얼마나 걸리든 모든 소스를 처음부터 만들어야 한다고 고집하며 지름길에 대한 경멸을 숨기지 않았다.","tc":{"choices":["disdain","indict","vindicate","incoherent"],"answer":0},"se":{"choices":["nascent","bravado","undervalue","mundane","demur","belittle"],"answers":[2,5],"sourceWord":"disdain"},"explain":"disdain (1.무시)"},{"day":9,"sentence":"The whistleblower's testimony exposed years of corporate ____, revealing that executives had knowingly misled regulators about the safety of their product.","translation":"그 내부고발자의 증언은 수년에 걸친 기업의 이중성을 폭로했으며, 임원들이 자사 제품의 안전성에 대해 규제 당국을 고의로 속여왔다는 사실을 드러냈다.","tc":{"choices":["discordant","deign","primeval","duplicity"],"answer":3},"se":{"choices":["rant","delectable","mercenary","impetuous","deceitfulness","underhandedness"],"answers":[4,5],"sourceWord":"duplicity"},"explain":"duplicity (이중성)"},{"day":9,"sentence":"The museum's new interactive exhibits were designed not merely to entertain visitors but to ____ them about the region's overlooked indigenous history.","translation":"그 박물관의 새로운 체험형 전시는 단순히 방문객을 즐겁게 하는 것을 넘어, 그 지역의 잘 알려지지 않은 원주민 역사에 대해 그들을 교화하기 위해 설계되었다.","tc":{"choices":["scanty","hedonism","edify","formidable"],"answer":2},"se":{"choices":["impetuous","stringent","inform","precarious","resolute","educate"],"answers":[2,5],"sourceWord":"edify"},"explain":"edify (교화하다)"},{"day":9,"sentence":"Despite the grim forecast, the newly appointed coach remained remarkably ____, greeting every setback at practice with jokes and an unshakable grin.","translation":"암울한 전망에도 불구하고, 새로 부임한 코치는 연습 중 어떤 좌절 앞에서도 농담과 흔들림 없는 미소를 지으며 놀라울 정도로 쾌활한 모습을 보였다.","tc":{"choices":["deign","contempt","effervescent","harangue"],"answer":2},"se":{"choices":["discrepancy","animated","fallacious","rant","eclectic","vivacious"],"answers":[1,5],"sourceWord":"effervescent"},"explain":"effervescent (1.거품이 나는)"},{"day":9,"sentence":"The critic, usually sparing with compliments, became ____ in his review, showering the debut novel with page after page of praise.","translation":"평소 칭찬에 인색하던 그 평론가는 이번 데뷔 소설을 몇 페이지에 걸쳐 극찬을 쏟아내며 감정이 넘치는 서평을 썼다.","tc":{"choices":["hyperbole","effusive","capricious","paradox"],"answer":1},"se":{"choices":["lavish","delude","extravagant","obdurate","ostentatious","venal"],"answers":[0,2],"sourceWord":"effusive"},"explain":"effusive (넘치는)"},{"day":9,"sentence":"The commune's founders designed an ____ system in which every member, regardless of age or background, held an equal vote on communal decisions.","translation":"그 공동체의 설립자들은 나이나 배경에 관계없이 모든 구성원이 공동 결정에 대해 동등한 투표권을 갖는 평등주의적인 체제를 설계했다.","tc":{"choices":["mendacious","belie","forestall","egalitarian"],"answer":3},"se":{"choices":["pervade","equable","edify","pernicious","pragmatic","fair"],"answers":[1,5],"sourceWord":"egalitarian"},"explain":"egalitarian (평등주의적인)"},{"day":9,"sentence":"When the acceptance letter finally arrived after months of anxious waiting, she felt so ____ that she ran through the house shouting the news.","translation":"몇 달간의 초조한 기다림 끝에 마침내 합격 통지서가 도착했을 때, 그녀는 너무나 신이 나서 소식을 외치며 집안을 뛰어다녔다.","tc":{"choices":["idiosyncrasy","harangue","amiable","elated"],"answer":3},"se":{"choices":["overjoyed","adamant","avid","ebullient","truculent","rapturous"],"answers":[0,5],"sourceWord":"elated"},"explain":"elated (아주 행복한)"},{"day":10,"sentence":"Pressed by reporters about the merger, the CEO gave such an ____ answer that no one could tell whether the deal was still on.","translation":"합병에 관한 기자들의 질문에 CEO는 너무나 애매한 답변을 내놓아서 거래가 여전히 진행 중인지 아무도 알 수 없었다.","tc":{"choices":["solvent","sordid","mitigate","equivocal"],"answer":3},"se":{"choices":["hazy","fickle","disavow","eloquent","inexplicit","mercurial"],"answers":[0,4],"sourceWord":"equivocal"},"explain":"equivocal (애매한)"},{"day":10,"sentence":"The old elevator's behavior grew increasingly ____, sometimes stopping between floors and other times refusing to move at all.","translation":"그 낡은 엘리베이터의 작동은 점점 불규칙해져서, 어떤 때는 층 사이에서 멈추고 또 어떤 때는 아예 움직이기를 거부했다.","tc":{"choices":["exacerbate","erratic","truculent","adamant"],"answer":1},"se":{"choices":["variable","changeable","exacerbate","nonchalant","inclement","disparage"],"answers":[0,1],"sourceWord":"erratic"},"explain":"erratic (불규칙한)"},{"day":10,"sentence":"Colleagues held the retiring surgeon in such high ____ that they organized a tribute dinner attended by former patients from decades past.","translation":"동료들은 은퇴하는 외과의사를 매우 존경하여, 과거 환자들까지 참석한 헌정 만찬을 마련했다.","tc":{"choices":["esteem","eclectic","tout","delectable"],"answer":0},"se":{"choices":["impecunious","indifferent","latent","acclaim","favor","sanguine"],"answers":[3,4],"sourceWord":"esteem"},"explain":"esteem (1.존경)"},{"day":10,"sentence":"At the memorial service, his closest friend delivered a moving ____ that recalled the professor's decades of quiet generosity toward struggling students.","translation":"추도식에서 그의 가장 친한 친구는 그 교수가 수십 년간 어려운 학생들을 조용히 돌보았던 일들을 떠올리는 감동적인 추도 연설을 했다.","tc":{"choices":["hyperbole","skeptical","viable","eulogy"],"answer":3},"se":{"choices":["sober","pinnacle","mollify","intemperate","commendation","praise"],"answers":[4,5],"sourceWord":"eulogy"},"explain":"eulogy (1.(고인에 대한)추도 연설)"},{"day":10,"sentence":"Rather than say the company was firing workers, the memo relied on the ____ 'restructuring the workforce' to soften the announcement.","translation":"회사가 직원을 해고한다고 직접 말하는 대신, 그 메모는 발표를 완화하기 위해 '인력 구조 조정'이라는 완곡어법을 사용했다.","tc":{"choices":["euphemism","respite","salient","bravado"],"answer":0},"se":{"choices":["timorous","lax","alternative","renounce","hone","understatement"],"answers":[2,5],"sourceWord":"euphemism"},"explain":"euphemism (완곡어법)"},{"day":10,"sentence":"The rainbow over the canyon proved ____, dissolving into the mist within seconds of the storm's passing.","translation":"협곡 위에 뜬 무지개는 덧없는 것으로 드러나, 폭풍이 지나간 뒤 몇 초 만에 안개 속으로 사라져 버렸다.","tc":{"choices":["ameliorate","evanescent","pariah","elated"],"answer":1},"se":{"choices":["indefatigable","turbulent","impermanent","halcyon","rant","ephemeral"],"answers":[2,5],"sourceWord":"evanescent"},"explain":"evanescent (사라져가는)"},{"day":11,"sentence":"The senator's claim that the bridge would pay for itself within a year was ____, resting on projections no economist could verify.","translation":"그 다리가 일 년 안에 스스로 비용을 회수할 것이라는 상원의원의 주장은 어떤 경제학자도 검증할 수 없는 추정치에 기반한 잘못된 것이었다.","tc":{"choices":["ubiquitous","satiate","verbose","fallacious"],"answer":3},"se":{"choices":["erroneous","pariah","bombastic","effusive","fraudulent","diffident"],"answers":[0,4],"sourceWord":"fallacious"},"explain":"fallacious (1.(격식)잘못된)"},{"day":11,"sentence":"His suggestion that the company simply 'wish harder' for higher profits struck the board as a ____ response to a genuine financial crisis.","translation":"회사가 이익을 높이려면 그냥 '더 간절히 바라라'는 그의 제안은 이사회에게 심각한 재정 위기에 대한 어리석은 대응으로 여겨졌다.","tc":{"choices":["delude","parsimony","fatuous","brevity"],"answer":2},"se":{"choices":["quixotic","intransigent","vacuous","silly","tirade","eloquent"],"answers":[2,3],"sourceWord":"fatuous"},"explain":"fatuous (어리석은)"},{"day":11,"sentence":"The volunteers organized the flood relief effort with such ____ that donations poured in faster than the warehouse could sort them.","translation":"자원봉사자들은 너무나 열성적으로 홍수 구호 활동을 조직하여, 창고가 정리할 수 있는 속도보다 더 빨리 기부금이 쏟아져 들어왔다.","tc":{"choices":["intransigent","fervor","nebulous","slovenly"],"answer":1},"se":{"choices":["vehemence","paltry","esteem","belligerent","enthusiasm","contempt"],"answers":[0,4],"sourceWord":"fervor"},"explain":"fervor (열성)"},{"day":11,"sentence":"Strict licensing requirements can ____ small inventors, forcing them to abandon promising prototypes before they ever reach a workshop.","translation":"엄격한 면허 요건은 소규모 발명가들을 구속하여, 그들이 작업장에 도달하기도 전에 유망한 시제품을 포기하게 만들 수 있다.","tc":{"choices":["fidelity","tenuous","fetter","frivolous"],"answer":2},"se":{"choices":["obstruct","scanty","scintillating","prodigal","hamstring","vindicate"],"answers":[0,4],"sourceWord":"fetter"},"explain":"fetter (족쇄를 채우다)"},{"day":11,"sentence":"Investors in the startup proved ____, pouring in money one quarter and pulling out the next at the slightest hint of bad news.","translation":"그 스타트업의 투자자들은 변덕스러운 모습을 보여, 한 분기에는 돈을 쏟아붓다가 나쁜 소식이 조금만 들려도 다음 분기에는 빠져나갔다.","tc":{"choices":["respite","substantiate","fickle","reticent"],"answer":2},"se":{"choices":["rant","inconstant","scanty","guile","panacea","skittish"],"answers":[1,5],"sourceWord":"fickle"},"explain":"fickle (변덕스런)"},{"day":11,"sentence":"The technician tested the speaker's ____ by comparing its output to the original studio recording, noting no detectable distortion.","translation":"기술자는 스피커의 음향 충실도를 원곡 스튜디오 녹음과 비교하여 시험했고, 감지할 만한 왜곡이 없음을 확인했다.","tc":{"choices":["probity","eulogy","chicanery","fidelity"],"answer":3},"se":{"choices":["cacophony","faithfulness","vindicate","consternation","ostentatious","constancy"],"answers":[1,5],"sourceWord":"fidelity"},"explain":"fidelity (충성)"},{"day":12,"sentence":"The abandoned lighthouse stood ____ on the cliff, its windows shattered and its once-bright beam dark for nearly forty years.","translation":"버려진 등대는 절벽 위에 절망적으로 서 있었으며, 창문은 깨져 있었고 한때 밝았던 불빛은 거의 사십 년 동안 꺼져 있었다.","tc":{"choices":["languish","forlorn","incisive","enervate"],"answer":1},"se":{"choices":["paucity","wretched","pragmatic","equivocate","rant","hopeless"],"answers":[1,5],"sourceWord":"forlorn"},"explain":"forlorn (버림받은)"},{"day":12,"sentence":"The chess champion faced a ____ opponent whose calculated, unhurried style had not lost a match in over three years.","translation":"그 체스 챔피언은 지난 삼 년 동안 단 한 번도 패하지 않은, 계산적이고 서두르지 않는 스타일을 가진 위협적인 상대와 맞섰다.","tc":{"choices":["negligent","aversion","formidable","euphemism"],"answer":2},"se":{"choices":["aberrant","daunting","tenacious","beleaguer","inexorable","alarming"],"answers":[1,5],"sourceWord":"formidable"},"explain":"formidable (겁먹게 하는)"},{"day":12,"sentence":"After the long delay, the ____ passengers began arguing with gate agents over seating and refused to board calmly.","translation":"긴 지연 끝에 화가 잔뜩 난 승객들은 좌석 문제로 탑승구 직원들과 다투기 시작했고 차분히 탑승하기를 거부했다.","tc":{"choices":["fractious","ameliorate","ambiguous","disdain"],"answer":0},"se":{"choices":["rebut","grouchy","tenacious","eloquent","fallacious","peevish"],"answers":[1,5],"sourceWord":"fractious"},"explain":"fractious (화)"},{"day":12,"sentence":"Negotiations over the border dispute grew increasingly ____ as both delegations accused each other of bargaining in bad faith.","translation":"양측 대표단이 서로 불성실하게 협상한다고 비난하면서 국경 분쟁 협상은 점점 더 긴장으로 가득해졌다.","tc":{"choices":["pretentious","turbulent","abate","fraught"],"answer":3},"se":{"choices":["deride","turbulent","acrimonious","overwrought","contempt","distracted"],"answers":[3,5],"sourceWord":"fraught"},"explain":"fraught (1.가득한)"},{"day":12,"sentence":"The board dismissed the shareholder's lawsuit as ____, noting it concerned nothing more than the color of the annual report's cover.","translation":"이사회는 그 주주의 소송을 하찮은 것으로 기각했는데, 그것이 연례 보고서 표지의 색깔에 관한 것에 불과했기 때문이다.","tc":{"choices":["nonentity","chicanery","paucity","frivolous"],"answer":3},"se":{"choices":["flippant","ostentatious","sluggish","laconic","sober","featherbrained"],"answers":[0,5],"sourceWord":"frivolous"},"explain":"frivolous (가벼운)"},{"day":12,"sentence":"The intern cast a ____ glance toward the manager's office before slipping the confidential file into her bag.","translation":"그 인턴은 은밀한 시선으로 관리자의 사무실 쪽을 살핀 뒤 기밀 파일을 가방에 슬쩍 집어넣었다.","tc":{"choices":["formidable","modicum","paradox","furtive"],"answer":3},"se":{"choices":["sly","nonentity","pristine","surreptitious","aversion","meticulous"],"answers":[0,3],"sourceWord":"furtive"},"explain":"furtive (은밀한)"},{"day":13,"sentence":"The diplomat's success stemmed less from raw power than from sheer ____, outmaneuvering rivals through subtle concessions and well-timed silences.","translation":"그 외교관의 성공은 노골적인 힘보다는 순전한 술책에서 비롯되었으며, 미묘한 양보와 절묘한 타이밍의 침묵으로 경쟁자들을 능가했다.","tc":{"choices":["lethargy","amorphous","frivolous","guile"],"answer":3},"se":{"choices":["edify","fastidious","craftiness","petulant","inclement","deceit"],"answers":[2,5],"sourceWord":"guile"},"explain":"guile (속임수)"},{"day":13,"sentence":"Con artists specifically targeted the ____ retiree, who believed every promise of guaranteed returns without asking a single question.","translation":"사기꾼들은 특히 잘 속는 그 은퇴자를 표적으로 삼았는데, 그는 질문 하나 없이 보장된 수익이라는 모든 약속을 믿어버렸다.","tc":{"choices":["superfluous","intrepid","furtive","gullible"],"answer":3},"se":{"choices":["vex","insular","solvent","repudiate","credulous","green"],"answers":[4,5],"sourceWord":"gullible"},"explain":"gullible (잘 속는)"},{"day":13,"sentence":"She often looked back on those ____ summers at the lake house, when nothing more pressing than the weather occupied her thoughts.","translation":"그녀는 호숫가 별장에서 보낸 그 평온한 여름날들을, 날씨보다 더 급한 일이 없었던 시절로 종종 회상했다.","tc":{"choices":["hedonism","delude","halcyon","defer"],"answer":2},"se":{"choices":["strident","vex","placid","calm","quixotic","frivolous"],"answers":[2,3],"sourceWord":"halcyon"},"explain":"halcyon (평온한)"},{"day":13,"sentence":"The coach's postgame ____ went on for nearly twenty minutes, blaming every player individually for the team's sloppy defense.","translation":"코치의 경기 후 장광설은 거의 이십 분 동안 계속되었고, 팀의 허술한 수비에 대해 선수 한 명 한 명을 탓했다.","tc":{"choices":["harangue","misanthrope","fractious","strident"],"answer":0},"se":{"choices":["amiable","placate","sluggish","impecunious","diatribe","fulmination"],"answers":[4,5],"sourceWord":"harangue"},"explain":"harangue (장광설)"},{"day":13,"sentence":"Economists viewed the sudden spike in shipping costs as a ____ of the inflation that would grip the economy months later.","translation":"경제학자들은 해운 비용의 갑작스러운 급등을, 몇 달 뒤 경제를 덮칠 인플레이션의 전조로 보았다.","tc":{"choices":["brazen","harbinger","admonish","analogous"],"answer":1},"se":{"choices":["corroborate","herald","viable","copious","messenger","iconoclast"],"answers":[1,4],"sourceWord":"harbinger"},"explain":"harbinger (예언자)"},{"day":13,"sentence":"Critics accused the resort's marketing of promoting pure ____, advertising nothing beyond endless cocktails and consequence-free indulgence.","translation":"비평가들은 그 리조트의 마케팅이 끝없는 칵테일과 결과에 대한 걱정 없는 방종만을 광고하며 순전한 쾌락주의를 부추긴다고 비난했다.","tc":{"choices":["hedonism","nonchalant","finesse","brazen"],"answer":0},"se":{"choices":["disparage","hubris","incoherent","immoderation","obdurate","sybaritism"],"answers":[3,5],"sourceWord":"hedonism"},"explain":"hedonism (쾌락주의)"},{"day":14,"sentence":"Unlike the diverse mix of styles at rival museums, the gallery's collection felt strikingly ____, as though curated by a single unwavering vision.","translation":"경쟁 박물관의 다양한 양식이 뒤섞인 소장품과 달리, 그 갤러리의 소장품은 마치 하나의 흔들림 없는 시각으로 큐레이팅된 것처럼 놀랍도록 동종적으로 느껴졌다.","tc":{"choices":["rescind","elucidate","lethargy","homogeneous"],"answer":3},"se":{"choices":["impecunious","precarious","homogenized","turgid","unvaried","stultify"],"answers":[2,4],"sourceWord":"homogeneous"},"explain":"homogeneous (동종의)"},{"day":14,"sentence":"Over years of nightly practice sessions, the violinist managed to ____ her technique until even minor errors became nearly impossible.","translation":"수년간의 야간 연습 끝에 그 바이올리니스트는 사소한 실수조차 거의 불가능해질 때까지 자신의 기법을 갈고닦았다.","tc":{"choices":["lax","deference","fidelity","hone"],"answer":3},"se":{"choices":["abstruse","practice","disavow","coax","stultify","edge"],"answers":[1,5],"sourceWord":"hone"},"explain":"hone (1.숫돌)"},{"day":14,"sentence":"The captain's ____ led him to dismiss the iceberg warnings entirely, convinced that no natural obstacle could threaten his vessel.","translation":"그 선장의 지나친 자신감은 그로 하여금 빙산 경고를 완전히 무시하게 만들었는데, 어떤 자연적 장애물도 자신의 배를 위협할 수 없다고 확신했기 때문이다.","tc":{"choices":["forlorn","corroborate","hubris","levity"],"answer":2},"se":{"choices":["respite","stultify","intractable","laconic","hauteur","pomposity"],"answers":[4,5],"sourceWord":"hubris"},"explain":"hubris (지나친 자신감)"},{"day":14,"sentence":"When he called the traffic jam 'the worst catastrophe in human history,' his friends laughed at the obvious ____.","translation":"그가 교통 체증을 '인류 역사상 최악의 재앙'이라고 불렀을 때, 친구들은 그 명백한 과장법에 웃음을 터뜨렸다.","tc":{"choices":["hyperbole","innocuous","elated","bombastic"],"answer":0},"se":{"choices":["sagacious","ebullient","magnification","nascent","incisive","embroidery"],"answers":[2,5],"sourceWord":"hyperbole"},"explain":"hyperbole (과장된 말)"},{"day":14,"sentence":"One peculiar ____ of the famous chef was his insistence on tasting every dish with his eyes closed before serving it.","translation":"그 유명한 셰프의 특이한 습관 중 하나는 요리를 내놓기 전 반드시 눈을 감고 맛을 보는 것이었다.","tc":{"choices":["meticulous","insipid","idiosyncrasy","sordid"],"answer":2},"se":{"choices":["singularity","harbinger","resilient","quirk","prodigal","pernicious"],"answers":[0,3],"sourceWord":"idiosyncrasy"},"explain":"idiosyncrasy (특유의 성질)"},{"day":14,"sentence":"Historians condemned the general's ____ decision to abandon his wounded troops rather than risk his own safety during the retreat.","translation":"역사가들은 그 장군이 자신의 안전을 지키기 위해 부상당한 병사들을 버리고 퇴각한 비열한 결정을 비난했다.","tc":{"choices":["accolade","probity","ignoble","esoteric"],"answer":2},"se":{"choices":["shameful","copious","base","abstain","fidelity","fervor"],"answers":[0,2],"sourceWord":"ignoble"},"explain":"ignoble (비열한)"},{"day":15,"sentence":"The young analyst's ____ questions during the earnings call exposed inconsistencies that seasoned journalists had somehow overlooked.","translation":"실적 발표 중 그 젊은 분석가의 예리한 질문은 노련한 기자들조차 놓친 모순들을 드러냈다.","tc":{"choices":["incisive","rebuke","recalcitrant","hedonism"],"answer":0},"se":{"choices":["piercing","probity","deign","percipient","delineate","avid"],"answers":[0,3],"sourceWord":"incisive"},"explain":"incisive (예리한)"},{"day":15,"sentence":"The hikers postponed their summit attempt after forecasters warned of ____ conditions, including freezing rain and gale-force winds.","translation":"등반가들은 기상 예보관들이 얼어붙는 비와 강풍을 포함한 험악한 기상 조건을 경고하자 정상 등정 시도를 미루었다.","tc":{"choices":["sordid","substantiate","inclement","sober"],"answer":2},"se":{"choices":["bluster","acrimonious","rainy","rough","solicitous","tenacious"],"answers":[2,3],"sourceWord":"inclement"},"explain":"inclement (춥고 험한)"},{"day":15,"sentence":"Woken suddenly at 3 a.m., the witness gave such an ____ account of the accident that police asked him to return the next morning.","translation":"새벽 3시에 갑자기 깨어난 목격자는 사고에 대해 너무나 조리가 없는 진술을 해서 경찰은 그에게 다음 날 다시 오라고 요청했다.","tc":{"choices":["fervor","nettle","obsequious","incoherent"],"answer":3},"se":{"choices":["illogical","recalcitrant","hackneyed","ingenuous","disorganized","fickle"],"answers":[0,4],"sourceWord":"incoherent"},"explain":"incoherent (조리가 없는)"},{"day":15,"sentence":"Despite years of counseling, the young offender remained ____, returning to the same petty schemes within weeks of each release.","translation":"수년간의 상담에도 불구하고 그 청소년 범죄자는 구제 불능인 채로 남아, 석방될 때마다 몇 주 안에 같은 사소한 범행으로 되돌아갔다.","tc":{"choices":["decorous","incorrigible","fortuitous","harbinger"],"answer":1},"se":{"choices":["recidivous","paramount","ubiquitous","perturb","innocuous","intractable"],"answers":[0,5],"sourceWord":"incorrigible"},"explain":"incorrigible (고질적인)"},{"day":15,"sentence":"Prosecutors moved to ____ the former treasurer after auditors uncovered a pattern of falsified expense reports spanning three years.","translation":"감사관들이 삼 년에 걸친 허위 경비 보고서 패턴을 발견한 후, 검찰은 전 회계 담당자를 기소하기 위한 절차에 들어갔다.","tc":{"choices":["solicitous","indict","iconoclast","aversion"],"answer":1},"se":{"choices":["parsimony","prosaic","prosecute","accuse","perturb","terse"],"answers":[2,3],"sourceWord":"indict"},"explain":"indict (기소하다)"},{"day":15,"sentence":"The committee seemed strangely ____ to the petition, filing it away without discussion despite thousands of signatures.","translation":"위원회는 그 청원에 이상하리만치 무관심해 보였고, 수천 명의 서명에도 불구하고 논의조차 없이 그것을 그대로 묻어두었다.","tc":{"choices":["exacerbate","illicit","aberrant","indifferent"],"answer":3},"se":{"choices":["careless","euphemism","discreet","unassuming","resolute","detached"],"answers":[0,5],"sourceWord":"indifferent"},"explain":"indifferent (무관심한)"},{"day":16,"sentence":"Critics argued that the small academic department had grown ____, rarely inviting outside scholars or engaging with research beyond its own walls.","translation":"비평가들은 그 작은 학과가 배타적으로 변해, 외부 학자를 초빙하거나 자신들의 울타리를 넘어서는 연구와 거의 교류하지 않는다고 주장했다.","tc":{"choices":["substantiate","rancor","euphemism","insular"],"answer":3},"se":{"choices":["parochial","skittish","frugal","intolerant","inclement","equivocal"],"answers":[0,3],"sourceWord":"insular"},"explain":"insular (배타적인)"},{"day":16,"sentence":"Government forces clashed with ____ fighters along the northern border, reigniting a conflict that had simmered for over a decade.","translation":"정부군은 북부 국경을 따라 반군 전투원들과 충돌하며, 십여 년간 잠복해 있던 갈등을 다시 촉발시켰다.","tc":{"choices":["pedantic","sanguine","zealous","insurgent"],"answer":3},"se":{"choices":["avarice","paltry","analogous","revolutionary","ignoble","mutineer"],"answers":[3,5],"sourceWord":"insurgent"},"explain":"insurgent (반란을 일으킨 사람)"},{"day":16,"sentence":"His ____ spending during the boom years left him with crushing debts the moment the market finally turned.","translation":"호황기 동안의 그의 무절제한 지출은 시장이 마침내 돌아서자마자 그를 극심한 빚더미에 남겨두었다.","tc":{"choices":["pernicious","enervate","gullible","intemperate"],"answer":3},"se":{"choices":["extreme","nonchalant","halcyon","truculent","debauched","adamant"],"answers":[0,4],"sourceWord":"intemperate"},"explain":"intemperate (1.무절제한)"},{"day":16,"sentence":"The old radio picked up the broadcast only in ____ bursts, fading to static every few minutes before crackling back to life.","translation":"그 낡은 라디오는 몇 분마다 잡음으로 사라졌다가 다시 지지직거리며 살아나는 등, 방송을 간헐적으로만 수신했다.","tc":{"choices":["intermittent","precarious","pariah","incisive"],"answer":0},"se":{"choices":["bluster","insular","furtive","austere","discontinuous","fitful"],"answers":[4,5],"sourceWord":"intermittent"},"explain":"intermittent (때때로)"},{"day":16,"sentence":"Union leaders described management as ____, refusing even to discuss the smallest concession after eight rounds of talks.","translation":"노조 지도부는 여덟 차례의 협상 끝에도 가장 작은 양보조차 논의하기를 거부하는 경영진을 비타협적이라고 묘사했다.","tc":{"choices":["lethargy","erratic","elucidate","intransigent"],"answer":3},"se":{"choices":["innocuous","obstinate","turbulent","elicit","fickle","uncooperative"],"answers":[1,5],"sourceWord":"intransigent"},"explain":"intransigent (비타협적인)"},{"day":16,"sentence":"The ____ explorer pressed on across the crevasse-riddled glacier long after her companions had turned back to base camp.","translation":"그 겁 없는 탐험가는 동료들이 베이스캠프로 돌아선 지 한참 지난 후에도 균열투성이 빙하를 가로질러 계속 나아갔다.","tc":{"choices":["avarice","intrepid","temerity","tenuous"],"answer":1},"se":{"choices":["mercenary","pragmatic","valiant","dauntless","animosity","sloth"],"answers":[2,3],"sourceWord":"intrepid"},"explain":"intrepid (겁없는)"},{"day":17,"sentence":"Without proper funding, the once-promising research program began to ____, its laboratories emptying as grants dried up one by one.","translation":"적절한 자금 지원이 없자, 한때 유망했던 그 연구 프로그램은 쇠약해지기 시작했고, 연구비가 하나둘 끊기면서 실험실들이 비어갔다.","tc":{"choices":["tenuous","languish","renounce","raucous"],"answer":1},"se":{"choices":["insipid","bolster","deteriorate","droop","disgruntled","inured"],"answers":[2,3],"sourceWord":"languish"},"explain":"languish (기력을 잃다)"},{"day":17,"sentence":"The genetic test revealed a ____ predisposition to the disease that had never manifested any symptoms in her lifetime.","translation":"유전자 검사는 그녀의 평생 아무런 증상도 나타난 적 없는 그 질병에 대한 잠재적 소인을 드러냈다.","tc":{"choices":["contempt","bluster","desultory","latent"],"answer":3},"se":{"choices":["umbrage","sublime","resilient","unused","undeveloped","pragmatic"],"answers":[3,4],"sourceWord":"latent"},"explain":"latent (잠재의)"},{"day":17,"sentence":"For their fortieth anniversary, the couple threw a ____ celebration complete with a live orchestra and a three-course dinner for two hundred guests.","translation":"결혼 40주년을 맞아 그 부부는 라이브 오케스트라와 200명의 손님을 위한 3코스 만찬이 포함된 사치스러운 축하 행사를 열었다.","tc":{"choices":["unassuming","boorish","disdain","lavish"],"answer":3},"se":{"choices":["ostentatious","profuse","savor","fallacious","edify","prodigal"],"answers":[1,5],"sourceWord":"lavish"},"explain":"lavish (사치스런)"},{"day":17,"sentence":"Auditors blamed the security breach on ____ password policies that had allowed employees to reuse the same credentials for years.","translation":"감사관들은 보안 침해의 원인을, 직원들이 수년간 같은 자격 증명을 재사용하도록 허용한 느슨한 비밀번호 정책 탓으로 돌렸다.","tc":{"choices":["rant","evince","verbose","lax"],"answer":3},"se":{"choices":["ubiquitous","permissive","equanimity","exonerate","disgruntled","tolerant"],"answers":[1,5],"sourceWord":"lax"},"explain":"lax (측늘어진)"},{"day":17,"sentence":"After the long flu, a persistent ____ settled over him, making even simple chores like washing dishes feel like climbing a mountain.","translation":"긴 독감을 앓고 난 뒤, 지속적인 무기력이 그를 덮쳐 설거지 같은 간단한 집안일조차 산을 오르는 것처럼 힘겹게 느껴졌다.","tc":{"choices":["innocuous","hermetic","lethargy","inured"],"answer":2},"se":{"choices":["idleness","meticulous","pretentious","accolade","phlegmatic","listlessness"],"answers":[0,5],"sourceWord":"lethargy"},"explain":"lethargy (무기력)"},{"day":17,"sentence":"The professor's unexpected joke injected a moment of ____ into the otherwise somber lecture on the collapse of ancient civilizations.","translation":"교수의 예상치 못한 농담은 고대 문명의 붕괴를 다루던 다소 침울한 강의에 잠깐의 가벼운 유쾌함을 불어넣었다.","tc":{"choices":["conundrum","vex","abate","levity"],"answer":3},"se":{"choices":["tenuous","cheerfulness","halcyon","humor","scanty","insipid"],"answers":[1,3],"sourceWord":"levity"},"explain":"levity (가벼움)"},{"day":18,"sentence":"By the third glass of wine, his toast had turned ____, full of tearful declarations of love for cousins he barely spoke to.","translation":"와인 세 잔째가 되자 그의 건배사는 지나치게 감상적으로 변해, 거의 말도 섞지 않던 사촌들에 대한 눈물겨운 애정 고백으로 가득 찼다.","tc":{"choices":["elicit","incongruous","vacillate","maudlin"],"answer":3},"se":{"choices":["rancor","mawkish","sober","acrimonious","savor","tearful"],"answers":[1,5],"sourceWord":"maudlin"},"explain":"maudlin (지나치게 감상적인)"},{"day":18,"sentence":"Refusing to follow the studio's formula for blockbuster films, the director earned a reputation as a ____ willing to risk failure for originality.","translation":"스튜디오의 흥행 공식을 따르기를 거부한 그 감독은 독창성을 위해 실패를 감수하는 독불장군이라는 평판을 얻었다.","tc":{"choices":["abstain","harangue","malleable","maverick"],"answer":3},"se":{"choices":["tractable","reticent","homogeneous","individualist","nonconformist","obstinate"],"answers":[3,4],"sourceWord":"maverick"},"explain":"maverick (독불장군)"},{"day":18,"sentence":"Despite years of farming the rocky hillside, the family's harvest remained ____, barely enough to last through a single winter.","translation":"바위투성이 언덕에서 수년간 농사를 지었음에도 그 가족의 수확량은 여전히 빈약해서 겨울 한 철을 나기에도 빠듯했다.","tc":{"choices":["auspicious","meager","truculent","acumen"],"answer":1},"se":{"choices":["pretentious","uncouth","little","paltry","vindicate","impecunious"],"answers":[2,3],"sourceWord":"meager"},"explain":"meager (부족한)"},{"day":18,"sentence":"The witness's testimony proved so ____ that jurors later learned nearly every detail, from dates to locations, had been invented.","translation":"그 증인의 증언은 너무나 거짓투성이여서, 배심원들은 나중에 날짜부터 장소까지 거의 모든 세부 사항이 꾸며낸 것임을 알게 되었다.","tc":{"choices":["timorous","mendacious","libertine","chide"],"answer":1},"se":{"choices":["accolade","abstain","lying","fabricated","rant","insurgent"],"answers":[2,3],"sourceWord":"mendacious"},"explain":"mendacious (거짓말하는)"},{"day":18,"sentence":"Critics accused the senator of ____ motives, noting that his sudden support for the bill coincided with a hefty donation from its backers.","translation":"비평가들은 그 상원의원이 돈 버는 데만 관심이 있다고 비난했는데, 그가 갑자기 그 법안을 지지하게 된 시점이 후원자들로부터 거액을 기부받은 시점과 겹쳤기 때문이다.","tc":{"choices":["hubris","satiate","tirade","mercenary"],"answer":3},"se":{"choices":["deride","miserly","delude","avaricious","intemperate","turbulent"],"answers":[1,3],"sourceWord":"mercenary"},"explain":"mercenary (용병)"},{"day":18,"sentence":"Having been betrayed by nearly everyone he trusted, the old hermit became a bitter ____ who avoided all human contact.","translation":"믿었던 거의 모든 사람에게 배신당한 늙은 은둔자는 모든 인간관계를 피하는 냉소적인 인간 혐오자가 되었다.","tc":{"choices":["misanthrope","exacerbate","frivolous","hapless"],"answer":0},"se":{"choices":["recluse","pervade","austere","hermit","prosaic","rebut"],"answers":[0,3],"sourceWord":"misanthrope"},"explain":"misanthrope (인간을 싫어하는 사람)"},{"day":19,"sentence":"Investors watched closely as the ____ technology industry in the small coastal city began attracting its first venture capital.","translation":"투자자들은 그 작은 해안 도시에서 지금 막 생겨난 기술 산업이 첫 벤처 자본을 끌어들이기 시작하는 것을 예의주시했다.","tc":{"choices":["amiable","duplicity","nascent","maverick"],"answer":2},"se":{"choices":["young","bolster","formidable","growing","delectable","untenable"],"answers":[0,3],"sourceWord":"nascent"},"explain":"nascent (지금 막 생겨난)"},{"day":19,"sentence":"The committee's proposal remained so ____ that no one could say with certainty what actions it actually required of member states.","translation":"그 위원회의 제안은 너무나 모호해서 회원국들에게 실제로 어떤 조치가 요구되는지 아무도 확실히 말할 수 없었다.","tc":{"choices":["nebulous","diffident","admonish","deign"],"answer":0},"se":{"choices":["slovenly","cloudy","forlorn","obscure","ingenuous","erudite"],"answers":[1,3],"sourceWord":"nebulous"},"explain":"nebulous (흐릿한)"},{"day":19,"sentence":"The inspector's report blamed the building collapse on ____ contractors who had ignored repeated warnings about the foundation's cracks.","translation":"조사관의 보고서는 건물 붕괴의 원인을 기초에 반복적으로 제기된 균열 경고를 무시한 태만한 건설업자들 탓으로 돌렸다.","tc":{"choices":["negligent","perfunctory","slovenly","capricious"],"answer":0},"se":{"choices":["substantiate","heedless","eclectic","sloppy","fickle","pretentious"],"answers":[1,3],"sourceWord":"negligent"},"explain":"negligent (태만한)"},{"day":19,"sentence":"For the aging chess champion, the young grandmaster became a formidable ____, defeating him in tournament after tournament.","translation":"나이 든 체스 챔피언에게 그 젊은 그랜드마스터는 토너먼트마다 그를 이기는 강력한 숙적이 되었다.","tc":{"choices":["proclivity","hermetic","nemesis","decorous"],"answer":2},"se":{"choices":["rescind","foe","opponent","mitigate","delineate","frugal"],"answers":[1,2],"sourceWord":"nemesis"},"explain":"nemesis (복수의 화신)"},{"day":19,"sentence":"Her constant interruptions during meetings began to ____ colleagues who had grown weary of restating their points.","translation":"그녀가 회의 중 끊임없이 끼어드는 것은 자신의 요점을 계속 반복해야 하는 데 지친 동료들을 화나게 만들기 시작했다.","tc":{"choices":["respite","languish","nettle","finesse"],"answer":2},"se":{"choices":["paragon","erudite","gall","vex","torrid","intransigent"],"answers":[2,3],"sourceWord":"nettle"},"explain":"nettle (화나게 하다)"},{"day":19,"sentence":"Once a celebrated actor, he faded into a ____ after the scandal, unrecognized even by former fans on the street.","translation":"한때 인기 있던 배우였던 그는 스캔들 이후 별 볼일 없는 사람이 되어 거리에서 옛 팬들조차 그를 알아보지 못했다.","tc":{"choices":["quixotic","nonentity","mollify","lax"],"answer":1},"se":{"choices":["nobody","prevalent","banal","egalitarian","nothing","spurious"],"answers":[0,4],"sourceWord":"nonentity"},"explain":"nonentity (별 볼일 없는(보잘것없는) 사람)"},{"day":20,"sentence":"Unlike the subtle sabotage of earlier months, the strike this time was an ____ act of defiance that no manager could ignore.","translation":"지난 몇 달간의 은밀한 태업과 달리, 이번 파업은 어떤 관리자도 못 본 척할 수 없는 공공연한 저항 행위였다.","tc":{"choices":["overt","precarious","vicarious","tenacious"],"answer":0},"se":{"choices":["undisguised","belligerent","guile","inclement","conspicuous","repudiate"],"answers":[0,4],"sourceWord":"overt"},"explain":"overt (공공연한)"},{"day":20,"sentence":"The compensation offered to flood victims was so ____ that it barely covered the cost of replacing a single window.","translation":"홍수 피해자들에게 제공된 보상금은 너무나 쥐꼬리만해서 창문 하나 교체하는 비용도 겨우 충당할 정도였다.","tc":{"choices":["nemesis","forlorn","tirade","paltry"],"answer":3},"se":{"choices":["petty","temerity","hackneyed","demur","negligible","frivolous"],"answers":[0,4],"sourceWord":"paltry"},"explain":"paltry (쥐꼬리만한)"},{"day":20,"sentence":"Colleagues regarded the retiring judge as a ____ of fairness, citing decades of rulings untainted by favoritism or bias.","translation":"동료들은 은퇴하는 판사를 공정함의 전형으로 여겼는데, 편애로 얼룩지지 않은 수십 년간의 판결을 근거로 들었다.","tc":{"choices":["contrite","paragon","aversion","resolute"],"answer":1},"se":{"choices":["model","harbinger","ubiquitous","stolid","acme","innocuous"],"answers":[0,4],"sourceWord":"paragon"},"explain":"paragon (완벽한 예)"},{"day":20,"sentence":"In hostage negotiations, the safety of the captives is ____, taking precedence over any political or financial considerations.","translation":"인질 협상에서 인질들의 안전이 가장 중요하며, 어떤 정치적, 재정적 고려사항보다 우선한다.","tc":{"choices":["truncate","impetuous","skittish","paramount"],"answer":3},"se":{"choices":["chief","iconoclast","pretentious","highest","pedantic","obstinate"],"answers":[0,3],"sourceWord":"paramount"},"explain":"paramount (가장 중요한)"},{"day":20,"sentence":"After exposing the company's fraud, the whistleblower became something of a ____ among former coworkers who feared association with him.","translation":"회사의 부정을 폭로한 내부고발자는 자신과 엮이는 것을 두려워하는 전 동료들 사이에서 일종의 따돌림 당하는 사람이 되었다.","tc":{"choices":["sublime","pariah","tout","eclectic"],"answer":1},"se":{"choices":["meticulous","nonchalant","outcast","sloth","insurgent","undesirable"],"answers":[2,5],"sourceWord":"pariah"},"explain":"pariah (사회적으로 경멸받고 따돌림 당하는 사람)"},{"day":20,"sentence":"The billionaire's ____ was legendary; he reused tea bags and drove a car older than his grandchildren.","translation":"그 억만장자의 인색함은 전설적이었다. 그는 티백을 재사용했고 손주보다 나이가 많은 차를 몰았다.","tc":{"choices":["parsimony","harangue","skeptical","salient"],"answer":0},"se":{"choices":["niggardliness","closeness","perfunctory","rancor","innocuous","desultory"],"answers":[0,1],"sourceWord":"parsimony"},"explain":"parsimony (인색함)"},{"day":21,"sentence":"Before ruling on the case, the judge asked the attorneys to submit only evidence directly ____ to the contract dispute.","translation":"사건을 판결하기 전, 판사는 변호인들에게 계약 분쟁과 직접 관련된 증거만 제출하라고 요청했다.","tc":{"choices":["pertinent","discerning","ameliorate","salient"],"answer":0},"se":{"choices":["apposite","zealous","applicable","mercenary","ambivalent","obdurate"],"answers":[0,2],"sourceWord":"pertinent"},"explain":"pertinent (관련된)"},{"day":21,"sentence":"News of the factory's sudden closure began to ____ residents who depended on it for nearly all local employment.","translation":"공장이 갑작스럽게 폐쇄된다는 소식은 그곳에 거의 모든 지역 고용을 의존하던 주민들을 동요시키기 시작했다.","tc":{"choices":["petulant","delude","tirade","perturb"],"answer":3},"se":{"choices":["distress","furtive","harangue","misanthrope","agitate","perfunctory"],"answers":[0,4],"sourceWord":"perturb"},"explain":"perturb (마음을 동요시키다)"},{"day":21,"sentence":"A thick smell of smoke began to ____ the neighborhood long before anyone noticed flames rising from the warehouse.","translation":"누군가 창고에서 불길이 치솟는 것을 알아차리기도 전에, 짙은 연기 냄새가 동네 전체에 가득 퍼지기 시작했다.","tc":{"choices":["libertine","turgid","indifferent","pervade"],"answer":3},"se":{"choices":["auspicious","infuse","unassuming","bombastic","perfuse","hubris"],"answers":[1,4],"sourceWord":"pervade"},"explain":"pervade (은통가득하다)"},{"day":21,"sentence":"When told he could not have a second dessert, the toddler grew ____, kicking his chair and refusing to speak.","translation":"디저트를 한 번 더 먹을 수 없다는 말을 듣자, 아이는 심술을 부리며 의자를 걷어차고 말을 하지 않으려 했다.","tc":{"choices":["petulant","indifferent","egalitarian","solicitous"],"answer":0},"se":{"choices":["rescind","skeptical","morose","sanguine","fractious","bluster"],"answers":[2,4],"sourceWord":"petulant"},"explain":"petulant (심술 부리는)"},{"day":21,"sentence":"Even as the crowd panicked during the earthquake, the veteran pilot remained ____, calmly guiding passengers toward the exits.","translation":"지진이 나서 군중이 공포에 빠졌을 때도, 노련한 조종사는 침착함을 잃지 않고 승객들을 차분히 출구로 안내했다.","tc":{"choices":["perturb","phlegmatic","impetuous","laconic"],"answer":1},"se":{"choices":["placid","prosaic","laconic","imperturbable","edify","exonerate"],"answers":[0,3],"sourceWord":"phlegmatic"},"explain":"phlegmatic (감정을 잘 드러내지 않는)"},{"day":21,"sentence":"Winning the Nobel Prize marked the ____ of a career that had begun decades earlier in a poorly funded university lab.","translation":"노벨상을 수상한 것은 형편없이 열악한 대학 실험실에서 수십 년 전에 시작된 경력의 절정을 이루었다.","tc":{"choices":["deleterious","euphemism","pinnacle","spurious"],"answer":2},"se":{"choices":["rebuke","crest","sloth","lethargy","finesse","apex"],"answers":[1,5],"sourceWord":"pinnacle"},"explain":"pinnacle (절정)"},{"day":22,"sentence":"Critics dismissed the restaurant's menu as ____, filled with elaborate foreign terms for what amounted to simple, ordinary dishes.","translation":"비평가들은 그 식당의 메뉴가 허세부리는 것에 불과하다고 일축했는데, 사실상 평범한 요리를 화려한 외국어 용어로 포장했기 때문이다.","tc":{"choices":["frivolous","pretentious","truculent","hedonism"],"answer":1},"se":{"choices":["ostentatious","verbose","paradox","capricious","grandiose","esteem"],"answers":[0,4],"sourceWord":"pretentious"},"explain":"pretentious (허세부리는)"},{"day":22,"sentence":"Misinformation about the vaccine became so ____ online that health officials launched a nationwide campaign to counter it.","translation":"백신에 대한 잘못된 정보가 온라인에서 너무나 널리 퍼지자, 보건 당국은 이를 반박하기 위한 전국적인 캠페인을 시작했다.","tc":{"choices":["boorish","venal","prevalent","uncouth"],"answer":2},"se":{"choices":["mendacious","perturb","nebulous","widespread","stoic","frequent"],"answers":[3,5],"sourceWord":"prevalent"},"explain":"prevalent (일반적인)"},{"day":22,"sentence":"Deep within the untouched rainforest, the explorers encountered a ____ silence unbroken by any trace of modern civilization.","translation":"손대지 않은 열대우림 깊숙한 곳에서, 탐험가들은 현대 문명의 흔적이 전혀 없는 원시적인 정적을 마주했다.","tc":{"choices":["primeval","finesse","paragon","obstinate"],"answer":0},"se":{"choices":["deference","prehistoric","solicitous","inundate","earliest","tenuous"],"answers":[1,4],"sourceWord":"primeval"},"explain":"primeval (원시시대의)"},{"day":22,"sentence":"Volunteers were astonished to find the shipwreck's interior still ____, its furnishings untouched by a century underwater.","translation":"자원봉사자들은 난파선 내부가 한 세기 동안 물속에 있었음에도 가구가 손상되지 않은 채 원래 그대로 보존되어 있는 것을 보고 놀랐다.","tc":{"choices":["pristine","incorrigible","fatuous","lethargy"],"answer":0},"se":{"choices":["perfect","impetuous","sagacious","cognizant","unstained","disavow"],"answers":[0,4],"sourceWord":"pristine"},"explain":"pristine (원래 그대로의)"},{"day":22,"sentence":"The accountant's reputation for ____ made him the natural choice to audit the charity's finances after the embezzlement scandal.","translation":"그 회계사의 청렴함에 대한 평판 덕분에 그는 횡령 스캔들 이후 자선단체의 재정을 감사할 자연스러운 적임자가 되었다.","tc":{"choices":["forestall","probity","austere","fallacious"],"answer":1},"se":{"choices":["disgruntled","umbrage","uprightness","truncate","effervescent","honesty"],"answers":[2,5],"sourceWord":"probity"},"explain":"probity (정직)"},{"day":22,"sentence":"From an early age, she displayed a ____ for solving puzzles, spending hours on riddles that stumped adults twice her age.","translation":"어릴 때부터 그녀는 퍼즐을 푸는 성향을 보였고, 어른들도 두 배로 애를 먹는 수수께끼를 풀며 몇 시간을 보내곤 했다.","tc":{"choices":["desultory","rescind","fastidious","proclivity"],"answer":3},"se":{"choices":["rancor","mendacious","penchant","strident","accolade","propensity"],"answers":[2,5],"sourceWord":"proclivity"},"explain":"proclivity (성향)"},{"day":23,"sentence":"Years after the bitter divorce, the couple still exchanged their children's custody with visible ____ at every handoff.","translation":"쓰라린 이혼 이후 수년이 지났지만, 그 부부는 아이들을 인계할 때마다 여전히 눈에 띄는 원한을 드러냈다.","tc":{"choices":["indifferent","effervescent","primeval","rancor"],"answer":3},"se":{"choices":["esoteric","rant","truncate","hatred","resentment","finesse"],"answers":[3,4],"sourceWord":"rancor"},"explain":"rancor (원한)"},{"day":23,"sentence":"Frustrated by the delayed flight, the passenger began to ____ at the gate agent, blaming her personally for the mechanical failure.","translation":"지연된 비행기에 좌절한 승객은 기계 결함이 마치 게이트 직원 개인의 탓인 양 그녀에게 고함치며 폭언을 퍼붓기 시작했다.","tc":{"choices":["timorous","rant","quixotic","salient"],"answer":1},"se":{"choices":["furtive","animosity","bluster","prodigal","vociferate","sanguine"],"answers":[2,4],"sourceWord":"rant"},"explain":"rant (고함치다)"},{"day":23,"sentence":"The ____ cheering from the stadium could be heard blocks away as the home team scored the winning goal.","translation":"홈팀이 결승골을 넣자 경기장에서 터져 나온 귀에 거슬리는 함성이 몇 블록 떨어진 곳에서도 들렸다.","tc":{"choices":["scanty","raucous","furtive","cognizant"],"answer":1},"se":{"choices":["adroit","noisy","pedantic","contentious","screeching","intractable"],"answers":[1,4],"sourceWord":"raucous"},"explain":"raucous (거슬리는)"},{"day":23,"sentence":"Despite his repeated attempts at reconciliation, her former business partner continued to ____ every offer of a meeting.","translation":"그가 화해를 위해 거듭 시도했음에도 불구하고, 전 사업 파트너는 모든 만남 제안을 계속해서 퉁명스럽게 거절했다.","tc":{"choices":["subordinate","meager","slovenly","rebuff"],"answer":3},"se":{"choices":["refuse","languish","spurn","sanction","turbulent","abstruse"],"answers":[0,2],"sourceWord":"rebuff"},"explain":"rebuff (퉁명스럽게 거부하다)"},{"day":23,"sentence":"The coach did not hesitate to ____ the players publicly after they showed up late to practice for the third time.","translation":"감독은 선수들이 세 번째로 연습에 지각하자 공개적으로 그들을 심하게 꾸짖기를 주저하지 않았다.","tc":{"choices":["gullible","paltry","ambivalent","rebuke"],"answer":3},"se":{"choices":["discerning","gullible","criticize","antipathy","sanction","scold"],"answers":[2,5],"sourceWord":"rebuke"},"explain":"rebuke (심하게 꾸짖다)"},{"day":23,"sentence":"The scientist's new data was intended to ____ claims that the drug caused no measurable improvement in patients.","translation":"그 과학자의 새로운 데이터는 그 약이 환자에게 측정 가능한 개선을 전혀 가져오지 않았다는 주장을 반박하려는 것이었다.","tc":{"choices":["resolute","impecunious","idiosyncrasy","rebut"],"answer":3},"se":{"choices":["fickle","contradict","counter","incorrigible","avid","bolster"],"answers":[1,2],"sourceWord":"rebut"},"explain":"rebut (반박)"},{"day":24,"sentence":"Under pressure from the royal court, the prince was forced to ____ his claim to the throne in favor of his younger brother.","translation":"왕실의 압력에 못 이겨, 왕자는 동생에게 유리하도록 왕위 계승권을 공식적으로 포기해야만 했다.","tc":{"choices":["fetter","renounce","indict","satiate"],"answer":1},"se":{"choices":["halcyon","waive","reject","rebuff","evince","illicit"],"answers":[1,2],"sourceWord":"renounce"},"explain":"renounce (공식적으로 포기하다)"},{"day":24,"sentence":"The mayor moved quickly to ____ the racist remarks attributed to him, insisting the quote had been fabricated.","translation":"시장은 자신이 한 것으로 알려진 인종차별적 발언을 재빨리 부인했으며, 그 인용문이 조작된 것이라고 주장했다.","tc":{"choices":["repudiate","pragmatic","truncate","unbridled"],"answer":0},"se":{"choices":["renounce","sluggish","contempt","disgruntled","abate","reject"],"answers":[0,5],"sourceWord":"repudiate"},"explain":"repudiate (부인하다)"},{"day":24,"sentence":"Facing public backlash, the university decided to ____ its decision to cut funding for the campus health clinic.","translation":"여론의 반발에 직면하자, 대학은 캠퍼스 보건소에 대한 예산 삭감 결정을 철회하기로 했다.","tc":{"choices":["rescind","intrepid","erudite","clamor"],"answer":0},"se":{"choices":["notoriety","ephemeral","cancel","sloth","invalidate","futile"],"answers":[2,4],"sourceWord":"rescind"},"explain":"rescind (폐지하다)"},{"day":24,"sentence":"Coral reefs damaged by the storm proved surprisingly ____, regenerating within a few years to nearly their original size.","translation":"폭풍으로 손상된 산호초는 놀랍도록 회복력이 있어서 몇 년 만에 거의 원래 크기로 재생했다.","tc":{"choices":["hackneyed","acrimonious","innocuous","resilient"],"answer":3},"se":{"choices":["obstinate","fraught","pliable","pertinent","disavow","hardy"],"answers":[2,5],"sourceWord":"resilient"},"explain":"resilient (탄력 있는)"},{"day":24,"sentence":"Despite mounting criticism from shareholders, the CEO remained ____ in her decision to invest in unproven renewable technologies.","translation":"주주들의 비판이 거세지는 가운데서도, CEO는 검증되지 않은 재생에너지 기술에 투자하겠다는 결정에 확고한 태도를 유지했다.","tc":{"choices":["lax","resolute","ingenuous","timorous"],"answer":1},"se":{"choices":["disparage","rescind","tenacious","prosaic","firm","deference"],"answers":[2,4],"sourceWord":"resolute"},"explain":"resolute (마음이 확고한)"},{"day":24,"sentence":"The brief ceasefire offered civilians a rare ____ from the shelling that had continued almost nightly for months.","translation":"짧은 휴전은 몇 달째 거의 매일 밤 계속되던 포격으로부터 민간인들에게 보기 드문 짧은 휴식을 안겨주었다.","tc":{"choices":["cognizant","erratic","terse","respite"],"answer":3},"se":{"choices":["decorous","salient","recess","intermission","iconoclast","elated"],"answers":[2,3],"sourceWord":"respite"},"explain":"respite (짧은 휴식)"},{"day":25,"sentence":"Among the report's many findings, the most ____ point was the sharp decline in freshwater availability across the region.","translation":"그 보고서의 여러 결과 중 가장 눈에 띄는 점은 그 지역 전역에서 담수 이용 가능량이 급격히 감소했다는 것이었다.","tc":{"choices":["salient","rant","disgruntled","intransigent"],"answer":0},"se":{"choices":["important","mercenary","discreet","mitigate","essential","fastidious"],"answers":[0,4],"sourceWord":"salient"},"explain":"salient (눈에 띄는)"},{"day":25,"sentence":"The board refused to ____ the merger until independent auditors confirmed the smaller company's financial statements were accurate.","translation":"이사회는 독립 감사인들이 그 작은 회사의 재무제표가 정확하다고 확인할 때까지 합병을 승인하지 않겠다고 했다.","tc":{"choices":["castigate","amiable","sanction","pinnacle"],"answer":2},"se":{"choices":["elicit","accept","amorphous","authorize","conundrum","incisive"],"answers":[1,3],"sourceWord":"sanction"},"explain":"sanction (허가하다)"},{"day":25,"sentence":"Rather than rushing through the meal, the chef encouraged diners to ____ each course slowly, pausing between bites.","translation":"식사를 서둘러 끝내기보다는, 셰프는 손님들이 각 코스를 천천히 음미하며 한 입 한 입 사이에 여유를 두도록 권했다.","tc":{"choices":["frugal","savor","overt","resolute"],"answer":1},"se":{"choices":["elucidate","relish","probity","mendacious","hermetic","appreciate"],"answers":[1,5],"sourceWord":"savor"},"explain":"savor (맛보다)"},{"day":25,"sentence":"The desert town received such ____ rainfall each year that farmers relied entirely on irrigation from a distant river.","translation":"그 사막 마을은 매년 강수량이 너무나 적어서 농부들은 전적으로 멀리 있는 강에서 끌어온 관개용수에 의존했다.","tc":{"choices":["harbinger","skittish","scanty","equanimity"],"answer":2},"se":{"choices":["vacillate","pertinent","deficient","spurious","strident","paltry"],"answers":[2,5],"sourceWord":"scanty"},"explain":"scanty (적은)"},{"day":25,"sentence":"The film received a ____ review from the critic, who called it the most incoherent production of the decade.","translation":"그 영화는 평론가로부터 신랄한 혹평을 받았는데, 그는 이 작품을 지난 십 년간 가장 앞뒤가 맞지 않는 작품이라고 불렀다.","tc":{"choices":["indifferent","hermetic","scathing","sober"],"answer":2},"se":{"choices":["indifferent","nemesis","banal","delude","virulent","withering"],"answers":[4,5],"sourceWord":"scathing"},"explain":"scathing (상처내는)"},{"day":25,"sentence":"Her ____ wit kept the entire dinner party laughing, as she turned even mundane office stories into memorable anecdotes.","translation":"그녀의 번득이는 재치는 저녁 파티 내내 모두를 웃게 만들었고, 평범한 회사 이야기조차 기억에 남는 일화로 바꾸어 놓았다.","tc":{"choices":["scintillating","belligerent","auspicious","insipid"],"answer":0},"se":{"choices":["pedantic","inured","ephemeral","witty","prodigal","dazzling"],"answers":[3,5],"sourceWord":"scintillating"},"explain":"scintillating (번득이는)"},{"day":26,"sentence":"The colt remained ____ around strangers, bolting at the slightest unfamiliar sound even after months of gentle handling by the trainer.","translation":"그 망아지는 몇 달 동안 조련사의 부드러운 다룸에도 불구하고 낯선 사람들 주위에서 여전히 신경질적이어서, 아주 작은 낯선 소리에도 도망쳤다.","tc":{"choices":["circumspect","skittish","placate","disavow"],"answer":1},"se":{"choices":["excitable","nonchalant","solvent","hone","venal","skittery"],"answers":[0,5],"sourceWord":"skittish"},"explain":"skittish (쉽게 흥분하는)"},{"day":26,"sentence":"Critics attributed the empire's decline not to external invasion but to the ____ of its later rulers, who preferred banquets to governance.","translation":"비평가들은 제국의 쇠퇴가 외부 침략이 아니라 통치보다 연회를 선호했던 후기 통치자들의 게으름 때문이라고 보았다.","tc":{"choices":["clamor","tentative","equivocal","sloth"],"answer":3},"se":{"choices":["shiftlessness","inertia","placate","sober","intransigent","nemesis"],"answers":[0,1],"sourceWord":"sloth"},"explain":"sloth (게으름)"},{"day":26,"sentence":"Despite his brilliant research, the professor's ____ handwriting made his lecture notes nearly impossible for students to decipher.","translation":"그 교수는 뛰어난 연구 업적에도 불구하고 글씨가 지저분해서 학생들이 강의 노트를 거의 해독할 수 없었다.","tc":{"choices":["clairvoyant","nemesis","innocuous","slovenly"],"answer":3},"se":{"choices":["tirade","slack","slatternly","abate","sparse","untenable"],"answers":[1,2],"sourceWord":"slovenly"},"explain":"slovenly (되는대로 하는)"},{"day":26,"sentence":"After the heavy lunch, the entire office grew ____, and productivity visibly dropped for the rest of the afternoon.","translation":"푸짐한 점심을 먹은 후 사무실 전체가 활력을 잃어, 오후 내내 생산성이 눈에 띄게 떨어졌다.","tc":{"choices":["halcyon","gullible","hubris","sluggish"],"answer":3},"se":{"choices":["indolent","equivocate","languid","unassuming","accolade","fractious"],"answers":[0,2],"sourceWord":"sluggish"},"explain":"sluggish (눈얀)"},{"day":26,"sentence":"Even after years of aggressive expansion, the company remained remarkably ____, carrying almost no debt on its balance sheet.","translation":"수년간의 공격적인 확장에도 불구하고 그 회사는 대차대조표에 부채가 거의 없이 놀라울 정도로 지급 능력이 있는 상태를 유지했다.","tc":{"choices":["solvent","delineate","pariah","coax"],"answer":0},"se":{"choices":["tout","prevalent","pernicious","solid","ameliorate","secure"],"answers":[3,5],"sourceWord":"solvent"},"explain":"solvent (지급 능력이 있는)"},{"day":26,"sentence":"The journalist uncovered a ____ scheme in which officials had accepted bribes to overlook illegal dumping for decades.","translation":"그 기자는 관료들이 수십 년간 불법 투기를 눈감아 주는 대가로 뇌물을 받아온 추잡한 계략을 폭로했다.","tc":{"choices":["sordid","decorous","flippant","sparse"],"answer":0},"se":{"choices":["dishonorable","untenable","equanimity","seedy","overt","furtive"],"answers":[0,3],"sourceWord":"sordid"},"explain":"sordid (추집스런)"},{"day":27,"sentence":"While the crowd panicked at the news, the captain remained ____, calmly issuing instructions as though nothing unusual had occurred.","translation":"군중이 소식에 공황 상태에 빠졌을 때도 선장은 침착함을 잃지 않고 마치 아무 일도 없었다는 듯 차분하게 지시를 내렸다.","tc":{"choices":["stolid","halcyon","rescind","notoriety"],"answer":0},"se":{"choices":["cool","dull","clairvoyant","capricious","lax","elicit"],"answers":[0,1],"sourceWord":"stolid"},"explain":"stolid (차분한)"},{"day":27,"sentence":"The ____ screech of the factory alarm forced every worker to cover their ears and evacuate immediately.","translation":"공장 경보의 귀에 거슬리는 날카로운 소리에 모든 노동자가 귀를 막고 즉시 대피할 수밖에 없었다.","tc":{"choices":["strident","futile","intemperate","clamor"],"answer":0},"se":{"choices":["contempt","screeching","placate","loud","turbulent","abstain"],"answers":[1,3],"sourceWord":"strident"},"explain":"strident (불쾌한)"},{"day":27,"sentence":"New ____ regulations require manufacturers to test every batch of medication for contaminants before it reaches pharmacies.","translation":"새로운 엄격한 규정에 따라 제조업체는 의약품이 약국에 도달하기 전에 모든 배치의 오염 물질 검사를 해야 한다.","tc":{"choices":["indefatigable","sordid","rebuff","stringent"],"answer":3},"se":{"choices":["sublime","exacting","cogent","tough","maudlin","belligerent"],"answers":[1,3],"sourceWord":"stringent"},"explain":"stringent (엄격한)"},{"day":27,"sentence":"Years of repetitive, unchallenging assignments began to ____ her once-sharp analytical mind, leaving her indifferent to new ideas.","translation":"반복적이고 도전적이지 않은 업무가 수년간 이어지면서 한때 예리했던 그녀의 분석적 사고를 무기력하게 만들어, 그녀는 새로운 아이디어에 무관심해졌다.","tc":{"choices":["terse","stultify","mendacious","aversion"],"answer":1},"se":{"choices":["mundane","numb","nonentity","fidelity","sagacious","bore"],"answers":[1,5],"sourceWord":"stultify"},"explain":"stultify (무기력하게 만들다)"},{"day":27,"sentence":"Standing at the edge of the canyon at dawn, the hikers were struck silent by the ____ vastness spread before them.","translation":"새벽에 협곡 가장자리에 선 등산객들은 눈앞에 펼쳐진 숭고한 광대함에 말을 잃었다.","tc":{"choices":["pernicious","prevalent","sublime","fallacious"],"answer":2},"se":{"choices":["lax","superb","proclivity","corroborate","magnificent","discrepancy"],"answers":[1,4],"sourceWord":"sublime"},"explain":"sublime (숭고한)"},{"day":27,"sentence":"In the new organizational chart, the marketing division was made ____ to sales, reporting directly to its director.","translation":"새로운 조직도에서 마케팅 부서는 영업 부서에 종속적인 위치가 되어 영업 이사에게 직접 보고하게 되었다.","tc":{"choices":["nascent","subordinate","obsequious","harbinger"],"answer":1},"se":{"choices":["subservient","eclectic","hedonism","peripheral","sloth","slovenly"],"answers":[0,3],"sourceWord":"subordinate"},"explain":"subordinate (종속적인)"},{"day":28,"sentence":"Few interns would have the ____ to challenge the CEO's proposal openly during a company-wide meeting.","translation":"전 직원이 모인 회의에서 CEO의 제안에 공개적으로 반박할 뻔뻔함을 가진 인턴은 거의 없을 것이다.","tc":{"choices":["rant","adamant","fetter","temerity"],"answer":3},"se":{"choices":["homogeneous","nerve","intransigent","adamant","misanthrope","cheek"],"answers":[1,5],"sourceWord":"temerity"},"explain":"temerity (지나친 자신감)"},{"day":28,"sentence":"Despite repeated rejections from publishers, the young novelist remained ____, submitting her manuscript to yet another agency.","translation":"출판사들로부터 거듭 거절당했음에도 그 젊은 소설가는 끈질기게 포기하지 않고 원고를 또 다른 에이전시에 제출했다.","tc":{"choices":["deleterious","paradox","tenacious","impassive"],"answer":2},"se":{"choices":["panacea","persevering","determined","solvent","nascent","taciturn"],"answers":[1,2],"sourceWord":"tenacious"},"explain":"tenacious (고집센)"},{"day":28,"sentence":"The committee reached only a ____ agreement, subject to revision once the final budget figures were released.","translation":"위원회는 최종 예산 수치가 발표되면 수정될 수 있는 임시적인 합의에만 도달했다.","tc":{"choices":["tentative","impecunious","fallacious","petulant"],"answer":0},"se":{"choices":["timid","brazen","hesitant","petulant","insurgent","paucity"],"answers":[0,2],"sourceWord":"tentative"},"explain":"tentative (임시적인)"},{"day":28,"sentence":"The coach launched into a lengthy ____ after the referee's controversial call, berating the officials for nearly ten minutes.","translation":"심판의 논란이 된 판정 후 감독은 장광설을 늘어놓으며 거의 십 분 동안 심판진을 질책했다.","tc":{"choices":["candor","tirade","untenable","frivolous"],"answer":1},"se":{"choices":["polemic","eulogy","rant","cogent","erudite","fatuous"],"answers":[0,2],"sourceWord":"tirade"},"explain":"tirade (장광설)"},{"day":28,"sentence":"Crops withered across the region during the ____ summer, as temperatures hovered above forty degrees for weeks without rain.","translation":"찌는 듯이 무더운 여름 동안 기온이 몇 주 동안 비 없이 섭씨 40도를 웃돌면서 그 지역 전역의 작물이 시들었다.","tc":{"choices":["salient","torrid","pervade","euphemism"],"answer":1},"se":{"choices":["tirade","brevity","copious","coax","blistering","burning"],"answers":[4,5],"sourceWord":"torrid"},"explain":"torrid (매우 덥고 건조한)"},{"day":28,"sentence":"The startup's founders began to ____ their app as the future of banking long before it had a single paying customer.","translation":"그 스타트업 창업자들은 단 한 명의 유료 고객도 없던 시절부터 자신들의 앱을 은행업의 미래라고 대대적으로 선전하기 시작했다.","tc":{"choices":["timorous","fervent","evince","tout"],"answer":3},"se":{"choices":["recommend","discrepancy","solicit","mitigate","rant","enervate"],"answers":[0,2],"sourceWord":"tout"},"explain":"tout (과대선전하다)"},{"day":29,"sentence":"Editors had to ____ the interview for the evening broadcast, cutting nearly twenty minutes of nuanced discussion down to ninety seconds.","translation":"편집자들은 저녁 방송을 위해 인터뷰를 줄여야 했고, 거의 20분에 달하는 섬세한 논의를 90초로 압축했다.","tc":{"choices":["garrulous","truncate","beleaguer","nebulous"],"answer":1},"se":{"choices":["mitigate","stringent","reduce","sloth","condense","subordinate"],"answers":[2,4],"sourceWord":"truncate"},"explain":"truncate (길이를 줄이다)"},{"day":29,"sentence":"The nation entered a ____ period following the election, marked by protests, resignations, and sudden shifts in policy.","translation":"선거 이후 그 나라는 시위와 사임, 급작스러운 정책 변화로 특징지어지는 혼란스러운 시기에 접어들었다.","tc":{"choices":["turbulent","avarice","churlish","defer"],"answer":0},"se":{"choices":["exonerate","sanction","sublime","stormy","bombastic","unstable"],"answers":[3,5],"sourceWord":"turbulent"},"explain":"turbulent (무질서하고 혼란스러운)"},{"day":29,"sentence":"Reviewers dismissed the memoir's prose as ____, weighed down by ornate metaphors that obscured rather than illuminated the author's actual experiences.","translation":"평론가들은 그 회고록의 문체를 과장되었다고 평가했는데, 화려한 은유가 저자의 실제 경험을 드러내기보다 오히려 가려버렸기 때문이다.","tc":{"choices":["hapless","turgid","abate","evanescent"],"answer":1},"se":{"choices":["florid","scanty","finesse","bombastic","iconoclast","consternation"],"answers":[0,3],"sourceWord":"turgid"},"explain":"turgid (과장된)"},{"day":29,"sentence":"She took ____ at his offhand remark about her accent, though he insisted he had meant no insult.","translation":"그는 모욕할 의도가 없었다고 주장했지만, 그녀는 자신의 억양에 대한 그의 무심한 발언에 불쾌감을 느꼈다.","tc":{"choices":["hedonism","umbrage","sober","modicum"],"answer":1},"se":{"choices":["anger","solicitous","offense","eulogy","esoteric","tout"],"answers":[0,2],"sourceWord":"umbrage"},"explain":"umbrage (불쾌감)"},{"day":29,"sentence":"The festival descended into ____ chaos once the headline act canceled and the crowd's patience finally snapped.","translation":"헤드라이너 공연이 취소되고 관중의 인내심이 마침내 한계에 다다르자 축제는 구속되지 않은 혼돈으로 치달았다.","tc":{"choices":["unbridled","tenuous","impassive","discordant"],"answer":0},"se":{"choices":["unrestrained","exonerate","fortuitous","mitigate","unrestricted","tenuous"],"answers":[0,4],"sourceWord":"unbridled"},"explain":"unbridled (구속되지 않은)"},{"day":29,"sentence":"His ____ table manners at the formal dinner drew disapproving glances from the ambassador's more refined guests.","translation":"격식 있는 만찬에서 그의 세련되지 못한 식사 예절은 대사관 손님들의 못마땅한 시선을 받았다.","tc":{"choices":["mitigate","solvent","uncouth","prevalent"],"answer":2},"se":{"choices":["churlish","meager","fatuous","repudiate","turbulent","boorish"],"answers":[0,5],"sourceWord":"uncouth"},"explain":"uncouth (세련되지 못한)"},{"day":30,"sentence":"The report accused several ____ customs officials of routinely accepting cash to wave smuggled goods through the border unchecked.","translation":"그 보고서는 여러 매수되기 쉬운 세관 공무원들이 밀수품을 검사 없이 통과시켜 주는 대가로 습관적으로 현금을 받았다고 고발했다.","tc":{"choices":["venal","belie","mitigate","hone"],"answer":0},"se":{"choices":["unscrupulous","corrupt","stolid","respite","gullible","brazen"],"answers":[0,1],"sourceWord":"venal"},"explain":"venal (매수되기쉬운)"},{"day":30,"sentence":"Villagers still ____ the old healer decades after her death, leaving offerings at her shrine every harvest season.","translation":"마을 사람들은 그 노인 치유사가 세상을 떠난 지 수십 년이 지난 지금도 그녀를 깊이 존경하며, 매 수확철마다 그녀의 사당에 공물을 바친다.","tc":{"choices":["slovenly","venerate","negligent","nemesis"],"answer":1},"se":{"choices":["paradox","revere","respect","delectable","deleterious","corroborate"],"answers":[1,2],"sourceWord":"venerate"},"explain":"venerate (깊이 존경하나)"},{"day":30,"sentence":"Constant interruptions from her younger brother began to ____ her just as she was finishing the final page of her thesis.","translation":"논문의 마지막 페이지를 마무리하려던 참에 남동생의 끊임없는 방해가 그녀를 짜증나게 하기 시작했다.","tc":{"choices":["probity","equanimity","discrepancy","vex"],"answer":3},"se":{"choices":["delineate","irritate","ostentatious","resilient","panacea","infuriate"],"answers":[1,5],"sourceWord":"vex"},"explain":"vex (화나게 하다)"},{"day":30,"sentence":"Engineers concluded that solar power, once dismissed as impractical, is now a ____ alternative for remote villages lacking grid access.","translation":"한때 비실용적이라고 치부되었던 태양광 발전이 이제는 전력망에 접근할 수 없는 외딴 마을들에게 실행 가능한 대안이라고 엔지니어들은 결론지었다.","tc":{"choices":["discreet","paltry","fidelity","viable"],"answer":3},"se":{"choices":["aversion","precarious","edify","realistic","achievable","vindicate"],"answers":[3,4],"sourceWord":"viable"},"explain":"viable (1.실행 가능한)"},{"day":30,"sentence":"Unable to travel herself, the retired sailor found ____ adventure in her grandson's letters describing his voyages across the Pacific.","translation":"직접 여행할 수 없었던 은퇴한 선원은 태평양을 항해하는 손자의 편지를 통해 대리 모험을 즐겼다.","tc":{"choices":["harangue","lethargy","vicarious","libertine"],"answer":2},"se":{"choices":["intrepid","raucous","surrogate","copious","resilient","indirect"],"answers":[2,5],"sourceWord":"vicarious"},"explain":"vicarious (대리의)"},{"day":30,"sentence":"The biography traces every ____ of the composer's career, from early poverty to sudden fame and eventual obscurity.","translation":"그 전기는 작곡가의 초기 가난부터 갑작스러운 명성, 그리고 이후의 무명에 이르기까지 그의 경력의 모든 변전을 추적한다.","tc":{"choices":["delineate","umbrage","pragmatic","vicissitude"],"answer":3},"se":{"choices":["change","impecunious","eclectic","erratic","shift","sublime"],"answers":[0,4],"sourceWord":"vicissitude"},"explain":"vicissitude (변전)"},{"day":1,"sentence":"The negotiator's ____ handling of the dispute allowed both sides to walk away believing they had won concessions.","translation":"그 협상가의 솜씨 좋은 분쟁 처리 덕분에 양측 모두 자신들이 양보를 얻어냈다고 믿으며 자리를 떠날 수 있었다.","tc":{"choices":["fallacious","maverick","ebullient","adroit"],"answer":3},"se":{"choices":["egalitarian","cogent","deft","skeptical","zealous","adept"],"answers":[2,5],"sourceWord":"adroit"},"explain":"adroit (솜씨 좋은)"},{"day":2,"sentence":"The two chemists, once close collaborators, developed a mutual ____ so deep that they refused to attend the same conferences.","translation":"한때 긴밀히 협력했던 두 화학자는 같은 학회에 참석하기를 거부할 정도로 깊은 상호 반감을 갖게 되었다.","tc":{"choices":["antipathy","slovenly","incongruous","amiable"],"answer":0},"se":{"choices":["indefatigable","solicitous","bolster","hostility","uncouth","animosity"],"answers":[3,5],"sourceWord":"antipathy"},"explain":"antipathy (반감)"},{"day":3,"sentence":"The negotiations collapsed almost immediately when the delegation adopted a ____ tone rather than seeking common ground.","translation":"그 대표단이 공통점을 찾기보다 호전적인 태도를 취하면서 협상은 거의 즉시 결렬되었다.","tc":{"choices":["rebuff","tenacious","belligerent","hone"],"answer":2},"se":{"choices":["abstain","inclement","sagacious","discrepancy","hostile","bellicose"],"answers":[4,5],"sourceWord":"belligerent"},"explain":"belligerent (호전적인)"},{"day":4,"sentence":"The editor praised the reporter's ____, noting that the entire investigation was summarized in just three tight paragraphs.","translation":"편집자는 그 기자의 간결함을 칭찬하며, 전체 조사 내용이 단 세 개의 압축된 문단으로 요약되었다고 언급했다.","tc":{"choices":["brevity","deign","nascent","eclectic"],"answer":0},"se":{"choices":["pithiness","chicanery","fervor","concision","umbrage","adamant"],"answers":[0,3],"sourceWord":"brevity"},"explain":"brevity (간결함)"},{"day":5,"sentence":"Fully ____ of the risks involved, the climbers still chose to attempt the summit before the storm arrived.","translation":"등반가들은 수반되는 위험을 완전히 알고 있었음에도 폭풍이 닥치기 전에 정상 등정을 시도하기로 했다.","tc":{"choices":["cognizant","sanction","impecunious","unassuming"],"answer":0},"se":{"choices":["ignoble","acquainted","perfunctory","ameliorate","aware","nemesis"],"answers":[1,4],"sourceWord":"cognizant"},"explain":"cognizant (알고 있는)"},{"day":6,"sentence":"The archive contained ____ notes on the expedition, filling dozens of leather-bound journals with daily observations.","translation":"그 자료실에는 탐험에 관한 풍부한 기록이 담겨 있었는데, 수십 권의 가죽 장정 일지에 매일의 관찰 내용이 가득 채워져 있었다.","tc":{"choices":["copious","avarice","discreet","castigate"],"answer":0},"se":{"choices":["overflowing","duplicity","discreet","rant","ample","proclivity"],"answers":[0,4],"sourceWord":"copious"},"explain":"copious (풍부한)"},{"day":7,"sentence":"When asked to sign the contract without reading it, the lawyer immediately began to ____, insisting on a full review first.","translation":"계약서를 읽지 않고 서명하라는 요청을 받자 변호사는 즉시 이의를 제기하며 먼저 전체 검토를 해야 한다고 고집했다.","tc":{"choices":["demur","elucidate","intermittent","desultory"],"answer":0},"se":{"choices":["bombastic","object","dissent","phlegmatic","inured","mendacious"],"answers":[1,2],"sourceWord":"demur"},"explain":"demur (이의 제기하다)"},{"day":8,"sentence":"A group of ____ employees filed a formal complaint after their promised bonuses were quietly canceled.","translation":"약속되었던 보너스가 조용히 취소되자 불만을 품은 직원들 몇 명이 공식 항의서를 제출했다.","tc":{"choices":["acumen","lavish","disgruntled","sparse"],"answer":2},"se":{"choices":["homogeneous","dissatisfied","disaffected","tirade","notoriety","aberrant"],"answers":[1,2],"sourceWord":"disgruntled"},"explain":"disgruntled (화난)"},{"day":9,"sentence":"The professor paused mid-lecture to ____ a particularly dense passage that had left most of the class confused.","translation":"교수는 대부분의 학생들을 혼란스럽게 만든 특히 난해한 구절을 명료하게 설명하기 위해 강의를 잠시 멈췄다.","tc":{"choices":["elucidate","eclectic","laconic","exacerbate"],"answer":0},"se":{"choices":["untenable","negligent","turgid","unravel","nonchalant","illuminate"],"answers":[3,5],"sourceWord":"elucidate"},"explain":"elucidate (명료하게 하다)"},{"day":10,"sentence":"Her calm response to the crisis seemed to ____ a level of composure few had expected from someone so young.","translation":"위기에 대한 그녀의 침착한 대응은 그토록 젊은 사람에게서 거의 기대하지 못했던 수준의 침착함을 명시하는 듯했다.","tc":{"choices":["salient","harangue","evince","intrepid"],"answer":2},"se":{"choices":["repudiate","express","delectable","bombastic","manifest","spurious"],"answers":[1,4],"sourceWord":"evince"},"explain":"evince (명시하다)"},{"day":11,"sentence":"The chef handled the delicate soufflé with such ____ that it never once collapsed during the entire tasting menu.","translation":"그 요리사는 섬세한 수플레를 대단한 솜씨로 다루어 테이스팅 메뉴 내내 단 한 번도 주저앉지 않았다.","tc":{"choices":["venal","finesse","mundane","diffident"],"answer":1},"se":{"choices":["chide","disavow","sordid","modicum","delicacy","diplomacy"],"answers":[4,5],"sourceWord":"finesse"},"explain":"finesse (섬세함)"},{"day":12,"sentence":"Efforts to patch the aging dam proved ____, as new cracks appeared faster than engineers could seal the old ones.","translation":"낡은 댐을 보수하려는 노력은 쓸모없는 것으로 드러났는데, 엔지니어들이 기존 균열을 막는 속도보다 새로운 균열이 생기는 속도가 더 빨랐기 때문이다.","tc":{"choices":["perfunctory","deleterious","hone","futile"],"answer":3},"se":{"choices":["unavailing","obsequious","amiable","unproductive","nonchalant","fatuous"],"answers":[0,3],"sourceWord":"futile"},"explain":"futile (쓸모없는)"},{"day":13,"sentence":"Samples were stored in a ____ container to prevent even trace amounts of oxygen from contaminating the reaction.","translation":"미량의 산소조차 반응을 오염시키지 못하도록 샘플은 밀폐된 용기에 보관되었다.","tc":{"choices":["hermetic","verbose","strident","sublime"],"answer":0},"se":{"choices":["respite","mitigate","abstruse","occult","fraught","effervescent"],"answers":[2,3],"sourceWord":"hermetic"},"explain":"hermetic (1.밀봉)"},{"day":14,"sentence":"Customs agents seized a shipment of ____ pharmaceuticals that had been disguised as ordinary vitamin supplements.","translation":"세관 요원들은 일반 비타민 보충제로 위장된 불법 의약품 수송물을 압수했다.","tc":{"choices":["fatuous","illicit","idiosyncrasy","hone"],"answer":1},"se":{"choices":["illegal","solicitous","unlawful","untenable","discreet","guile"],"answers":[0,2],"sourceWord":"illicit"},"explain":"illicit (불법적인)"},{"day":15,"sentence":"His parents worried that months of unstructured vacation had made their once-ambitious son ____ and unwilling to return to his studies.","translation":"부모는 몇 달간의 계획 없는 방학이 한때 야심찼던 아들을 게으르게 만들어 공부로 돌아가기를 꺼리게 만들었다고 걱정했다.","tc":{"choices":["chide","indifferent","pretentious","indolent"],"answer":3},"se":{"choices":["incongruous","mercurial","shiftless","elated","idle","meager"],"answers":[2,4],"sourceWord":"indolent"},"explain":"indolent (게으른)"},{"day":16,"sentence":"Within hours of the announcement, the customer service line was ____ with calls from confused and anxious subscribers.","translation":"발표 후 몇 시간 만에 고객 서비스 전화선은 혼란스럽고 불안해하는 구독자들의 전화로 넘쳐났다.","tc":{"choices":["quixotic","euphemism","inundate","parsimony"],"answer":2},"se":{"choices":["abstruse","glut","flood","bravado","intrepid","pretentious"],"answers":[1,2],"sourceWord":"inundate"},"explain":"inundate (넘치게 하다)"},{"day":17,"sentence":"The novel's protagonist, a notorious ____, abandons every romantic entanglement the moment it threatens his freedom.","translation":"소설의 주인공은 악명 높은 난봉꾼으로, 자신의 자유를 위협하는 순간 모든 연애 관계를 저버린다.","tc":{"choices":["ambiguous","euphemism","furtive","libertine"],"answer":3},"se":{"choices":["roue","rebut","profligate","fractious","obsequious","slovenly"],"answers":[0,2],"sourceWord":"libertine"},"explain":"libertine (난봉꾼)"},{"day":18,"sentence":"Even a ____ of patience would have prevented the argument from escalating into a full-blown shouting match.","translation":"조금의 인내심만 있었더라도 그 언쟁이 전면적인 고함전으로 번지는 것을 막을 수 있었을 것이다.","tc":{"choices":["indifferent","savor","fallacious","modicum"],"answer":3},"se":{"choices":["fragment","pariah","atom","stringent","malleable","inundate"],"answers":[0,2],"sourceWord":"modicum"},"explain":"modicum (소량)"},{"day":19,"sentence":"The chef's restaurant gained sudden ____ after a health inspector found dozens of violations during a routine visit.","translation":"그 요리사의 식당은 위생 검사관이 정기 점검 중 수십 건의 위반 사항을 발견한 후 갑작스레 악명을 얻었다.","tc":{"choices":["libertine","pragmatic","notoriety","overt"],"answer":2},"se":{"choices":["disrepute","infamy","erudite","solvent","primeval","resilient"],"answers":[0,1],"sourceWord":"notoriety"},"explain":"notoriety (유명함)"},{"day":20,"sentence":"Researchers blamed the ____ of reliable data for their inability to draw firm conclusions about the disease's origins.","translation":"연구자들은 그 질병의 기원에 대해 확실한 결론을 내리지 못한 원인을 신뢰할 만한 데이터의 부족 탓으로 돌렸다.","tc":{"choices":["vicarious","eulogy","capricious","paucity"],"answer":3},"se":{"choices":["nemesis","sparseness","sordid","boorish","lack","elicit"],"answers":[1,4],"sourceWord":"paucity"},"explain":"paucity (소량)"}];
+
 document.getElementById('totalCount').textContent = DATA.length;
 
 const dayTabsEl = document.getElementById('dayTabs');
@@ -3232,6 +3441,655 @@ starOnlyEl.addEventListener('change', () => {
 makeTabs();
 render();
 refreshBookmarkStatus();
+
+/* =========================================================
+   상단 메인 탭 전환 (단어장 / 실전 문제 / 단어 퀴즈)
+========================================================= */
+const mainTabButtons = document.querySelectorAll('.main-tab');
+const sections = {
+  cards: document.getElementById('section-cards'),
+  practice: document.getElementById('section-practice'),
+  quiz: document.getElementById('section-quiz'),
+};
+mainTabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    mainTabButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.section;
+    Object.keys(sections).forEach(key => {
+      sections[key].style.display = (key === target) ? '' : 'none';
+    });
+    if(target === 'practice' && !practiceInited){ initPractice(); }
+    if(target === 'quiz' && !quizInited){ initQuiz(); }
+  });
+});
+
+/* =========================================================
+   🎯 단어 퀴즈 (DATA 기반, 자동 생성 — 별도 콘텐츠 불필요)
+========================================================= */
+let quizInited = false;
+let quizMode = 'wordToMeaning';
+let quizPool = [];
+let quizIdx = 0;
+let quizScore = 0;
+let quizAnswered = false;
+let quizSource = 'day'; // 'day' | 'wrong' — 다시 풀기 버튼이 어느 소스로 재시작할지 기억
+
+const quizSetupEl = document.getElementById('quizSetup');
+const quizPlayEl = document.getElementById('quizPlay');
+const quizDaySelectEl = document.getElementById('quizDaySelect');
+const quizStartBtnEl = document.getElementById('quizStartBtn');
+const quizEndBtnEl = document.getElementById('quizEndBtn');
+const quizScoreTextEl = document.getElementById('quizScoreText');
+const quizQuestionBoxEl = document.getElementById('quizQuestionBox');
+const quizWrongOpenBtnEl = document.getElementById('quizWrongOpenBtn');
+const quizWrongViewEl = document.getElementById('quizWrongView');
+const quizWrongListEl = document.getElementById('quizWrongList');
+const quizWrongRetryBtnEl = document.getElementById('quizWrongRetryBtn');
+const quizWrongClearBtnEl = document.getElementById('quizWrongClearBtn');
+const quizWrongCloseBtnEl = document.getElementById('quizWrongCloseBtn');
+
+function initQuiz(){
+  quizInited = true;
+  // Day 선택 옵션 채우기
+  quizDaySelectEl.innerHTML = '<option value="all">전체 (Day 1~30)</option>' +
+    days.map(d => `<option value="${d}">Day ${d}</option>`).join('') +
+    '<option value="starred">⭐ 어려운 단어만</option>';
+
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      quizMode = btn.dataset.mode;
+    });
+  });
+
+  quizStartBtnEl.addEventListener('click', startQuiz);
+  quizEndBtnEl.addEventListener('click', endQuiz);
+
+  quizWrongOpenBtnEl.addEventListener('click', () => {
+    quizSetupEl.style.display = 'none';
+    quizWrongViewEl.style.display = 'block';
+    renderQuizWrongList();
+  });
+  quizWrongCloseBtnEl.addEventListener('click', () => {
+    quizWrongViewEl.style.display = 'none';
+    quizSetupEl.style.display = 'block';
+  });
+  quizWrongClearBtnEl.addEventListener('click', () => {
+    if(Object.keys(quizWrong).length === 0) return;
+    if(!confirm('오답노트에 담긴 단어를 모두 삭제할까요?')) return;
+    quizWrong = {};
+    saveQuizWrong();
+    renderQuizWrongList();
+    updateQuizWrongButtonLabel();
+  });
+  quizWrongRetryBtnEl.addEventListener('click', startQuizFromWrongList);
+
+  updateQuizWrongButtonLabel();
+}
+
+function beginQuizPlay(pool){
+  quizPool = shuffleArray(pool);
+  quizIdx = 0;
+  quizScore = 0;
+  quizSetupEl.style.display = 'none';
+  quizWrongViewEl.style.display = 'none';
+  quizPlayEl.style.display = 'block';
+  renderQuizQuestion();
+}
+
+function startQuiz(){
+  const scope = quizDaySelectEl.value;
+  let pool;
+  if(scope === 'all') pool = DATA.slice();
+  else if(scope === 'starred') pool = DATA.filter(row => starredSet.has(starKey(row[0], row[1])));
+  else pool = DATA.filter(row => row[0] === Number(scope));
+
+  if(pool.length < 4){
+    alert('문제를 만들기엔 단어 수가 너무 적어요 (최소 4개 필요). 다른 범위를 선택해주세요.');
+    return;
+  }
+  quizSource = 'day';
+  beginQuizPlay(pool);
+}
+
+function startQuizFromWrongList(){
+  const entries = Object.values(quizWrong);
+  if(entries.length === 0){
+    alert('오답노트가 비어있어요.');
+    return;
+  }
+  const pool = entries.map(e => [e.day, e.word, e.meaning]);
+  quizSource = 'wrong';
+  beginQuizPlay(pool);
+}
+
+function endQuiz(){
+  quizPlayEl.style.display = 'none';
+  quizWrongViewEl.style.display = 'none';
+  quizSetupEl.style.display = 'block';
+}
+
+/* ---- 퀴즈 오답노트 (localStorage에 누적 저장, 사용자가 직접 삭제 가능) ---- */
+const QUIZ_WRONG_KEY = 'gre_voca_quiz_wrong_v1';
+function loadQuizWrong(){
+  try{
+    const raw = localStorage.getItem(QUIZ_WRONG_KEY);
+    if(!raw) return {};
+    const parsed = JSON.parse(raw);
+    return (parsed && typeof parsed === 'object') ? parsed : {};
+  }catch(e){ return {}; }
+}
+function saveQuizWrong(){
+  try{ localStorage.setItem(QUIZ_WRONG_KEY, JSON.stringify(quizWrong)); }catch(e){}
+}
+let quizWrong = loadQuizWrong();
+
+function recordQuizWrong(day, word, meaning){
+  const key = day + '|' + word;
+  const prev = quizWrong[key];
+  quizWrong[key] = {
+    day, word, meaning,
+    wrongCount: prev ? prev.wrongCount + 1 : 1,
+    lastWrong: Date.now()
+  };
+  saveQuizWrong();
+  updateQuizWrongButtonLabel();
+}
+
+function removeQuizWrong(key){
+  delete quizWrong[key];
+  saveQuizWrong();
+  renderQuizWrongList();
+  updateQuizWrongButtonLabel();
+}
+
+function updateQuizWrongButtonLabel(){
+  if(!quizWrongOpenBtnEl) return;
+  quizWrongOpenBtnEl.textContent = `📕 퀴즈 오답노트 (${Object.keys(quizWrong).length})`;
+}
+
+function renderQuizWrongList(){
+  const entries = Object.entries(quizWrong).sort((a, b) => b[1].lastWrong - a[1].lastWrong);
+  if(entries.length === 0){
+    quizWrongListEl.innerHTML = `<div class="quiz-wrong-empty">아직 틀린 단어가 없어요. 퀴즈를 풀어보세요 🙂</div>`;
+    return;
+  }
+  quizWrongListEl.innerHTML = entries.map(([key, e]) => `
+    <div class="qw-item">
+      <div class="qw-item-main">
+        <div class="qw-item-word">${e.word} <span style="color:var(--gold-dim); font-weight:600;">DAY ${e.day}</span></div>
+        <div class="qw-item-meaning">${shortQuizMeaning(e.meaning)}</div>
+        <div class="qw-item-meta">${e.wrongCount}번 틀림</div>
+      </div>
+      <button class="qw-del-btn" data-key="${key}" title="오답노트에서 삭제">✕</button>
+    </div>
+  `).join('');
+  quizWrongListEl.querySelectorAll('.qw-del-btn').forEach(btn => {
+    btn.onclick = () => removeQuizWrong(btn.dataset.key);
+  });
+}
+
+function shuffleArray(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// 단어 뜻에서 "(품사설명)", "1.", "2." 같은 번호/괄호 접두어를 떼고
+// 가장 첫 번째 의미 하나만 깔끔하게 뽑아주는 공용 함수
+function shortQuizMeaning(m){
+  let s = m.split('/')[0].trim();
+  s = s.replace(/^\(.*?\)\s*/, '');       // 앞쪽 괄호 설명 제거: (정도,세기)
+  s = s.replace(/^\d+\.\s*/, '');         // 앞쪽 번호 제거: 1. / 2.
+  s = s.split(',')[0].trim();
+  return s || m.trim();
+}
+
+// DATA에서 단어 → 뜻 전체를 바로 찾기 위한 맵 (퀴즈/실전문제 해설에 공용으로 사용)
+const WORD_MEANING = {};
+DATA.forEach(row => { if(!(row[1] in WORD_MEANING)) WORD_MEANING[row[1]] = row[2]; });
+
+function renderQuizQuestion(){
+  if(quizIdx >= quizPool.length){
+    renderQuizResult();
+    return;
+  }
+  quizAnswered = false;
+  quizScoreTextEl.textContent = `${quizScore} / ${quizIdx}  (${quizIdx + 1}/${quizPool.length}문제)`;
+
+  const row = quizPool[quizIdx];
+  const [day, word, meaning] = row;
+
+  // 오답 3개는 같은 범위(quizPool) 우선, 부족하면 전체 DATA에서 보충
+  let distractPool = quizPool.filter(r => r[1] !== word);
+  if(distractPool.length < 3) distractPool = DATA.filter(r => r[1] !== word);
+  const distractors = shuffleArray(distractPool).slice(0, 3);
+
+  let choices, correctText;
+  if(quizMode === 'wordToMeaning'){
+    correctText = shortQuizMeaning(meaning);
+    choices = shuffleArray([
+      { text: correctText, correct: true },
+      ...distractors.map(r => ({ text: shortQuizMeaning(r[2]), correct: false }))
+    ]);
+  }else{
+    correctText = word;
+    choices = shuffleArray([
+      { text: correctText, correct: true },
+      ...distractors.map(r => ({ text: r[1], correct: false }))
+    ]);
+  }
+
+  const headHtml = quizMode === 'wordToMeaning'
+    ? `<div class="qz-word">${word}</div><div class="qz-daytag">DAY ${day} · 이 단어의 뜻은?</div>`
+    : `<div class="qz-meaning">${meaning}</div><div class="qz-daytag">DAY ${day} · 이 뜻에 맞는 단어는?</div>`;
+
+  quizQuestionBoxEl.innerHTML = `
+    ${headHtml}
+    <div class="qz-choices">
+      ${choices.map((c, i) => `<button class="qz-choice" data-correct="${c.correct}">${c.text}</button>`).join('')}
+    </div>
+    <div class="qz-explain" id="qzExplain" style="display:none;"></div>
+    <button class="qz-next-btn" id="qzNextBtn">다음 문제 →</button>
+  `;
+
+  quizQuestionBoxEl.querySelectorAll('.qz-choice').forEach(btn => {
+    btn.onclick = () => {
+      if(quizAnswered) return;
+      quizAnswered = true;
+      const isCorrect = btn.dataset.correct === 'true';
+      if(isCorrect){ quizScore++; }
+      else{ recordQuizWrong(day, word, meaning); }
+      quizQuestionBoxEl.querySelectorAll('.qz-choice').forEach(b => {
+        b.disabled = true;
+        if(b.dataset.correct === 'true') b.classList.add(isCorrect ? 'correct' : 'reveal');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      quizScoreTextEl.textContent = `${quizScore} / ${quizIdx + 1}  (${quizIdx + 1}/${quizPool.length}문제)`;
+
+      // 해설: 정답 단어의 뜻 + 오답이면 무엇이 왜 틀렸는지
+      const fullMeaning = WORD_MEANING[word] || meaning;
+      let explainHtml = isCorrect
+        ? `✅ 정답이에요! <strong>${word}</strong> — ${fullMeaning}`
+        : `❌ 아쉽지만 오답이에요. 정답은 <strong>${word}</strong> — ${fullMeaning}`;
+      document.getElementById('qzExplain').innerHTML = explainHtml;
+      document.getElementById('qzExplain').style.display = 'block';
+      document.getElementById('qzNextBtn').style.display = 'block';
+    };
+  });
+
+  document.getElementById('qzNextBtn').onclick = () => {
+    quizIdx++;
+    renderQuizQuestion();
+  };
+}
+
+function renderQuizResult(){
+  const pct = quizPool.length ? Math.round(quizScore / quizPool.length * 100) : 0;
+  quizQuestionBoxEl.innerHTML = `
+    <div class="qz-result">
+      <div class="qz-result-title">🎉 퀴즈 완료!</div>
+      <div class="qz-result-sub">${quizScore} / ${quizPool.length}개 정답 (${pct}%)</div>
+      <button class="quiz-start-btn" id="qzRetryBtn">다시 풀기</button>
+    </div>
+  `;
+  document.getElementById('qzRetryBtn').onclick = () => {
+    if(quizSource === 'wrong') startQuizFromWrongList();
+    else startQuiz();
+  };
+}
+
+/* =========================================================
+   📝 실전 문제 (TC + SE 세트, 거만어 단어 기반 오리지널 문제)
+   한 문제 = ①Text Completion(4지선다 1개) → ②Sentence Equivalence(6지선다 2개)
+   둘 다 풀고 해설까지 확인해야 "다음 문제"가 나타남
+========================================================= */
+let practiceInited = false;
+let pIdx = 0;
+let pState = {}; // { index: { tcSelected, tcDone, seSelected:[], seDone } }
+let pReviewMode = false;
+let pReviewList = []; // 오답노트 모드에서 순회할 문제 인덱스 목록
+const PRACTICE_STORAGE_KEY = 'gre_voca_practice_v1';
+const practiceCardEl = document.getElementById('practiceCard');
+const pProgressEl = document.getElementById('pProgress');
+const pPrevEl = document.getElementById('pPrev');
+const pNextEl = document.getElementById('pNext');
+const practiceScoreEl = document.getElementById('practiceScore');
+const pWrongBtnEl = document.getElementById('pWrongBtn');
+const pResetBtnEl = document.getElementById('pResetBtn');
+const pReviewBannerEl = document.getElementById('pReviewBanner');
+const pExitReviewBtnEl = document.getElementById('pExitReviewBtn');
+const pReviewDeleteBtnEl = document.getElementById('pReviewDeleteBtn');
+
+function savePracticeProgress(){
+  try{
+    localStorage.setItem(PRACTICE_STORAGE_KEY, JSON.stringify({ pIdx, pState }));
+  }catch(e){ /* localStorage 사용 불가 시 무시 */ }
+}
+
+function loadPracticeProgress(){
+  try{
+    const raw = localStorage.getItem(PRACTICE_STORAGE_KEY);
+    if(!raw) return;
+    const saved = JSON.parse(raw);
+    if(saved && typeof saved === 'object'){
+      if(saved.pState && typeof saved.pState === 'object') pState = saved.pState;
+      if(Number.isInteger(saved.pIdx) && saved.pIdx >= 0 && saved.pIdx < PRACTICE_QUESTIONS.length){
+        pIdx = saved.pIdx;
+      }
+    }
+  }catch(e){ /* 저장된 데이터가 깨졌으면 처음부터 시작 */ }
+}
+
+function getWrongIndices(){
+  return PRACTICE_QUESTIONS.map((q, i) => i).filter(i => {
+    const s = pState[i];
+    if(!s || s.dismissed) return false;
+    const q = PRACTICE_QUESTIONS[i];
+    const tcWrong = s.tcDone && s.tcSelected !== q.tc.answer;
+    const seWrong = s.seDone && s.seSelected.filter(x => q.se.answers.includes(x)).length < 2;
+    return tcWrong || seWrong;
+  });
+}
+
+function updateWrongButtonLabel(){
+  if(!pWrongBtnEl) return;
+  pWrongBtnEl.textContent = `📕 오답노트 (${getWrongIndices().length})`;
+}
+
+function initPractice(){
+  practiceInited = true;
+  loadPracticeProgress();
+
+  pPrevEl.addEventListener('click', () => { pStep(-1); });
+  pNextEl.addEventListener('click', () => { pStep(1); });
+
+  pResetBtnEl.addEventListener('click', () => {
+    if(!confirm('처음부터 다시 풀까요? 지금까지 푼 기록이 모두 초기화돼요.')) return;
+    pState = {};
+    pIdx = 0;
+    pReviewMode = false;
+    pReviewList = [];
+    savePracticeProgress();
+    renderPracticeQuestion();
+  });
+
+  pWrongBtnEl.addEventListener('click', () => {
+    const wrongList = getWrongIndices();
+    if(wrongList.length === 0){
+      alert('아직 틀린 문제가 없어요! 계속 풀어보세요 🙂');
+      return;
+    }
+    pReviewMode = true;
+    pReviewList = wrongList;
+    pIdx = pReviewList[0];
+    renderPracticeQuestion();
+  });
+
+  pExitReviewBtnEl.addEventListener('click', () => {
+    pReviewMode = false;
+    pReviewList = [];
+    renderPracticeQuestion();
+  });
+
+  pReviewDeleteBtnEl.addEventListener('click', () => {
+    if(!pReviewMode) return;
+    const curPos = pReviewList.indexOf(pIdx);
+    if(getPState().dismissed !== true) getPState().dismissed = true;
+    savePracticeProgress();
+    const newList = getWrongIndices();
+    if(newList.length === 0){
+      pReviewMode = false;
+      pReviewList = [];
+      alert('오답노트에 있던 문제를 모두 정리했어요 🎉');
+      renderPracticeQuestion();
+      return;
+    }
+    pReviewList = newList;
+    const nextPos = Math.min(curPos, pReviewList.length - 1);
+    pIdx = pReviewList[nextPos];
+    renderPracticeQuestion();
+  });
+
+  renderPracticeQuestion();
+}
+
+function pStep(dir){
+  if(pReviewMode){
+    const pos = pReviewList.indexOf(pIdx);
+    const nextPos = pos + dir;
+    if(nextPos < 0 || nextPos >= pReviewList.length) return;
+    pIdx = pReviewList[nextPos];
+  }else{
+    const nextIdx = pIdx + dir;
+    if(nextIdx < 0 || nextIdx >= PRACTICE_QUESTIONS.length) return;
+    pIdx = nextIdx;
+  }
+  renderPracticeQuestion();
+}
+
+function getPState(){
+  if(!pState[pIdx]) pState[pIdx] = { tcSelected: null, tcDone: false, seSelected: [], seDone: false };
+  return pState[pIdx];
+}
+
+function renderPracticeQuestion(){
+  const q = PRACTICE_QUESTIONS[pIdx];
+  const st = getPState();
+
+  if(pReviewMode){
+    const pos = pReviewList.indexOf(pIdx);
+    pProgressEl.textContent = `오답노트 ${pos + 1} / ${pReviewList.length}`;
+    pPrevEl.disabled = pos <= 0;
+    pNextEl.disabled = pos >= pReviewList.length - 1;
+    pReviewBannerEl.style.display = 'flex';
+  }else{
+    pProgressEl.textContent = `${pIdx + 1} / ${PRACTICE_QUESTIONS.length}`;
+    pPrevEl.disabled = pIdx === 0;
+    pNextEl.disabled = pIdx === PRACTICE_QUESTIONS.length - 1;
+    pReviewBannerEl.style.display = 'none';
+  }
+
+  const sentenceHtml = q.sentence.replace('____', '<span class="pq-blank">______</span>');
+
+  practiceCardEl.innerHTML = `
+    <div class="pq-card">
+      <div class="pq-daytag">DAY ${q.day} · 이 문제 하나로 TC + SE 둘 다 풀어보세요</div>
+      <div class="pq-sentence">${sentenceHtml}</div>
+
+      <div class="pq-part-label">① Text Completion — 빈칸에 알맞은 단어 1개를 고르세요</div>
+      <div class="pq-choices" id="pqTcChoices">
+        ${q.tc.choices.map((c, i) => `<button class="pq-choice" data-idx="${i}">${String.fromCharCode(65+i)}. ${c}</button>`).join('')}
+      </div>
+      <div class="pq-explain" id="pqTcExplain"></div>
+      <div class="pq-translation" id="pqTranslation" style="display:none;"></div>
+
+      <div id="pqSeSection" style="display:none;">
+        <div class="pq-part-label">② Sentence Equivalence — 문장의 의미를 같게 만드는 단어 <u>2개</u>를 고르세요</div>
+        <div class="pq-choices pq-choices-se" id="pqSeChoices">
+          ${q.se.choices.map((c, i) => `<button class="pq-choice" data-idx="${i}">${String.fromCharCode(65+i)}. ${c}</button>`).join('')}
+        </div>
+        <button class="pq-submit-btn" id="pqSeSubmit" disabled>선택 완료 (0/2)</button>
+        <div class="pq-explain" id="pqSeExplain"></div>
+      </div>
+
+      <button class="pq-next-inline" id="pqNextInline" style="display:none;">다음 문제 →</button>
+    </div>
+  `;
+
+  renderTcPart(q, st);
+  if(st.tcDone){ revealSeSection(); renderSePart(q, st); }
+  updateNextInlineVisibility(st);
+  updatePracticeScoreLabel();
+  updateWrongButtonLabel();
+  savePracticeProgress();
+}
+
+function revealSeSection(){
+  document.getElementById('pqSeSection').style.display = 'block';
+}
+
+function renderTcPart(q, st){
+  const tcButtons = document.querySelectorAll('#pqTcChoices .pq-choice');
+  function lockTc(selectedIdx){
+    tcButtons.forEach(b => {
+      b.disabled = true;
+      const bi = Number(b.dataset.idx);
+      if(bi === q.tc.answer) b.classList.add(selectedIdx === q.tc.answer ? 'correct' : 'reveal');
+      else if(bi === selectedIdx) b.classList.add('wrong');
+    });
+    const isCorrect = selectedIdx === q.tc.answer;
+    const answerWord = q.tc.choices[q.tc.answer];
+    const answerMeaning = shortQuizMeaning(WORD_MEANING[answerWord] || '');
+    let html = isCorrect ? `✅ <strong>정답이에요!</strong> ` : `❌ <strong>오답이에요.</strong> `;
+    html += `문장의 빈칸에는 '${answerMeaning}'라는 의미가 필요해서, 정답은 <strong>${answerWord}</strong> (${answerMeaning})예요.`;
+    if(!isCorrect){
+      const selectedWord = q.tc.choices[selectedIdx];
+      const selectedMeaning = shortQuizMeaning(WORD_MEANING[selectedWord] || '');
+      html += `<br><br>선택하신 <strong>${selectedWord}</strong>는 '${selectedMeaning}'라는 뜻이라 이 문장의 흐름과는 맞지 않아요.`;
+    }
+    document.getElementById('pqTcExplain').innerHTML = html;
+    document.getElementById('pqTcExplain').style.display = 'block';
+
+    if(q.translation){
+      document.getElementById('pqTranslation').innerHTML = `🇰🇷 <strong>문장 해석</strong><br>${q.translation}`;
+      document.getElementById('pqTranslation').style.display = 'block';
+    }
+  }
+
+  if(st.tcDone){
+    lockTc(st.tcSelected);
+  }else{
+    tcButtons.forEach(b => {
+      b.onclick = () => {
+        const selectedIdx = Number(b.dataset.idx);
+        st.tcSelected = selectedIdx;
+        st.tcDone = true;
+        lockTc(selectedIdx);
+        revealSeSection();
+        renderSePart(q, st);
+        updateNextInlineVisibility(st);
+        updatePracticeScoreLabel();
+        updateWrongButtonLabel();
+        savePracticeProgress();
+      };
+    });
+  }
+}
+
+function renderSePart(q, st){
+  const seButtons = document.querySelectorAll('#pqSeChoices .pq-choice');
+  const submitBtn = document.getElementById('pqSeSubmit');
+
+  function lockSe(){
+    seButtons.forEach(b => {
+      b.disabled = true;
+      const bi = Number(b.dataset.idx);
+      const isAnswer = q.se.answers.includes(bi);
+      const wasSelected = st.seSelected.includes(bi);
+      if(isAnswer) b.classList.add(wasSelected ? 'correct' : 'reveal');
+      else if(wasSelected) b.classList.add('wrong');
+    });
+    submitBtn.style.display = 'none';
+
+    const correctCount = st.seSelected.filter(i => q.se.answers.includes(i)).length;
+    const isFullyCorrect = correctCount === 2;
+    const answerWords = q.se.answers.map(i => q.se.choices[i]);
+    const sourceWord = q.se.sourceWord;
+    const sourceMeaning = shortQuizMeaning(WORD_MEANING[sourceWord] || '');
+    let html = isFullyCorrect
+      ? `✅ <strong>정답이에요!</strong> `
+      : `❌ <strong>${correctCount}/2개만 맞았어요.</strong> `;
+    html += `정답은 <strong>${answerWords[0]}</strong>와(과) <strong>${answerWords[1]}</strong>예요. `;
+    html += `둘 다 '${sourceMeaning}'이라는 뜻이라서(= 원래 빈칸에 들어갈 <strong>${sourceWord}</strong>와 같은 뜻), 이 문장을 같은 의미로 완성시켜요.`;
+
+    if(!isFullyCorrect){
+      const wrongPicked = st.seSelected.filter(i => !q.se.answers.includes(i)).map(i => q.se.choices[i]);
+      if(wrongPicked.length){
+        html += `<br><br>선택하신 <strong>${wrongPicked.join(', ')}</strong>는 '${sourceMeaning}'과는 다른 뜻이라 문장에 맞지 않아요.`;
+      }
+    }
+    document.getElementById('pqSeExplain').innerHTML = html;
+    document.getElementById('pqSeExplain').style.display = 'block';
+  }
+
+  if(st.seDone){
+    lockSe();
+    return;
+  }
+
+  seButtons.forEach(b => {
+    b.onclick = () => {
+      const idx = Number(b.dataset.idx);
+      const pos = st.seSelected.indexOf(idx);
+      if(pos >= 0){
+        st.seSelected.splice(pos, 1);
+        b.classList.remove('selected');
+      }else{
+        if(st.seSelected.length >= 2){
+          // 가장 먼저 고른 것을 빼고 새로 선택
+          const removedIdx = st.seSelected.shift();
+          document.querySelector(`#pqSeChoices .pq-choice[data-idx="${removedIdx}"]`).classList.remove('selected');
+        }
+        st.seSelected.push(idx);
+        b.classList.add('selected');
+      }
+      submitBtn.disabled = st.seSelected.length !== 2;
+      submitBtn.textContent = `선택 완료 (${st.seSelected.length}/2)`;
+    };
+  });
+
+  submitBtn.onclick = () => {
+    st.seDone = true;
+    lockSe();
+    updateNextInlineVisibility(st);
+    updatePracticeScoreLabel();
+    updateWrongButtonLabel();
+    savePracticeProgress();
+  };
+}
+
+function updateNextInlineVisibility(st){
+  const nextBtn = document.getElementById('pqNextInline');
+  if(!nextBtn) return;
+  const hasNext = pReviewMode
+    ? pReviewList.indexOf(pIdx) < pReviewList.length - 1
+    : pIdx < PRACTICE_QUESTIONS.length - 1;
+  if(st.tcDone && st.seDone && hasNext){
+    nextBtn.style.display = 'block';
+    nextBtn.onclick = () => { pStep(1); };
+  }else{
+    nextBtn.style.display = 'none';
+  }
+}
+
+function updatePracticeScoreLabel(){
+  // TC 정답 수와 SE(2개 다 맞아야 정답) 정답 수를 각각 집계
+  let tcAnswered = 0, tcCorrect = 0, seAnswered = 0, seCorrect = 0;
+  Object.keys(pState).forEach(key => {
+    const s = pState[key];
+    const q = PRACTICE_QUESTIONS[key];
+    if(s.tcDone){
+      tcAnswered++;
+      if(s.tcSelected === q.tc.answer) tcCorrect++;
+    }
+    if(s.seDone){
+      seAnswered++;
+      const correctCount = s.seSelected.filter(i => q.se.answers.includes(i)).length;
+      if(correctCount === 2) seCorrect++;
+    }
+  });
+  if(tcAnswered === 0 && seAnswered === 0){
+    practiceScoreEl.textContent = '문제를 풀어보세요.';
+  }else{
+    practiceScoreEl.textContent = `TC ${tcCorrect}/${tcAnswered}개 정답 · SE ${seCorrect}/${seAnswered}개 정답`;
+  }
+}
 </script>
 </body>
 </html>
